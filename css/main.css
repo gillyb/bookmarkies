@@ -1,0 +1,22 @@
+
+/* TODO: add a css reset here - (maybe just take the twitter bootstrap kit) */
+
+/* General styles */
+.float { float:left; }
+.float-right { float:right; }
+.breaker { clear:both; }
+.hidden { display:none; }
+.invisible { visibility:hidden; }
+
+/* Bookmark list styles */
+
+#bookmarks-list { display:inline-block; width:600px; }
+.bookmark-wrapper { margin-bottom:10px; }
+.bookmark-wrapper .title { font-weight:bold; font-size:14px; }
+.bookmark-wrapper .title .delete-bookmark { font-size:14px; color:Red; cursor:pointer; }
+.bookmark-wrapper .title .delete-bookmark:hover { text-decoration:underline; }
+.bookmark-wrapper .url { font-size:14px; }
+.bookmark-wrapper .tags { font-weight:bold; font-size:11px; }
+.bookmark-wrapper .tags .tag { display:inline-block; margin-right:5px; background-color:orange; padding:5px; }
+.bookmark-wrapper .tags .tag .delete-tag { border-right:solid 1px black; cursor:pointer; margin-right:5px; padding:5px; color:Red; }
+.bookmark-wrapper .tags .tag .delete-tag:hover { background-color:Red; color:White; }

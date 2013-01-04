@@ -1,0 +1,30 @@
+
+GamePlan
+=============
+ - Bookmark list
+ 	- Add button to delete bookmarks :: DONE
+ 	- Add button to delete tags :: DONE
+ 	- Add basic validation (for empty fields for now)
+
+ - Search form
+ 	- Create form, with simple transition between the states
+ 	- Add search functionality by tag
+
+ - Models
+ 	- Add 'createdDate' to the bookmark model
+ 	- Display the bookmarks ordered by the 'createdDate'
+
+ - Style
+ 	- insert twitter bootstrap
+ 	- create nice bookmark list
+ 	- create autocomplete for tags input (search & add bookmark form)
+ 	- show description upon hovering over bookmarks in the list
+
+ - Future
+ 	- OpenId authentication
+ 	- Option to create lists
+ 	- Option to color some labels
+ 	- Blog about the site
+
+ - Super Future
+ 	- Create a wiki bookmark site!

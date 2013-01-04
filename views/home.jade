@@ -1,0 +1,29 @@
+extends layout
+
+block head
+	//- script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') // no need for this here, it's in the layout
+	link(rel='stylesheet', type='text/css', href='/main.css')
+	script(src='/bookmarks.js')
+
+block body
+	h1 This is really some cool shit going on here!!!
+
+	//- Bookmark input form
+	div
+		label Url :
+		input#bookmark-url(type='text')
+	div
+		label Tags :
+		input#bookmark-tags(type='text')
+	div
+		input#add-bookmark(type='button', value='Add')
+
+	//- List of bookmarks
+	div#bookmarks-list
+		//-each bookmark in Bookmarks
+		//-	div(style='padding-top:10px; padding-bottom:10px; font-weight:bold;')
+		//-		=bookmark.Url
+
+	script(type='text/javascript')
+		var Bookmarkies = Bookmarkies || {};
+		Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
