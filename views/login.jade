@@ -1,0 +1,13 @@
+extends layout
+
+block head
+	//- script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js') // no need for this here, it's in the layout
+	link(rel='stylesheet', type='text/css', href='/main.css')
+	script(src='/bookmarks.js')
+
+block body
+	h1 Log in using your OpenId account
+	form(method='get', action='/login/authenticate')
+		input(name='openid_identifier')
+		input(type='submit', value='Login')
+		

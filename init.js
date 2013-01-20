@@ -36,13 +36,13 @@ Schema = mongoose.Schema;
 ObjectId = mongoose.ObjectId;
 
 // models
-require('./models.js');
+require('./models/models.js');
 Bookmark = mongoose.model('Bookmark');
 Tag = mongoose.model('Tag');
 
 // controllers
-require('./controllers.js');
-
+require('./controllers/controllers.js');
+require('./controllers/authenticationController.js');
 
 
 // start listening...
