@@ -12,6 +12,7 @@ app.configure(function() {
 	app.use(express.compress()); // TODO: check if this takes too much CPU...
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
+	app.use(express.session({secret: 'Bookmarkies are forever!'})); // TODO: think about using connect-mongodb session store instead
 	app.use(express.methodOverride());
 	app.use(express.static(__dirname + '/scripts'));
 	app.use(express.static(__dirname + '/css'));
