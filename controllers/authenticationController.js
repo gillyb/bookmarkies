@@ -14,6 +14,14 @@ app.get('/login', function(request, response) {
 app.get('/login/authenticate', function(request, response) {
 	var identifier = request.query.openid_identifier;
 
+	response.end();
+
+	console.log('');
+	console.log('');
+	console.log(request.query);
+	console.log('');
+	console.log('');
+
 	// Resolve identifier, associate, and build authentication URL
 	relyingParty.authenticate(identifier, false, function(error, authUrl) 	{
 		if (error) {
@@ -25,6 +33,11 @@ app.get('/login/authenticate', function(request, response) {
 			response.end('Authentication failed');
 		}
 		else {
+			consolg.log();
+			consolg.log();
+			console.log('skipped authentication');
+			consolg.log();
+			consolg.log();
 			response.writeHead(302, { Location: authUrl });
 			response.end();
 		}
