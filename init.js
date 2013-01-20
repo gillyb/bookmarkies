@@ -9,6 +9,7 @@ app.configure(function() {
 	app.set('views', __dirname + '/views');
 
 	app.use(express.logger());
+	app.use(express.compress()); // TODO: check if this takes too much CPU...
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.methodOverride());
