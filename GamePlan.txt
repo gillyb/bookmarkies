@@ -1,6 +1,18 @@
 
 GamePlan
 =============
+ - General
+ 	- OpenID
+ 		- Add openId authentication :: DONE
+ 		- Create login form with many openId provider options (like on StackOverflow)
+ 		- Create authentication cookie upon login
+ 		- Create authentication middleware to check if the user is logged in
+ 			- think of a good way to protect the authenticated urls
+ 	- Create schema for users
+ 		- Check if user exists upon authentication
+ 		- Create new user if this is the first time authenticating
+ 	- Ajax middleware protection (e.g.: for url's starting with '/-/')
+
  - Bookmark list
  	- Add button to delete bookmarks :: DONE
  	- Add button to delete tags :: DONE
@@ -21,7 +33,6 @@ GamePlan
  	- show description upon hovering over bookmarks in the list
 
  - Future
- 	- OpenId authentication
  	- Option to create lists
  	- Option to color some labels
  	- Blog about the site
