@@ -8,6 +8,8 @@ GamePlan
  		- Create authentication cookie upon login
  		- Create authentication middleware to check if the user is logged in
  			- think of a good way to protect the authenticated urls
+		- Check if we can login from different computers (multiple login)
+		- How do we invalidate the user's cookies ?
  	- Create schema for users
  		- Check if user exists upon authentication
  		- Create new user if this is the first time authenticating
