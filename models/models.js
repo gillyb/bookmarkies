@@ -3,7 +3,10 @@ var mongoose = require('mongoose');
 
 // Users
 var userSchema = new Schema({
-	email: String
+	claimedIdentifier: String,
+	email: String,
+	displayName: String,
+	createdDate: Date
 	// TODO: fill the user object here
 });
 

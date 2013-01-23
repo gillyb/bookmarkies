@@ -1,4 +1,5 @@
 var openid = require('openid');
+var authProvider = require('../authenticationProvider');
 
 var relyingParty = new openid.RelyingParty(
     'http://localhost:8888/login/verify', // Verification URL (yours)
@@ -14,14 +15,6 @@ app.get('/login', function(request, response) {
 app.get('/login/authenticate', function(request, response) {
 	var identifier = request.query.openid_identifier;
 
-	response.end();
-
-	console.log('');
-	console.log('');
-	console.log(request.query);
-	console.log('');
-	console.log('');
-
 	// Resolve identifier, associate, and build authentication URL
 	relyingParty.authenticate(identifier, false, function(error, authUrl) 	{
 		if (error) {
@@ -33,11 +26,6 @@ app.get('/login/authenticate', function(request, response) {
 			response.end('Authentication failed');
 		}
 		else {
-			consolg.log();
-			consolg.log();
-			console.log('skipped authentication');
-			consolg.log();
-			consolg.log();
 			response.writeHead(302, { Location: authUrl });
 			response.end();
 		}
@@ -48,6 +36,22 @@ app.get('/login/verify', function(request, response) {
 	// Verify identity assertion
 	// NOTE: Passing just the URL is also possible
 	relyingParty.verifyAssertion(request, function(error, result) {
+		console.log('result from relying party = ' + JSON.stringify(result));
+
+		var claimedIdentifier = result.claimedIdentifier.substring(result.claimedIdentifier.indexOf('id=') + 3);
+
+		// TODO: check if this is an existing user
+
+		// TODO: if not, create user in db
+
+		// TODO: create the authentication cookie & session and log the user in
+
+		if (!error && result.authenticated) {
+			authProvider.createCookie(request, response, 12);
+			// TODO: create authentication cookie
+			// TODO: save info in session
+		}
+
 		response.writeHead(200);
 		response.end(!error && result.authenticated 
 			? 'Success :)' // TODO: redirect to something interesting!
