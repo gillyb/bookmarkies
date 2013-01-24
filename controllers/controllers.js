@@ -1,5 +1,9 @@
 
+var authProvider = require('../authenticationProvider');
+
 app.get('/', function(request, response) {
+	console.log(authProvider.isAuthenticated(request) ? 'User Authenticated' : 'User Not Authenticated');
+
 	// get the list of bookmarks from the db
 	Bookmark.find({}, function(error, data) { 
 		if (error)
