@@ -40,21 +40,37 @@ app.get('/login/verify', function(request, response) {
 
 		var claimedIdentifier = result.claimedIdentifier.substring(result.claimedIdentifier.indexOf('id=') + 3);
 
-		// TODO: check if this is an existing user
-
-		// TODO: if not, create user in db
-
-		// TODO: create the authentication cookie & session and log the user in
-
-		if (!error && result.authenticated) {
-			authProvider.createCookie(request, response, 12);
-			// TODO: create authentication cookie
-			// TODO: save info in session
+		// make sure the user was properly authenticated
+		if (error || !result.authenticated) {
+			// TODO: redirect the user to error page
+			response.writeHead(200);
+			response.end('There was an error with your authentication... :(');
 		}
 
-		response.writeHead(200);
-		response.end(!error && result.authenticated 
-			? 'Success :)' // TODO: redirect to something interesting!
-			: 'Failure :('); // TODO: show some error message!
+		// look for existing user
+		User.findOne({claimedIdentifier:claimedIdentifier}, function(err, existingUser) {
+			console.log(JSON.stringify(existingUser));
+
+			if (!existingUser) {
+				// create a new user
+				var newUser = new User({
+					claimedIdentifier: claimedIdentifier,
+					email: '',
+					displayName: 'user_' + claimedIdentifier,
+					createdDate: new Date()
+				});
+				newUser.save(function(err) { // TODO: do something upon error
+					authProvider.createCookie(request, response, claimedIdentifier);
+					response.writeHead(200);
+					response.end('A new user was created');
+				});
+			}
+			else {
+				// user already exists
+				authProvider.createCookie(request, response, claimedIdentifier);
+				response.writeHead(200);
+				response.end('The user already exists');
+			}
+		});
 	});
 });

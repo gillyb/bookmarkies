@@ -41,6 +41,7 @@ ObjectId = mongoose.ObjectId;
 require('./models/models.js');
 Bookmark = mongoose.model('Bookmark');
 Tag = mongoose.model('Tag');
+User = mongoose.model('User');
 
 // controllers
 require('./controllers/controllers.js');

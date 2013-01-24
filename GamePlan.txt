@@ -6,6 +6,7 @@ GamePlan
  		- Add openId authentication :: DONE
  		- Create login form with many openId provider options (like on StackOverflow)
  		- Create authentication cookie upon login
+ 			- create a hash of part of the cookie (think about this first - so the login will be safe)
  		- Create authentication middleware to check if the user is logged in
  			- think of a good way to protect the authenticated urls
 		- Check if we can login from different computers (multiple login)

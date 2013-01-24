@@ -9,6 +9,7 @@ var userSchema = new Schema({
 	createdDate: Date
 	// TODO: fill the user object here
 });
+mongoose.model('User', userSchema);
 
 // Tags
 var tagSchema = new Schema({
