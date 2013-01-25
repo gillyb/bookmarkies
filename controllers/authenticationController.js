@@ -8,10 +8,6 @@ var relyingParty = new openid.RelyingParty(
     false, // Strict mode
     []); // List of extensions to enable and include
 
-app.get('/login', function(request, response) {
-	response.render('login');
-});
-
 app.get('/login/authenticate', function(request, response) {
 	var identifier = request.query.openid_identifier;
 
@@ -73,4 +69,9 @@ app.get('/login/verify', function(request, response) {
 			}
 		});
 	});
+});
+
+app.get('/logout', function(request, response) {
+	authProvider.signout(request, response);
+	response.redirect('/');
 });

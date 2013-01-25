@@ -36,5 +36,11 @@ var _isAuthenticated = function(request) {
 	return token === request.session.userToken;
 };
 
+var _signout = function(request, response) {
+	request.session.userToken = '';
+	response.cookie(_cookieName, '', {signed:true});
+};
+
 exports.createCookie = _createCookie;
 exports.isAuthenticated = _isAuthenticated;
+exports.signout = _signout;
