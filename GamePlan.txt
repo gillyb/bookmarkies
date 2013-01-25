@@ -4,16 +4,16 @@ GamePlan
  - General
  	- OpenID
  		- Add openId authentication :: DONE
- 		- Create login form with many openId provider options (like on StackOverflow)
- 		- Create authentication cookie upon login
- 			- create a hash of part of the cookie (think about this first - so the login will be safe)
+ 		- Create login form with many openId provider options (like on StackOverflow) :: DONE PARTIALLY!
+ 		- Create authentication cookie upon login :: DONE
+ 			- create a hash of part of the cookie (think about this first - so the login will be safe) :: DONE
  		- Create authentication middleware to check if the user is logged in
- 			- think of a good way to protect the authenticated urls
+ 			- think of a good way to protect the authenticated urls :: DONE
 		- Check if we can login from different computers (multiple login)
 		- How do we invalidate the user's cookies ?
- 	- Create schema for users
- 		- Check if user exists upon authentication
- 		- Create new user if this is the first time authenticating
+ 	- Create schema for users :: DONE
+ 		- Check if user exists upon authentication :: DONE
+ 		- Create new user if this is the first time authenticating :: DONE
  	- Ajax middleware protection (e.g.: for url's starting with '/-/')
 
  - Bookmark list
@@ -30,7 +30,7 @@ GamePlan
  	- Display the bookmarks ordered by the 'createdDate'
 
  - Style
- 	- insert twitter bootstrap
+ 	- insert twitter bootstrap :: DONE
  	- create nice bookmark list
  	- create autocomplete for tags input (search & add bookmark form)
  	- show description upon hovering over bookmarks in the list
