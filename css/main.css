@@ -8,6 +8,12 @@
 .hidden { display:none; }
 .invisible { visibility:hidden; }
 
+div#main { margin-top:40px; }
+
+/* homepage */
+.openid.google { display:inline-block; background-image:url('openid-google-logo.png');
+				 width:150px; height:85px; cursor:pointer; border:solid 1px; }
+
 /* Bookmark list styles */
 
 #bookmarks-list { display:inline-block; width:600px; }

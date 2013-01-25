@@ -14,8 +14,15 @@ app.configure(function() {
 	app.use(express.cookieParser('my signed cookies'));
 	app.use(express.session({secret: 'Bookmarkies are forever!'})); // TODO: think about using connect-mongodb session store instead
 	app.use(express.methodOverride());
+
+	// static libraries
 	app.use(express.static(__dirname + '/scripts'));
+	app.use(express.static(__dirname + '/scripts/3rdParty/bootstrap'));
 	app.use(express.static(__dirname + '/css'));
+	app.use(express.static(__dirname + '/css/3rdParty/bootstrap'));
+	app.use(express.static(__dirname + '/img'));
+	app.use(express.static(__dirname + '/img/3rdParty/bootstrap'));
+
 	app.use(app.router);
 
 	// TODO: create filter to authenticate ajax requests (check url's starting with '/-/' for X-Forwarded)
@@ -44,7 +51,8 @@ Tag = mongoose.model('Tag');
 User = mongoose.model('User');
 
 // controllers
-require('./controllers/controllers.js');
+require('./controllers/homepageController.js');
+require('./controllers/bookmarkiesController.js');
 require('./controllers/authenticationController.js');
 
 
