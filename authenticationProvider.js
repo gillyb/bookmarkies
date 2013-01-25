@@ -2,6 +2,7 @@
 var crypto = require('crypto');
 
 var _cookieName = 'bAuth';
+var _tokenSeparator = '__bmies__';
 
 var _createToken = function(claimedIdentifier, timestamp) {
 	var token = timestamp + '-' + claimedIdentifier;
@@ -17,7 +18,7 @@ var _createCookie = function(request, response, claimedIdentifier) {
 	
 	request.session.userToken = token;
 
-	var cookieValue = timestamp + '__bmies__' + claimedIdentifier;
+	var cookieValue = timestamp + _tokenSeparator + claimedIdentifier;
 	response.cookie(_cookieName, cookieValue, {signed:true});
 };
 
@@ -26,7 +27,7 @@ var _isAuthenticated = function(request) {
 	if (!authCookie)
 		return false;
 
-	var cookieValue = authCookie.split('__bmies__');
+	var cookieValue = authCookie.split(_tokenSeparator);
 	var claimedIdentifier = cookieValue[1];
 	var timestamp = cookieValue[0];
 
