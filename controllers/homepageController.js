@@ -7,10 +7,10 @@ app.get('/', function(request, response) {
 
 	if (isAuthenticated) {
 		console.log('== User Authenticated ==');
-		// TODO: redirect to the bookmarks list page
+		response.redirect('/bookmarkies');
 	}
 	else {
-		console.log('==User Not Authenticated ==');
+		console.log('== User Not Authenticated ==');
 		response.render('homepage');
 	}
 });
