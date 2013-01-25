@@ -36,6 +36,12 @@ var _isAuthenticated = function(request) {
 	return token === request.session.userToken;
 };
 
+var _validateAuthentication = function(request, response) {
+	// TODO: check if this request was an ajax request, and throw different exception...
+	if (!_isAuthenticated(request))
+		response.redirect('/');
+};
+
 var _signout = function(request, response) {
 	request.session.userToken = '';
 	response.cookie(_cookieName, '', {signed:true});
@@ -43,4 +49,5 @@ var _signout = function(request, response) {
 
 exports.createCookie = _createCookie;
 exports.isAuthenticated = _isAuthenticated;
+exports.validateAuthentication = _validateAuthentication;
 exports.signout = _signout;

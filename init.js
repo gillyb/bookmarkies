@@ -28,6 +28,7 @@ app.configure(function() {
 	// TODO: create filter to authenticate ajax requests (check url's starting with '/-/' for X-Forwarded)
 	// TODO: create a minifier & bundler for js/css files
 	// TODO: think about adding a timeout middleware... 
+	// TODO: add a global error handler
 });
 
 app.configure('development', function(){

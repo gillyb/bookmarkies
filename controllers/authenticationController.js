@@ -14,10 +14,12 @@ app.get('/login/authenticate', function(request, response) {
 	// Resolve identifier, associate, and build authentication URL
 	relyingParty.authenticate(identifier, false, function(error, authUrl) 	{
 		if (error) {
+			// TODO: create a nicer error scenario
 			response.writeHead(200);
 			response.end('Authentication failed: ' + error.message);
 		}
 		else if (!authUrl) {
+			// TODO: create a better error scenario
 			response.writeHead(200);
 			response.end('Authentication failed');
 		}
@@ -64,8 +66,7 @@ app.get('/login/verify', function(request, response) {
 			else {
 				// user already exists
 				authProvider.createCookie(request, response, claimedIdentifier);
-				response.writeHead(200);
-				response.end('The user already exists');
+				response.redirect('/');
 			}
 		});
 	});
