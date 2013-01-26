@@ -1,0 +1,30 @@
+doctype 5
+html
+	head
+		title Bookmarki.es - A place for bookmarks
+		link(href='main.css',rel='stylesheet',media='screen')
+		link(href='bootstrap.css',rel='stylesheet',media='screen')
+		link(href='bootstrap-responsive.css',rel='stylesheet',media='screen')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+		script(src='bootstrap.js')
+		script(src='homepage.js')
+
+	body
+		div#main
+			div.container
+				div.hero-unit
+					h1 Bookmarki.es
+					h2 A place for bookmarks
+					p
+						| <!--A personal tag-tag based bookmark site.<br/>
+						| Elegant and simple to use, free of charge.-->
+					p
+						| Please choose an OpenId provider to login :
+					p
+						span.openid.google
+
+					p
+						small * More authentication providers coming soon...
+
+			form#openid-login(action='/login/authenticate')
+				input(type='hidden',id='openid_identifier',name='openid_identifier',value='')
