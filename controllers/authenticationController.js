@@ -57,16 +57,13 @@ app.get('/login/verify', function(request, response) {
 					displayName: 'user_' + claimedIdentifier,
 					createdDate: new Date()
 				});
-				newUser.save(function(err) { // TODO: do something upon error
-					authProvider.createCookie(request, response, claimedIdentifier);
-					response.writeHead(200);
-					response.end('A new user was created');
+				newUser.save(function(err, data) { // TODO: do something upon error
+					_createCookieAndLogin(request, response, claimedIdentifier, data._id);
 				});
 			}
 			else {
 				// user already exists
-				authProvider.createCookie(request, response, claimedIdentifier);
-				response.redirect('/');
+				_createCookieAndLogin(request, response, claimedIdentifier, existingUser._id);
 			}
 		});
 	});
@@ -76,3 +73,8 @@ app.get('/logout', function(request, response) {
 	authProvider.signout(request, response);
 	response.redirect('/');
 });
+
+var _createCookieAndLogin = function(request, response, claimedIdentifier, userId) {
+	authProvider.createCookie(request, response, claimedIdentifier, userId);
+	response.redirect('/');
+};

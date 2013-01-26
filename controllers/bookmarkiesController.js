@@ -1,12 +1,13 @@
 
+var ObjectId = require('mongoose').Types.ObjectId;
 var authProvider = require('../authenticationProvider');
 
 app.get('/bookmarkies', function(request, response) {
-	authProvider.validateAuthentication(request, response);
-
-	// get the list of bookmarks from the db
-	Bookmark.find({}, function(error, data) { 
+	var userId = authProvider.validateAuthentication(request, response);
+	console.log('==='+userId);
+	Bookmark.find({userId:userId}, function(error, data) { 
 		if (error)
+			// TODO: display some nice error message
 			console.log(error);
 		else {
 			console.log(data);
@@ -22,6 +23,8 @@ app.post('/-/bookmarks/add', function(request, response) {
 
 	// TODO: do some validation on the bookmark data
 	
+	var userId = authProvider.validateAuthentication(request, response);
+
 	var newTags = [];
 	for (var tagIndex in splitTags = request.body.tags.split(' ')) {
 		var newTag = { name: splitTags[tagIndex] };
@@ -31,6 +34,7 @@ app.post('/-/bookmarks/add', function(request, response) {
 	console.log(newTags);
 	var newBookmark = new Bookmark({
 		// TODO: request the title, and the description as well!
+		userId: new ObjectId(userId),
 		url: request.body.url,
 		tags: newTags
 	});
@@ -44,9 +48,11 @@ app.post('/-/bookmarks/delete', function(request, response) {
 	// request.body.bookmarkId - the bookmark to delete
 	// TODO: delete all the tags as well
 
+	var userId = authProvider.validateAuthentication(request, response);
+
 	var bookmarkId = request.body.bookmarkId;
 	console.log('request to delete bookmark : ' + bookmarkId);
-	var bookmarkToDelete = Bookmark.find({_id:bookmarkId}, function() {
+	var bookmarkToDelete = Bookmark.find({_id:bookmarkId, userId:userId}, function() {
 		// TODO: what do i do if i didn't find the bookmarkId ?...
 		bookmarkToDelete.remove();
 		response.json({_id:bookmarkId});
@@ -59,7 +65,9 @@ app.post('/-/bookmarks/delete-tag', function(request, response) {
 	var tagId = request.body.tagId;
 	console.log('request to delete tag : ' + tagId);
 
-	Bookmark.findById(bookmarkId, function(err, bookmark) {
+	var userId = authProvider.validateAuthentication(request, response);
+
+	Bookmark.find({_id:bookmarkId, userId:userId}, function(err, bookmark) {
 		// if (err) handleError(); // TODO: do something with this error, and return a valid response...
 		bookmark.tags.id(tagId).remove();
 		bookmark.save(function(err) {
