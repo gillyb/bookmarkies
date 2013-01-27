@@ -1,0 +1,30 @@
+doctype 5
+html
+	head
+		title Bookmarki.es - A place for bookmarks
+		link(href='main.css',rel='stylesheet',media='screen')
+		link(href='bootstrap.css',rel='stylesheet',media='screen')
+		link(href='bootstrap-responsive.css',rel='stylesheet',media='screen')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+		script(src='bootstrap.js')
+		script(src='homepage.js')
+
+	body
+		div#main
+			div.container.add-bookmark-form
+				h1 Bookmarki.es - A place for bookmarks
+				p
+					| Add a bookmark
+					div.control-group
+						div.controls
+							input.input-xxlarge#bookmark-url(type='text',placeholder='Url')
+					div.control-group
+						div.controls
+							input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags')
+							button.btn.add-bookmark(type='submit') Add Bookmark
+					div.control-group
+						div.btn-group.tag
+							a.btn.btn-primary Just a tag
+							a.btn.btn-primary.delete-tag
+								span
+									i.icon-remove

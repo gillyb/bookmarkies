@@ -26,3 +26,7 @@ div#main { margin-top:40px; }
 .bookmark-wrapper .tags .tag { display:inline-block; margin-right:5px; background-color:orange; padding:5px; }
 .bookmark-wrapper .tags .tag .delete-tag { border-right:solid 1px black; cursor:pointer; margin-right:5px; padding:5px; color:Red; }
 .bookmark-wrapper .tags .tag .delete-tag:hover { background-color:Red; color:White; }
+
+/* tiny bootstrap fixes */
+.add-bookmark-form .add-bookmark { margin-bottom:10px; margin-left:10px; }
+.tag .delete-tag { padding-right:4px; padding-left:4px; }

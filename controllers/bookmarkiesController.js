@@ -11,7 +11,7 @@ app.get('/bookmarkies', function(request, response) {
 			console.log(error);
 		else {
 			console.log(data);
-			response.render('home', { Bookmarks: data });
+			response.render('bookmarkies', { Bookmarks: data });
 		}
 	});
 });
