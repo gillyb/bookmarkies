@@ -9,6 +9,9 @@ html
 		script(src='bootstrap.js')
 		script(src='homepage.js')
 
+		script(src='bookmarkList.js')
+		script(src='bookmarks.js')
+
 	body
 		div#main
 			div.container.add-bookmark-form
@@ -22,9 +25,20 @@ html
 						div.controls
 							input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags')
 							button.btn.add-bookmark(type='submit') Add Bookmark
-					div.control-group
+					
+					div.control-group#new-bookmark-tag-list
+						
 						div.btn-group.tag
 							a.btn.btn-primary Just a tag
 							a.btn.btn-primary.delete-tag
 								span
 									i.icon-remove
+
+			div.container.bookmark-container
+				h3 Bookmarks
+				div#bookmarks-list
+					| <!-- Here is the bookmark list -->
+
+		script(type='text/javascript',language='javascript')
+			var Bookmarkies = Bookmarkies || {};
+			Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};

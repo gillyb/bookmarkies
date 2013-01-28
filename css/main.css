@@ -15,18 +15,14 @@ div#main { margin-top:40px; }
 				 width:150px; height:85px; cursor:pointer; border:solid 1px; }
 
 /* Bookmark list styles */
-
-#bookmarks-list { display:inline-block; width:600px; }
-.bookmark-wrapper { margin-bottom:10px; }
-.bookmark-wrapper .title { font-weight:bold; font-size:14px; }
-.bookmark-wrapper .title .delete-bookmark { font-size:14px; color:Red; cursor:pointer; }
-.bookmark-wrapper .title .delete-bookmark:hover { text-decoration:underline; }
-.bookmark-wrapper .url { font-size:14px; }
-.bookmark-wrapper .tags { font-weight:bold; font-size:11px; }
-.bookmark-wrapper .tags .tag { display:inline-block; margin-right:5px; background-color:orange; padding:5px; }
-.bookmark-wrapper .tags .tag .delete-tag { border-right:solid 1px black; cursor:pointer; margin-right:5px; padding:5px; color:Red; }
-.bookmark-wrapper .tags .tag .delete-tag:hover { background-color:Red; color:White; }
+#bookmarks-list { }
+#bookmarks-list .bookmark-wrapper { padding:6px; }
+#bookmarks-list .bookmark-wrapper:hover { background-color:lightgrey; }
+#bookmarks-list .url { font-size:16px; font-weight:bold; }
+#bookmarks-list .delete-bookmark { font-size:14px; font-weight:bold; color:red; margin-left:10px; }
 
 /* tiny bootstrap fixes */
+.tag .btn-primary { font-size:12px; padding-top:2px; padding-bottom:2px; }
+.tag.btn-group .btn.btn-primary { font-size:12px; }
 .add-bookmark-form .add-bookmark { margin-bottom:10px; margin-left:10px; }
 .tag .delete-tag { padding-right:4px; padding-left:4px; }
