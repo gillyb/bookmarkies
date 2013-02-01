@@ -14,7 +14,7 @@ GamePlan
 		- create form to edit details
 
  - Bookmark list
- 	- restyle the list using bootstrap
+ 	- restyle the list using bootstrap :: DONE!
  	- Add basic validation (for empty fields for now)
  	- option to edit bookmarks
  	- option to insert bookmark title

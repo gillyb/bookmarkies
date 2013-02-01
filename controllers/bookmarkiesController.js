@@ -26,12 +26,13 @@ app.post('/-/bookmarks/add', function(request, response) {
 	var userId = authProvider.validateAuthentication(request, response);
 
 	var newTags = [];
-	for (var tagIndex in splitTags = request.body.tags.split(' ')) {
+	for (var tagIndex in splitTags = request.body.tags) {
 		var newTag = { name: splitTags[tagIndex] };
 		newTags.push(newTag);
 	}
 
 	console.log(newTags);
+
 	var newBookmark = new Bookmark({
 		// TODO: request the title, and the description as well!
 		userId: new ObjectId(userId),
@@ -63,11 +64,11 @@ app.post('/-/bookmarks/delete-tag', function(request, response) {
 	// TODO: this method is WAY TOO similar to '/-/bookmarks/delete' - try to combine these!
 	var bookmarkId = request.body.bookmarkId;
 	var tagId = request.body.tagId;
-	console.log('request to delete tag : ' + tagId);
+	console.log('request to delete tag : ' + tagId + '; bookmarkId : ' + bookmarkId);
 
 	var userId = authProvider.validateAuthentication(request, response);
 
-	Bookmark.find({_id:bookmarkId, userId:userId}, function(err, bookmark) {
+	Bookmark.findOne({_id:bookmarkId, userId:userId}, function(err, bookmark) {
 		// if (err) handleError(); // TODO: do something with this error, and return a valid response...
 		bookmark.tags.id(tagId).remove();
 		bookmark.save(function(err) {
@@ -78,4 +79,4 @@ app.post('/-/bookmarks/delete-tag', function(request, response) {
 	});
 });
 
-// TODO: add an 'add tag' action
+// TODO: add an 'add tag' action (or maybe an update action that will cover this)

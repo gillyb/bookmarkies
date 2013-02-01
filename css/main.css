@@ -22,7 +22,7 @@ div#main { margin-top:40px; }
 #bookmarks-list .delete-bookmark { font-size:14px; font-weight:bold; color:red; margin-left:10px; }
 
 /* tiny bootstrap fixes */
-.tag .btn-primary { font-size:12px; padding-top:2px; padding-bottom:2px; }
+.tag .btn-primary { font-size:12px; padding-top:0px; padding-bottom:0px; }
 .tag.btn-group .btn.btn-primary { font-size:12px; }
 .add-bookmark-form .add-bookmark { margin-bottom:10px; margin-left:10px; }
 .tag .delete-tag { padding-right:4px; padding-left:4px; }

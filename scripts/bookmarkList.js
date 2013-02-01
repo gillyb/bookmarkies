@@ -10,7 +10,7 @@ Bookmarkies.BookmarkList = function(data, container) {
 
 	var _createTagView = function(tag) {
 		var tagContainer = $('<div/>').addClass('btn-group tag').data('tag-id', tag._id || '');
-		tagContainer.append($('<a/>').addClass('btn btn-primary').append(tag.name));
+		tagContainer.append($('<a/>').addClass('btn btn-primary name').append(tag.name));
 		var deleteTagButton = $('<a/>').addClass('btn btn-primary delete-tag')
 			.append($('<span/>').append($('<i/>').addClass('icon-remove')));
 		tagContainer.append(deleteTagButton);
