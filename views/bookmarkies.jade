@@ -17,15 +17,30 @@ html
 			div.container.add-bookmark-form
 				h1 Bookmarki.es - A place for bookmarks
 				p
-					| Add a bookmark
-					div.control-group
-						div.controls
-							input.input-xxlarge#bookmark-url(type='text',placeholder='Url')
-					div.control-group
-						div.controls
-							input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags (press \'enter\' to create tag)')
-							button.btn.add-bookmark#add-bookmark(type='submit') Add Bookmark
-					
+					ul.nav.nav-tabs
+						li.active
+							a(href='#') Add bookmark
+						li
+							a(href='#') Search
+
+					// Add bookmark form
+					div#add-bookmark-form
+						div.control-group
+							div.controls
+								input.input-xxlarge#bookmark-url(type='text',placeholder='Url')
+						div.control-group
+							div.controls
+								input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags (press \'enter\' to create tag)')
+								button.btn.add-bookmark#add-bookmark(type='submit') Add Bookmark
+
+					// Search bookmarks form
+					div#search-bookmarks-form.hidden
+						div.control-group
+							div.controls
+								input.input-xxlarge#search-bookmark-tags(type='text',placeholder='enter some tags to filter the list')
+
+				// Bookmarks List
+				p				
 					div.control-group#new-bookmark-tag-list
 						
 						// This is a block comment and Im on a horse :)
