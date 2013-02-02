@@ -17,7 +17,20 @@ $(function() {
 		$(this).find('.delete-bookmark').removeClass('hidden');
 	}).delegate('.bookmark-wrapper', 'mouseout', function() {
 		$(this).find('.delete-bookmark').addClass('hidden');
-	})
+	});
+
+	$('.add-bookmark-tab').click(function() {
+		$('.search-bookmarks-tab').removeClass('active');
+		$(this).addClass('active');
+		$('#search-bookmarks-form').addClass('hidden');
+		$('#add-bookmark-form').removeClass('hidden');
+	});
+	$('.search-bookmarks-tab').click(function() {
+		$('.add-bookmark-tab').removeClass('active');
+		$(this).addClass('active');
+		$('#add-bookmark-form').addClass('hidden');
+		$('#search-bookmarks-form').removeClass('hidden');
+	});
 
 	function getNewBookmarkTags() {
 		var newTags = [];
