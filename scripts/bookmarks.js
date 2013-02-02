@@ -13,9 +13,9 @@ $(function() {
 		}
 	});
 
-	$('.bookmark-wrapper').mouseover(function() {
+	$("body").delegate('.bookmark-wrapper', 'mouseover', function() {
 		$(this).find('.delete-bookmark').removeClass('hidden');
-	}).mouseout(function() {
+	}).delegate('.bookmark-wrapper', 'mouseout', function() {
 		$(this).find('.delete-bookmark').addClass('hidden');
 	})
 
@@ -42,7 +42,7 @@ $(function() {
 			},
 			success: function(newBookmark) {
 				Bookmarkies.List.addBookmark(newBookmark);
-				$('#bookmark-url').val('');
+				$('#bookmark-url').val('').focus();
 				$('#new-bookmark-tag-list').html('');
 			}
 		})
