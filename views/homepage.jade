@@ -21,7 +21,9 @@ html
 					p
 						| Please choose an OpenId provider to login :
 					p
-						span.openid.google
+						span.openid.google(data-openid-provider='https://www.google.com/accounts/o8/id')
+						span.openid.yahoo(data-openid-provider='https://me.yahoo.com')
+						span.openid.aol(data-openid-provider='http://openid.aol.com/username')
 
 					p
 						small * More authentication providers coming soon...

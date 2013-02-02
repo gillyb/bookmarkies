@@ -11,8 +11,10 @@
 div#main { margin-top:40px; }
 
 /* homepage */
-.openid.google { display:inline-block; background-image:url('openid-google-logo.png');
-				 width:150px; height:85px; cursor:pointer; border:solid 1px; }
+.openid { display:inline-block; width:150px; height:85px; cursor:pointer; border:solid 1px; margin-right:12px; }
+.openid.google { background-image:url('openid-google-logo.png'); }
+.openid.yahoo { background-image:url('openid-yahoo-logo.png'); }
+.openid.aol { background-image:url('openid-aol-logo.png'); }
 
 /* Bookmark list styles */
 #bookmarks-list { }

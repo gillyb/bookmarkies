@@ -1,8 +1,9 @@
 
 $(function() {
-	$('.openid.google').click(function() {
+	$('.openid').click(function() {
+		var provider = $(this);
 		var openIdLoginForm = $('form#openid-login');
-		openIdLoginForm.find('#openid_identifier').val('https://www.google.com/accounts/o8/id');
+		openIdLoginForm.find('#openid_identifier').val(provider.data('openid-provider'));
 		openIdLoginForm.submit();
 	});
 });

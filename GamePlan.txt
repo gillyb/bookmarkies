@@ -2,6 +2,12 @@
 GamePlan
 =============
 
+- add more authentication providers
+- create header (with username & logout link)
+- automatically focus on the 'add bookmark' form
+- create search form
+- make tags clickable
+
 - Authentication
 	- Add more OpenId providers
 	- Add option to manually insert OpenId link
