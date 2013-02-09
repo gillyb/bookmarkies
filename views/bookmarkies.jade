@@ -33,6 +33,8 @@ html
 							div.controls
 								input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags (press \'enter\' to create tag)')
 								button.btn.add-bookmark#add-bookmark(type='submit') Add Bookmark
+						p				
+							div.control-group#new-bookmark-tag-list
 
 					// Search bookmarks form
 					div#search-bookmarks-form.hidden
@@ -40,17 +42,7 @@ html
 							div.controls
 								input.input-xxlarge#search-bookmark-tags(type='text',placeholder='enter some tags to filter the list')
 
-				// Bookmarks List
-				p				
-					div.control-group#new-bookmark-tag-list
-						
-						// This is a block comment and Im on a horse :)
-							div.btn-group.tag
-								a.btn.btn-primary Just a tag
-								a.btn.btn-primary.delete-tag
-									span
-										i.icon-remove
-
+			// Bookmarks List
 			div.container.bookmark-container
 				h3 Bookmarks
 				div#bookmarks-list

@@ -2,15 +2,10 @@
 GamePlan
 =============
 
-- add more authentication providers :: DONE!
-- add delete link when adding the bookmark immediately :: DONE!
-- deleting tag after immediately adding the bookmark doesn't work :: DONE!
+- make search form work
 - create header (with username & logout link)
-- automatically focus on the 'add bookmark' form :: DONE!
-- create search form
 - make tags clickable
 - add 'no bookmarks' text when the list is empty (make this suitable for filtering as well)
-- after creating bookmark focus on the url input again :: DONE!
 
 - Authentication
 	- Add more OpenId providers
