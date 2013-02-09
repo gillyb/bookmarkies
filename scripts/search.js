@@ -1,9 +1,9 @@
 
 $(function() {
 
-	Array.prototype.distinct = function() {
-		return $.grep(this, function(v, k){
-		    return $.inArray(v ,this) === k;
+	function arrayDistinct(arr) {
+		return $.grep(arr, function(v, k){
+		    return $.inArray(v, arr) === k;
 		});
 	};
 
@@ -15,7 +15,7 @@ $(function() {
 			allBookmarkTags.push(tag.name);
 		});
 	});
-	allBookmarkTags.distinct();
+	allBookmarkTags = arrayDistinct(allBookmarkTags);
 
 	$('#search-bookmark-tags').typeahead({
 		source: allBookmarkTags,
