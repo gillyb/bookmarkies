@@ -20,7 +20,13 @@ $(function() {
 	$('#search-bookmark-tags').typeahead({
 		source: allBookmarkTags,
 		items: 8,
-		minLength: 1
+		minLength: 1,
+		updater: addItemToSearchFilter
 	});
+
+	function addItemToSearchFilter(item) {	
+		var newSearchTag = Bookmarkies.createTagView({name:item});
+		$('#search-bookmark-tags-list').append(newSearchTag);
+	}
 
 });

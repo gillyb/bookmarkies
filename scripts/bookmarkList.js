@@ -8,20 +8,11 @@ Bookmarkies.BookmarkList = function(data, container) {
 	var _bookmarks = data; // [ { _id, title, url, tags, description }, {...}, ... ]
 	var _scope = container;
 
-	var _createTagView = function(tag) {
-		var tagContainer = $('<div/>').addClass('btn-group tag').data('tag-id', tag._id || '');
-		tagContainer.append($('<a/>').addClass('btn btn-primary name').append(tag.name));
-		var deleteTagButton = $('<a/>').addClass('btn btn-primary delete-tag')
-			.append($('<span/>').append($('<i/>').addClass('icon-remove')));
-		tagContainer.append(deleteTagButton);
-		return tagContainer;
-	};
-
 	var _createBookmarkView = function(bookmark) {
 		var tagsContainer = $('<div/>').addClass('tags');
 		if (bookmark.tags) {
 			$.each(bookmark.tags, function(index, element) {
-				tagsContainer.append(_createTagView(element));
+				tagsContainer.append(Bookmarkies.createTagView(element));
 			});
 		}
 		var wrapper = $('<div/>').addClass('bookmark-wrapper').data('bookmark-id', bookmark._id);
@@ -77,8 +68,16 @@ Bookmarkies.BookmarkList = function(data, container) {
 		render: _render,
 		addBookmark: _addBookmark,
 		deleteBookmark: _deleteBookmark,
-		deleteBookmarkTag: _deleteBookmarkTag,
-		createTagView: _createTagView
+		deleteBookmarkTag: _deleteBookmarkTag
 	};
 
+};
+
+Bookmarkies.createTagView = function(tag) {
+	var tagContainer = $('<div/>').addClass('btn-group tag').data('tag-id', tag._id || '');
+	tagContainer.append($('<a/>').addClass('btn btn-primary name').append(tag.name));
+	var deleteTagButton = $('<a/>').addClass('btn btn-primary delete-tag')
+		.append($('<span/>').append($('<i/>').addClass('icon-remove')));
+	tagContainer.append(deleteTagButton);
+	return tagContainer;
 };
