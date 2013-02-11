@@ -27,6 +27,15 @@ $(function() {
 	function addItemToSearchFilter(item) {	
 		var newSearchTag = Bookmarkies.createTagView({name:item});
 		$('#search-bookmark-tags-list').append(newSearchTag);
+
+		// filter the bookmarks list
+		Bookmarkies.List.addFilter(item);
 	}
+
+	$('body').delegate('#search-bookmark-tags-list .tag .delete-tag', 'click', function() {
+		var tag = $(this).parents('.tag');
+		Bookmarkies.List.removeFilter(tag.find('.name').html());
+		tag.remove();
+	});
 
 });

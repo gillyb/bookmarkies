@@ -1,0 +1,822 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Bookm",
+				"BookmarkList"
+			],
+			[
+				"_deleteBookmark",
+				"_deleteBookmarkTag"
+			],
+			[
+				"bookm",
+				"bookmarksList"
+			],
+			[
+				"createServer",
+				"http.createServer(requestListener);"
+			],
+			[
+				"open",
+				"fs.open(path, flags, mode, callback);"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "css/main.css",
+			"settings":
+			{
+				"buffer_size": 1210,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/homepage.js",
+			"settings":
+			{
+				"buffer_size": 243,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "GamePlan.txt",
+			"settings":
+			{
+				"buffer_size": 1347,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/bookmarks.js",
+			"settings":
+			{
+				"buffer_size": 2927,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "scripts/search.js",
+			"settings":
+			{
+				"buffer_size": 789,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/bookmarkies.jade",
+			"settings":
+			{
+				"buffer_size": 1747,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/homepage.jade",
+			"settings":
+			{
+				"buffer_size": 1108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\nvar Bookmarkies = Bookmarkies || {};\n\nBookmarkies.BookmarkList = function(data, container) {\n	// data - array of bokmark objects in json format\n	// container - the jQuery element in which to create the list\n\n	var _bookmarks = data; // [ { _id, title, url, tags, description }, {...}, ... ]\n	var _scope = container;\n	var _filter = []; // this is an array of tag filters for the search form\n\n	var _createBookmarkView = function(bookmark) {\n		var tagsContainer = $('<div/>').addClass('tags');\n		if (bookmark.tags) {\n			$.each(bookmark.tags, function(index, element) {\n				tagsContainer.append(Bookmarkies.createTagView(element));\n			});\n		}\n		var wrapper = $('<div/>').addClass('bookmark-wrapper').data('bookmark-id', bookmark._id);\n		wrapper.append(\n				$('<div/>').addClass('url-wrapper')\n					.append($('<div/>').addClass('url float').html(bookmark.url))\n					.append($('<div/>').addClass('delete-bookmark float hidden').html('Delete'))\n					.append($('<div/>').addClass('breaker'))\n			)\n			.append(tagsContainer);\n		return wrapper;\n	};\n\n	var _render = function() {\n		// TODO: convert this code to use some html template engine like Mustache (or jQuery templates)\n		container.html('');\n		$.each(_bookmarks, function(index, element) {\n			var row = _createBookmarkView(element);\n			container.append(row);\n		});\n	};\n\n	var _addBookmark = function(newBookmark) {\n		_bookmarks.push(newBookmark);\n		var row = _createBookmarkView(newBookmark);\n		container.prepend(row);\n	};\n\n	var _deleteBookmark = function(bookmarkId) {\n		// this only deletes the bookmark from the UI - counting on the\n		// fact that the bookmark was deleted from mongodb - but this should\n		// be changed to actually persist the bookmarks list state.\n		var bookmarks = $('.bookmark-wrapper');\n		$.each(bookmarks, function(index, element) {\n			if ($(element).data('bookmark-id') == bookmarkId) {\n				$(element).hide();\n			}\n		});\n	};\n\n	var _deleteBookmarkTag = function(tagId) {\n		// TODO: this code is TOO similar to the code in _deleteBookmark,\n		// 		 so I need to try to combine these two methods!\n		var tags = $('.bookmark-wrapper .tag');\n		$.each(tags, function(index, element) {\n			if ($(element).data('tag-id') == tagId) {\n				$(element).hide();\n			}\n		});\n	};\n\n	var _search = function() {\n		_scope.find('.bookmark-wrapper').forEach(function(element, i) {\n			var bookmarkTags = $(element).find('.tags a.name');\n			var hasMatchingTags = false;\n			_filter.forEach(function(filterTag) {\n				if (bookmarkTags.)\n			});\n		});\n	};\n\n	return {\n		render: _render,\n		addBookmark: _addBookmark,\n		deleteBookmark: _deleteBookmark,\n		deleteBookmarkTag: _deleteBookmarkTag\n	};\n\n};\n\nBookmarkies.createTagView = function(tag) {\n	var tagContainer = $('<div/>').addClass('btn-group tag').data('tag-id', tag._id || '');\n	tagContainer.append($('<a/>').addClass('btn btn-primary name').append(tag.name));\n	var deleteTagButton = $('<a/>').addClass('btn btn-primary delete-tag')\n		.append($('<span/>').append($('<i/>').addClass('icon-remove')));\n	tagContainer.append(deleteTagButton);\n	return tagContainer;\n};",
+			"file": "scripts/bookmarkList.js",
+			"file_size": 2791,
+			"file_write_time": 1360525318000000,
+			"settings":
+			{
+				"buffer_size": 3054,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "authenticationProvider.js",
+			"settings":
+			{
+				"buffer_size": 2035,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "controllers/bookmarkiesController.js",
+			"settings":
+			{
+				"buffer_size": 2900,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 138.0,
+		"selected_items":
+		[
+			[
+				"ssjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"ssntext",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"ssja",
+				"Set Syntax: JavaScript"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/gilly/Dev/Stabbd/stabbd.sublime-project",
+		"/home/gilly/dev/phantomjs-scripts/stackoverflow-users.js",
+		"/home/gilly/dev/phantomjs-scripts/ebook-downloader.js",
+		"/home/gilly/Dev/bookmarkies/GamePlan.txt",
+		"/home/gilly/Dev/bookmarkies/init.js",
+		"/home/gilly/Dev/bookmarkies/controllers/bookmarkiesController.js",
+		"/home/gilly/Dev/bookmarkies/controllers/authenticationController.js",
+		"/home/gilly/Dev/bookmarkies/models/models.js",
+		"/home/gilly/Dev/bookmarkies/controllers/homepageController.js",
+		"/home/gilly/Dev/bookmarkies/authenticationProvider.js",
+		"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade",
+		"/home/gilly/Dev/bookmarkies/views/home.jade",
+		"/home/gilly/Dev/bookmarkies/css/main.css",
+		"/home/gilly/Dev/bookmarkies/scripts/homepage.js",
+		"/home/gilly/Dev/bookmarkies/scripts/bookmarks.js",
+		"/home/gilly/Dev/bookmarkies/scripts/bookmarkList.js",
+		"/home/gilly/Dev/bookmarkies/views/login.jade",
+		"/home/gilly/Dev/bookmarkies/views/layout.jade",
+		"/home/gilly/Dev/bookmarkies/css/3rdParty/bootstrap/bootstrap.css",
+		"/home/gilly/Dev/bookmarkies/controllers/controllers.js",
+		"/home/gilly/Dev/node-openid/expressjs_sample/authentication_controller.js",
+		"/home/gilly/Dev/node-openid/expressjs_sample/login.jade",
+		"/home/gilly/Dev/bookmarkies/controllers.js",
+		"/home/gilly/Dev/bookmarkies/authenticationController.js",
+		"/home/gilly/Dev/bookmarkies/home.js",
+		"/home/gilly/Dev/Stabbd/views/layout.jade",
+		"/home/gilly/Dev/Stabbd/controllers.js",
+		"/home/gilly/Dev/Stabbd/models.js",
+		"/home/gilly/Dev/Stabbd/scripts/bookmarks.js",
+		"/home/gilly/Dev/Stabbd/css/main.css",
+		"/home/gilly/Dev/Stabbd/views/home.jade",
+		"/home/gilly/Dev/Stabbd/home.js",
+		"/home/gilly/Dev/Stabbd/GamePlan.txt",
+		"/home/gilly/Dev/Stabbd/views/home",
+		"/home/gilly/Dev/Stabbd/model_base.js",
+		"/home/gilly/Dev/Stabbd/hello.js",
+		"/home/gilly/Dev/test.js",
+		"/home/gilly/utils/node-v0.8.15/lib/querystring.js"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"allBookmarkTags",
+			"all",
+			"allBookmarkTags",
+			"add-bookmark-form",
+			"getNewBookmarkTags",
+			"acclaimedIdentifier",
+			"\n.",
+			"title",
+			"Tag",
+			"tag",
+			"Tag",
+			"tag",
+			"');\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 7,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "css/main.css",
+					"settings":
+					{
+						"buffer_size": 1210,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								593,
+								593
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "scripts/homepage.js",
+					"settings":
+					{
+						"buffer_size": 243,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9,
+								9
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "GamePlan.txt",
+					"settings":
+					{
+						"buffer_size": 1347,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								24
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "scripts/bookmarks.js",
+					"settings":
+					{
+						"buffer_size": 2927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1,
+								1
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "scripts/search.js",
+					"settings":
+					{
+						"buffer_size": 789,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								781,
+								781
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/bookmarkies.jade",
+					"settings":
+					{
+						"buffer_size": 1747,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1454,
+								1454
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "views/homepage.jade",
+					"settings":
+					{
+						"buffer_size": 1108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								974,
+								974
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "scripts/bookmarkList.js",
+					"settings":
+					{
+						"buffer_size": 3054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2474,
+								2474
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 816.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "authenticationProvider.js",
+					"settings":
+					{
+						"buffer_size": 2035,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2035,
+								2035
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "controllers/bookmarkiesController.js",
+					"settings":
+					{
+						"buffer_size": 2900,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2819,
+								2819
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 623.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"bookli",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"sear",
+				"/home/gilly/dev/bookmarkies/scripts/search.js"
+			],
+			[
+				"booli",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookmarkl",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookmark",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"bookmal",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"searc",
+				"/home/gilly/dev/bookmarkies/scripts/search.js"
+			],
+			[
+				"homapage",
+				"/home/gilly/dev/bookmarkies/views/homepage.jade"
+			],
+			[
+				"searh",
+				"/home/gilly/dev/bookmarkies/scripts/search.js"
+			],
+			[
+				"home",
+				"/home/gilly/dev/bookmarkies/views/homepage.jade"
+			],
+			[
+				"bookmark.ja",
+				"/home/gilly/dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"game",
+				"/home/gilly/dev/bookmarkies/GamePlan.txt"
+			],
+			[
+				"book",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"ga",
+				"/home/gilly/dev/bookmarkies/GamePlan.txt"
+			],
+			[
+				"bookm.js",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"bookmarklis",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookmarkli",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"homepage.js",
+				"/home/gilly/dev/bookmarkies/scripts/homepage.js"
+			],
+			[
+				"home.ja",
+				"/home/gilly/dev/bookmarkies/views/homepage.jade"
+			],
+			[
+				"main.css",
+				"/home/gilly/dev/bookmarkies/css/main.css"
+			],
+			[
+				"bookco",
+				"/home/gilly/dev/bookmarkies/controllers/bookmarkiesController.js"
+			],
+			[
+				"bookcon",
+				"/home/gilly/dev/bookmarkies/controllers/bookmarkiesController.js"
+			],
+			[
+				"bookark.jad",
+				"/home/gilly/dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"bookma",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookamrk",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"main.",
+				"/home/gilly/Dev/bookmarkies/css/main.css"
+			],
+			[
+				"main.cs",
+				"/home/gilly/Dev/bookmarkies/css/main.css"
+			],
+			[
+				"bookml",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bootstr",
+				"/home/gilly/Dev/bookmarkies/css/3rdParty/bootstrap/bootstrap.css"
+			],
+			[
+				"bokml",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookmlis",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"home.jad",
+				"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"homecon",
+				"/home/gilly/Dev/bookmarkies/controllers/homepageController.js"
+			],
+			[
+				"hom",
+				"/home/gilly/Dev/bookmarkies/scripts/homepage.js"
+			],
+			[
+				"homepage",
+				"/home/gilly/Dev/bookmarkies/scripts/homepage.js"
+			],
+			[
+				"bookm",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookmark.js",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"bokmark",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"bookmarkies.js",
+				"/home/gilly/Dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"bookmarki",
+				"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"ho.jad",
+				"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"bookmarkies.ja",
+				"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"homa",
+				"/home/gilly/Dev/bookmarkies/scripts/homepage.js"
+			],
+			[
+				".jade",
+				"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				"main",
+				"/home/gilly/Dev/bookmarkies/css/main.css"
+			],
+			[
+				"homec",
+				"/home/gilly/Dev/bookmarkies/controllers/homepageController.js"
+			],
+			[
+				"model",
+				"/home/gilly/Dev/bookmarkies/models/models.js"
+			],
+			[
+				"authp",
+				"/home/gilly/Dev/bookmarkies/authenticationProvider.js"
+			],
+			[
+				"authc",
+				"/home/gilly/Dev/bookmarkies/controllers/authenticationController.js"
+			],
+			[
+				"homepagec",
+				"/home/gilly/Dev/bookmarkies/controllers/homepageController.js"
+			],
+			[
+				"authenp",
+				"/home/gilly/Dev/bookmarkies/authenticationProvider.js"
+			],
+			[
+				"aup",
+				"/home/gilly/Dev/bookmarkies/authenticationProvider.js"
+			],
+			[
+				"init.js",
+				"/home/gilly/Dev/bookmarkies/init.js"
+			],
+			[
+				"authprov",
+				"/home/gilly/Dev/bookmarkies/authenticationProvider.js"
+			],
+			[
+				"boocon",
+				"/home/gilly/Dev/bookmarkies/controllers/bookmarkiesController.js"
+			],
+			[
+				"controlle",
+				"/home/gilly/Dev/bookmarkies/controllers/homepageController.js"
+			],
+			[
+				"controller",
+				"/home/gilly/Dev/bookmarkies/controllers/controllers.js"
+			],
+			[
+				"ini",
+				"/home/gilly/Dev/bookmarkies/init.js"
+			],
+			[
+				"index",
+				"/home/gilly/Dev/bookmarkies/views/index.jade"
+			],
+			[
+				"inde",
+				"/home/gilly/Dev/bookmarkies/views/index.jade"
+			],
+			[
+				"do",
+				"doctype 5"
+			],
+			[
+				"layout",
+				"/home/gilly/Dev/bookmarkies/views/layout.jade"
+			],
+			[
+				"gampl",
+				"/home/gilly/Dev/bookmarkies/GamePlan.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

@@ -7,6 +7,7 @@ Bookmarkies.BookmarkList = function(data, container) {
 
 	var _bookmarks = data; // [ { _id, title, url, tags, description }, {...}, ... ]
 	var _scope = container;
+	var _filter = []; // this is an array of tag filters for the search form
 
 	var _createBookmarkView = function(bookmark) {
 		var tagsContainer = $('<div/>').addClass('tags');
@@ -56,7 +57,7 @@ Bookmarkies.BookmarkList = function(data, container) {
 	var _deleteBookmarkTag = function(tagId) {
 		// TODO: this code is TOO similar to the code in _deleteBookmark,
 		// 		 so I need to try to combine these two methods!
-		var tags = $('.bookmark-wrapper .tag');
+	var tags = $('.bookmark-wrapper .tag');
 		$.each(tags, function(index, element) {
 			if ($(element).data('tag-id') == tagId) {
 				$(element).hide();
@@ -64,11 +65,52 @@ Bookmarkies.BookmarkList = function(data, container) {
 		});
 	};
 
+	var _search = function() {
+		_scope.find('.bookmark-wrapper').each(function(i, element) {
+			if (_filter.length == 0) {
+				$(element).show();
+				return;
+			}
+
+			var tagsList = [];
+			$(element).find('.tags a.name').each(function(tagI, tagElement) { tagsList.push($(tagElement).html()); });
+
+			var hasMatchingTags = true;
+			_filter.forEach(function(filterTag) {
+				if ($.inArray(filterTag, tagsList) == -1)
+					hasMatchingTags = false;
+			});
+
+			if (!hasMatchingTags)
+				$(this).hide();
+			else 
+				$(this).show();
+		});
+	};
+
+	var _addFilter = function(searchTag) {
+		_filter.push(searchTag);
+		_search();
+	};
+	var _removeFilter = function(searchTag) {
+		if (_filter.indexOf(searchTag) > -1)
+			_filter.splice(_filter.indexOf(searchTag), 1);
+		_search();
+	};
+	var _clearFilter = function() {
+		_filter = [];
+		_search();
+	};
+
 	return {
 		render: _render,
 		addBookmark: _addBookmark,
 		deleteBookmark: _deleteBookmark,
-		deleteBookmarkTag: _deleteBookmarkTag
+		deleteBookmarkTag: _deleteBookmarkTag,
+		addFilter: _addFilter,
+		removeFilter: _removeFilter,
+		clearFilter: _clearFilter,
+		filter: _search
 	};
 
 };
