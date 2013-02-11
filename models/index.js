@@ -1,1 +1,2 @@
-require('./models.js');
+require('./bookmark.js');
+require('./user.js');
