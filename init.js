@@ -46,15 +46,13 @@ Schema = mongoose.Schema;
 ObjectId = mongoose.ObjectId;
 
 // models
-require('./models/models.js');
+require('./models');
 Bookmark = mongoose.model('Bookmark');
 Tag = mongoose.model('Tag');
 User = mongoose.model('User');
 
 // controllers
-require('./controllers/homepageController.js');
-require('./controllers/bookmarkiesController.js');
-require('./controllers/authenticationController.js');
+require('./controllers');
 
 
 // start listening...
