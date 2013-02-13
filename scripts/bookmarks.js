@@ -7,7 +7,7 @@ $(function() {
 	$('#bookmark-tags').keyup(function(e) {
 		if (e.keyCode == 13) { // enter
 			// TODO: add the tag to the list of tags
-			var newTagView = Bookmarkies.List.createTagView({name:$.trim($(this).val())});
+			var newTagView = Bookmarkies.createTagView({name:$.trim($(this).val())});
 			$('#new-bookmark-tag-list').append(newTagView);
 			$(this).val('');
 		}
