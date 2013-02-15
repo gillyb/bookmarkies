@@ -1,14 +1,4 @@
-lib-cov
-*.seed
-*.log
-*.csv
-*.dat
-*.out
-*.pid
-*.gz
+# Git Ignore
 
-pids
-logs
-results
-
-npm-debug.log
+# Amazon hosting key files
+*.pem
