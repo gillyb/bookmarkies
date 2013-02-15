@@ -2,40 +2,61 @@
 GamePlan
 =============
 
-- make search form work
-- create header (with username & logout link)
-- make tags clickable
-- add 'no bookmarks' text when the list is empty (make this suitable for filtering as well)
+v1.0
+----
+- login page
+	- create nicer logo
+	- add cool explanation
+	- add 'no terms agreement'
+
+- create header
+	- display if the user is logged in
+	- link to profile page
+	- 'About' page
+	- 'Contact' page
+	- 'log out' link
+
+- add Google Analytics
+
+- bookmark list
+	- make the links clickable
+	- style the hovered background
+	- style the delete button
+	- add alert before deleting bookmark
+	- 'no bookmarks' text when the list is empty
+
+- tags
+	- make tags clickable which will lead to a filtered list
+
+- add bookmark form
+	- add basic validation so the user won't enter empty bookmarks
+	- check if the url was added already
+
+- models
+	- add 'CreatedDate' to all objects
+	- add 'updatedDate' to all objects
+
+
+EOF
+
 
 - Authentication
-	- Add more OpenId providers
 	- Add option to manually insert OpenId link
 	- Check if we can login from different computers (multiple login)
 	- How do we invalidate the user's cookies ?
 	- Ajax middleware protection (e.g.: for url's starting with '/-/')
 
-- Profile
-	- create profile screen
-		- create form to edit details
-
  - Bookmark list
- 	- restyle the list using bootstrap :: DONE!
  	- Add basic validation (for empty fields for now)
- 	- option to edit bookmarks
+ 	- option to edit bookmarks :: Maybe, not sure yet....
  	- option to insert bookmark title
  	- option to insert bookmark descrition (maybe we should only have a description)
-
- - Search form
- 	- Create form, with simple transition between the states
- 	- Add search functionality by tag
 
  - Models
  	- Add 'createdDate' to the bookmark model
  	- Display the bookmarks ordered by the 'createdDate'
 
  - Style
- 	- create nice bookmark list
- 	- create autocomplete for tags input (search & add bookmark form)
  	- show description upon hovering over bookmarks in the list
 
  - Future

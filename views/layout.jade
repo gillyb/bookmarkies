@@ -2,8 +2,27 @@ doctype 5
 html
 	head
 		title Bookmarki.es - A place for bookmarks
+
+		link(href='main.css',rel='stylesheet',media='screen')
+		link(href='bootstrap.css',rel='stylesheet',media='screen')
+		link(href='bootstrap-responsive.css',rel='stylesheet',media='screen')
 		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+
 		block head
+
 	body
+		div.navbar.navbar-fixed-top.navbar-inverse
+			div.navbar-inner
+				div.container
+					a.brand(href='/') Bookmarki.es
+					div.nav-collapse.collapse.float-right
+						ul.nav
+							li
+								a(href='/about') About
+							li
+								a(href='/contact') Contact
+							li
+								a(href='/logout') Logout
+
 		div#main
 			block body

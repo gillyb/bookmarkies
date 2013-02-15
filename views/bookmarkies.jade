@@ -1,11 +1,6 @@
-doctype 5
-html
-	head
-		title Bookmarki.es - A place for bookmarks
-		link(href='main.css',rel='stylesheet',media='screen')
-		link(href='bootstrap.css',rel='stylesheet',media='screen')
-		link(href='bootstrap-responsive.css',rel='stylesheet',media='screen')
-		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js')
+extends layout
+
+block head
 		script(src='bootstrap.js')
 		script(src='homepage.js')
 
@@ -13,43 +8,42 @@ html
 		script(src='bookmarks.js')
 		script(src='search.js')
 
-	body
-		div#main
-			div.container.add-bookmark-form
-				h1 Bookmarki.es - A place for bookmarks
+block body
+	div.container.add-bookmark-form
+		h1 Bookmarki.es - A place for bookmarks
+		p
+			ul.nav.nav-tabs
+				li.add-bookmark-tab.active
+					a(href='#') Add bookmark
+				li.search-bookmarks-tab
+					a(href='#') Search
+
+			// Add bookmark form
+			div#add-bookmark-form
+				div.control-group
+					div.controls
+						input.input-xxlarge#bookmark-url(type='text',placeholder='Url')
+				div.control-group
+					div.controls
+						input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags (press \'enter\' to create tag)')
+						button.btn.add-bookmark#add-bookmark(type='submit') Add Bookmark
+				p				
+					div.control-group#new-bookmark-tag-list
+
+			// Search bookmarks form
+			div#search-bookmarks-form.hidden
+				div.control-group
+					div.controls
+						input.input-xxlarge#search-bookmark-tags(type='text',placeholder='enter some tags to filter the list')
 				p
-					ul.nav.nav-tabs
-						li.add-bookmark-tab.active
-							a(href='#') Add bookmark
-						li.search-bookmarks-tab
-							a(href='#') Search
+					div.control-group#search-bookmark-tags-list
 
-					// Add bookmark form
-					div#add-bookmark-form
-						div.control-group
-							div.controls
-								input.input-xxlarge#bookmark-url(type='text',placeholder='Url')
-						div.control-group
-							div.controls
-								input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags (press \'enter\' to create tag)')
-								button.btn.add-bookmark#add-bookmark(type='submit') Add Bookmark
-						p				
-							div.control-group#new-bookmark-tag-list
+	// Bookmarks List
+	div.container.bookmark-container
+		h3 Bookmarks
+		div#bookmarks-list
+			| <!-- Here is the bookmark list -->
 
-					// Search bookmarks form
-					div#search-bookmarks-form.hidden
-						div.control-group
-							div.controls
-								input.input-xxlarge#search-bookmark-tags(type='text',placeholder='enter some tags to filter the list')
-						p
-							div.control-group#search-bookmark-tags-list
-
-			// Bookmarks List
-			div.container.bookmark-container
-				h3 Bookmarks
-				div#bookmarks-list
-					| <!-- Here is the bookmark list -->
-
-		script(type='text/javascript',language='javascript')
-			var Bookmarkies = Bookmarkies || {};
-			Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
+	script(type='text/javascript',language='javascript')
+		var Bookmarkies = Bookmarkies || {};
+		Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
