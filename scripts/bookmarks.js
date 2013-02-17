@@ -5,8 +5,7 @@ $(function() {
 	Bookmarkies.List.render();
 
 	$('#bookmark-tags').keyup(function(e) {
-		if (e.keyCode == 13) { // enter
-			// TODO: add the tag to the list of tags
+		if (e.keyCode == 13) { // 'Enter' key
 			var newTagView = Bookmarkies.createTagView({name:$.trim($(this).val())});
 			$('#new-bookmark-tag-list').append(newTagView);
 			$(this).val('');
@@ -42,6 +41,11 @@ $(function() {
 
 	// bind user events
 	$('#add-bookmark').click(function() {
+		if ($.trim($('#bookmark-url').val()) == '') {
+			$('#bookmark-url').parents('.control-group').addClass('error');
+			alert('You must enter a url');
+		}
+
 		$.ajax({
 			url: '/-/bookmarks/add',
 			type: 'post',

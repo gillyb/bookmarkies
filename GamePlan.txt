@@ -10,13 +10,10 @@ v1.0
 	- add 'no terms agreement'
 
 - create header
-	- display if the user is logged in
 	- link to profile page
 	- 'About' page
 	- 'Contact' page
 	- 'log out' link
-
-- add Google Analytics
 
 - bookmark list
 	- make the links clickable
