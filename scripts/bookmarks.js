@@ -65,7 +65,11 @@ $(function() {
 		})
 	});
 
+	// delete bookmark
 	$("body").delegate('.delete-bookmark', 'click', function() {
+		if (!confirm('Are you sure you want to delete this bookmark ?'))
+			return;
+
 		var bookmarkId = $(this).parents('.bookmark-wrapper').data('bookmark-id'); // TODO: extract this to separate method
 		$.ajax({
 			url: '/-/bookmarks/delete',
@@ -80,6 +84,7 @@ $(function() {
 		})
 	});
 
+	// delete tag
 	$("body").delegate('.bookmark-wrapper .tag .delete-tag', 'click', function() {
 		var tagId = $(this).parents('.tag').data('tag-id');
 		var bookmarkId = $(this).parents('.bookmark-wrapper').data('bookmark-id'); // TODO: extract this to separate method
