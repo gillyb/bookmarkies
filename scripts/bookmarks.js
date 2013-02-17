@@ -12,7 +12,7 @@ $(function() {
 		}
 	});
 
-	$("body").delegate('.bookmark-wrapper', 'mouseover', function() {
+	$('body').delegate('.bookmark-wrapper', 'mouseover', function() {
 		$(this).find('.delete-bookmark').removeClass('hidden');
 	}).delegate('.bookmark-wrapper', 'mouseout', function() {
 		$(this).find('.delete-bookmark').addClass('hidden');
@@ -66,7 +66,7 @@ $(function() {
 	});
 
 	// delete bookmark
-	$("body").delegate('.delete-bookmark', 'click', function() {
+	$('body').delegate('.delete-bookmark', 'click', function() {
 		if (!confirm('Are you sure you want to delete this bookmark ?'))
 			return;
 
@@ -85,7 +85,7 @@ $(function() {
 	});
 
 	// delete tag
-	$("body").delegate('.bookmark-wrapper .tag .delete-tag', 'click', function() {
+	$('body').delegate('.bookmark-wrapper .tag .delete-tag', 'click', function() {
 		var tagId = $(this).parents('.tag').data('tag-id');
 		var bookmarkId = $(this).parents('.bookmark-wrapper').data('bookmark-id'); // TODO: extract this to separate method
 		$.ajax({
@@ -104,7 +104,12 @@ $(function() {
 		});
 	});
 
-	$("body").delegate('#new-bookmark-tag-list .tag .delete-tag', 'click', function() {
+	$('body').delegate('#new-bookmark-tag-list .tag .delete-tag', 'click', function() {
 		$(this).parents('.tag').remove();
+	});
+
+	// click on bookmark
+	$('body').delegate('.bookmark-wrapper .url-wrapper .url', 'click', function() {
+		window.open($(this).html(), '_blank');
 	});
 });
