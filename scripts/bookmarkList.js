@@ -27,9 +27,25 @@ Bookmarkies.BookmarkList = function(data, container) {
 		return wrapper;
 	};
 
+	var _insertEmptyListMessage = function() {
+		var emptyListMessage = $('<div/>')
+			.addClass('empty-bookmark-list-message')
+			.html('You have no bookmarks yet... :(');
+		container.append(emptyListMessage);
+	};
+	var _removeEmptyListMessage = function() {
+		container.find($('.empty-bookmark-list-message')).remove();
+	};
+
 	var _render = function() {
 		// TODO: convert this code to use some html template engine like Mustache (or jQuery templates)
 		container.html('');
+
+		if (_bookmarks.length == 0) {
+			_insertEmptyListMessage();
+			return;
+		}
+
 		$.each(_bookmarks, function(index, element) {
 			var row = _createBookmarkView(element);
 			container.append(row);
@@ -37,6 +53,8 @@ Bookmarkies.BookmarkList = function(data, container) {
 	};
 
 	var _addBookmark = function(newBookmark) {
+		_removeEmptyListMessage();
+		$('.empty-bookmark-list-message').remove();
 		_bookmarks.push(newBookmark);
 		var row = _createBookmarkView(newBookmark);
 		container.prepend(row);
@@ -49,9 +67,13 @@ Bookmarkies.BookmarkList = function(data, container) {
 		var bookmarks = $('.bookmark-wrapper');
 		$.each(bookmarks, function(index, element) {
 			if ($(element).data('bookmark-id') == bookmarkId) {
+				_bookmarks.splice(_bookmarks.indexOf($(element).find('.name')), 1);
 				$(element).hide();
 			}
 		});
+
+		if (_bookmarks.length == 0)
+			_insertEmptyListMessage();
 	};
 
 	var _deleteBookmarkTag = function(tagId) {

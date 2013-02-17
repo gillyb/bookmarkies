@@ -19,14 +19,9 @@ v1.0
 	- make the links clickable
 	- style the hovered background
 	- style the delete button
-	- add alert before deleting bookmark
 	- 'no bookmarks' text when the list is empty
 
-- tags
-	- make tags clickable which will lead to a filtered list
-
 - add bookmark form
-	- add basic validation so the user won't enter empty bookmarks
 	- check if the url was added already
 
 - models
