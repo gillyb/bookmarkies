@@ -67,7 +67,9 @@ Bookmarkies.BookmarkList = function(data, container) {
 		var bookmarks = $('.bookmark-wrapper');
 		$.each(bookmarks, function(index, element) {
 			if ($(element).data('bookmark-id') == bookmarkId) {
-				_bookmarks.splice(_bookmarks.indexOf($(element).find('.name')), 1);
+				for (var i=0; i<_bookmarks.length; i++)
+					if (_bookmarks[i].url == $(element).find('.url').html())
+						_bookmarks.splice(i, 1);
 				$(element).hide();
 			}
 		});
