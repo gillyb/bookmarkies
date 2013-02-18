@@ -3,10 +3,25 @@ var mongoose = require('mongoose');
 
 // Users
 var userSchema = new Schema({
-	claimedIdentifier: String,
+	claimedIdentifier: {
+		type: String,
+		required: true
+	},
 	email: String,
 	displayName: String,
-	createdDate: Date
-	// TODO: fill the user object here
+	createdDate: {
+		type: Date,
+		default: Date.now
+	},
+	updatedDate: {
+		type: Date,
+		default: Date.now
+	}
 });
+
+userSchema.pre('save', function(next) {
+	this.updatedDate = new Date();
+	next();
+});
+
 mongoose.model('User', userSchema);
