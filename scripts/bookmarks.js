@@ -46,6 +46,7 @@ $(function() {
 		if ($.trim($('#bookmark-url').val()) == '') {
 			$('#bookmark-url').parents('.control-group').addClass('error');
 			alert('You must enter a url');
+			return;
 		}
 
 		$.ajax({
