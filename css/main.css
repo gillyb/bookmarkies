@@ -19,7 +19,7 @@ div#main { margin-top:40px; }
 /* Bookmark list styles */
 #bookmarks-list { }
 #bookmarks-list .bookmark-wrapper { padding:6px; margin-bottom:6px; }
-#bookmarks-list .bookmark-wrapper:hover { background-color:lightgrey; }
+#bookmarks-list .bookmark-wrapper:hover { background-color:#e6e6e6; }
 #bookmarks-list .url { font-size:18px; cursor:pointer; }
 #bookmarks-list .delete-bookmark { font-size:14px; font-weight:bold; color:red; margin-left:10px; padding:0 8px; cursor:pointer; }
 #bookmarks-list .delete-bookmark:hover { color:white; background-color:red; }

@@ -11,15 +11,11 @@ v1.0
 
 - create header
 	- link to profile page
-	- 'About' page
-	- 'Contact' page
-	- 'log out' link
+	- 'About' page with content
+	- 'Contact' page with content
 
 - bookmark list
-	- make the links clickable
 	- style the hovered background
-	- style the delete button
-	- 'no bookmarks' text when the list is empty
 
 - add bookmark form
 	- check if the url was added already
