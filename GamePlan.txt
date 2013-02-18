@@ -20,10 +20,6 @@ v1.0
 - add bookmark form
 	- check if the url was added already
 
-- models
-	- add 'CreatedDate' to all objects
-	- add 'updatedDate' to all objects
-
 
 EOF
 
