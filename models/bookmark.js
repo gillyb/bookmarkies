@@ -7,19 +7,39 @@ var tagSchema = new Schema({
 });
 mongoose.model('Tag', tagSchema);
 
+
 // Bookmarks
 var bookmarkSchema = new Schema({
 	// TODO: add reference to the user object (how do i use ObjectID here?)
 	// TODO: add 'createdDate' property, so we know how to organize these for now!
-	userId: Schema.Types.ObjectId,
-	url: String,
+	userId: {
+		type: Schema.Types.ObjectId,
+		required: true,
+		index: true
+	},
+	url: {
+		type: String,
+		required: true
+	},
 	title: String,
 	description: String,
+	createdDate: {
+		type: Date,
+		default: Date.now
+	},
+	updatedDate: {
+		type: Date,
+		default: Date.now
+	},
 	tags: [tagSchema] // array of tags
 });
 
 bookmarkSchema.path('url').validate(function(value) {
 	return value.trim() != '';
+});
+bookmarkSchema.pre('save', function(next) {
+	this.updatedDate = new Date();
+	next();
 });
 
 mongoose.model('Bookmark', bookmarkSchema);
