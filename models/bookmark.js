@@ -17,4 +17,9 @@ var bookmarkSchema = new Schema({
 	description: String,
 	tags: [tagSchema] // array of tags
 });
+
+bookmarkSchema.path('url').validate(function(value) {
+	return value.trim() != '';
+});
+
 mongoose.model('Bookmark', bookmarkSchema);
