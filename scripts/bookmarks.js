@@ -23,6 +23,8 @@ $(function() {
 		$(this).addClass('active');
 		$('#search-bookmarks-form').addClass('hidden');
 		$('#add-bookmark-form').removeClass('hidden');
+		Bookmarkies.List.clearFilter();
+		$('#search-bookmarks-form #search-bookmark-tags-list').html('');
 	});
 	$('.search-bookmarks-tab').click(function() {
 		$('.add-bookmark-tab').removeClass('active');
