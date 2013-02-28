@@ -14,10 +14,6 @@ v1.0
 	- 'About' page with content
 	- 'Contact' page with content
 
-- add bookmark form
-	- check if the url was added already
-
-
 EOF
 
 

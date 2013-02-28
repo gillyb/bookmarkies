@@ -3,6 +3,34 @@ block head
 
 block body
 	div.container
+
 		h1 Contact
+
 		p
-			| This page is under construction...
+			| <br/>
+			| Hi. <br/>
+			| Please feel free to contact me with any bugs, requests, positive or negative feedback.<br/>
+			| Leave your email and I promise I'll reply! :)<br/>
+			| <br/>
+
+		div.contact-form
+			form.form-horizontal
+
+				div.control-group
+					// label.control-label(for='contact-name') Name
+					div.controls
+						input#contact-name.input-xlarge(type='text', placeholder='Name')
+
+				div.control-group
+					// label.control-label(for='contact-email') Email
+					div.controls
+						input#contact-email.input-xlarge(type='text', placeholder='Email')
+
+				div.control-group
+					// label.control-label(for='contact-message') Message
+					div.controls
+						textarea#contact-message.input-xlarge(rows='10', placeholder='Message')
+
+				div.control-group
+					div.controls
+						button.btn(type='submit') Send
