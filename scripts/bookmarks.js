@@ -43,9 +43,15 @@ $(function() {
 
 	// bind user events
 	$('#add-bookmark').click(function() {
-		if ($.trim($('#bookmark-url').val()) == '') {
+		var newBookmark = $.trim($('#bookmark-url').val());
+		if (newBookmark == '') {
 			$('#bookmark-url').parents('.control-group').addClass('error');
 			alert('You must enter a url');
+			return;
+		}
+
+		if (Bookmarkies.List.exists(newBookmark)) {
+			alert('You already saved this bookmark');
 			return;
 		}
 

@@ -112,6 +112,16 @@ Bookmarkies.BookmarkList = function(data, container) {
 		});
 	};
 
+	var _exists = function(url) {
+		var hasBookmark = false;
+		_bookmarks.forEach(function(bookmark) {
+			if (hasBookmark) return;
+			if ($.trim(bookmark.url).toLowerCase() == $.trim(url).toLowerCase())
+				hasBookmark = true;
+		});
+		return hasBookmark;
+	};
+
 	var _addFilter = function(searchTag) {
 		_filter.push(searchTag);
 		_search();
@@ -132,6 +142,7 @@ Bookmarkies.BookmarkList = function(data, container) {
 		deleteBookmark: _deleteBookmark,
 		deleteBookmarkTag: _deleteBookmarkTag,
 		addFilter: _addFilter,
+		exists: _exists,
 		removeFilter: _removeFilter,
 		clearFilter: _clearFilter,
 		filter: _search
