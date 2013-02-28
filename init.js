@@ -4,6 +4,8 @@ app = express();
 
 // configuration
 app.configure(function() {
+	app.disable('x-powered-by');
+
 	app.set('env', 'development'); // TODO: this should be defined in process.env.NODE_ENV - don't know where this is though...
 	app.set('view engine', 'jade');
 	app.set('views', __dirname + '/views');
