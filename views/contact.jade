@@ -1,5 +1,6 @@
 extends layout
 block head
+	script(src='contact.js')
 
 block body
 	div.container
@@ -14,7 +15,7 @@ block body
 			| <br/>
 
 		div.contact-form
-			form.form-horizontal
+			form.form-horizontal(action='#')
 
 				div.control-group
 					// label.control-label(for='contact-name') Name
@@ -33,4 +34,4 @@ block body
 
 				div.control-group
 					div.controls
-						button.btn(type='submit') Send
+						button#send-contact-form.btn(type='submit') Send
