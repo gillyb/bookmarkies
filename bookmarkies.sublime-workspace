@@ -35,202 +35,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "css/main.css",
-			"settings":
-			{
-				"buffer_size": 1386,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/homepage.js",
-			"settings":
-			{
-				"buffer_size": 243,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "GamePlan.txt",
-			"settings":
-			{
-				"buffer_size": 1041,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/layout.jade",
-			"settings":
-			{
-				"buffer_size": 1155,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/about.jade",
-			"settings":
-			{
-				"buffer_size": 107,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/contact.jade",
-			"settings":
-			{
-				"buffer_size": 951,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/aboutController.js",
-			"settings":
-			{
-				"buffer_size": 78,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/contactController.js",
-			"settings":
-			{
-				"buffer_size": 1374,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/contact.js",
-			"settings":
-			{
-				"buffer_size": 449,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/bookmarks.js",
-			"settings":
-			{
-				"buffer_size": 3554,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": ".gitignore",
-			"settings":
-			{
-				"buffer_size": 54,
-				"line_ending": "Unix",
-				"name": "# Git Ignore"
-			}
-		},
-		{
-			"file": "scripts/search.js",
-			"settings":
-			{
-				"buffer_size": 1514,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "extends layout\n\nblock head\n		script(src='bootstrap.js')\n		script(src='homepage.js')\n\n		script(src='bookmarkList.js')\n		script(src='bookmarks.js')\n		script(src='search.js')\n\nblock body\n	div.container.add-bookmark-form\n		p\n			ul.nav.nav-tabs\n				li.add-bookmark-tab.active\n					a(href='#') Add bookmark\n				li.search-bookmarks-tab\n					a(href='#') Search\n\n			// Add bookmark form\n			div#add-bookmark-form\n				div.control-group\n					div.controls\n						input.input-xxlarge#bookmark-url(type='text',placeholder='Url')\n				div.control-group\n					div.controls\n						input.input-xxlarge#bookmark-tags(type='text',placeholder='Tags (press \\'enter\\' to create tag)')\n						button.btn.add-bookmark#add-bookmark(type='submit') Add Bookmark\n				p				\n					div.control-group#new-bookmark-tag-list\n\n			// Search bookmarks form\n			div#search-bookmarks-form.hidden\n				div.control-group\n					div.controls\n						input.input-xxlarge#search-bookmark-tags(type='text',placeholder='enter some tags to filter the list')\n				p\n					div.control-group#search-bookmark-tags-list\n\n	// Bookmarks List\n	div.container.bookmark-container\n		h3 Bookmarks\n		div#bookmarks-list\n			| <!-- Here is the bookmark list -->\n\n	script(type='text/javascript',language='javascript')\n		var Bookmarkies = Bookmarkies || {};\n		Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};",
-			"file": "views/bookmarkies.jade",
-			"file_size": 1331,
-			"file_write_time": 1361224668000000,
-			"settings":
-			{
-				"buffer_size": 1331,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/home.jade",
-			"settings":
-			{
-				"buffer_size": 789,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "views/homepage.jade",
-			"settings":
-			{
-				"buffer_size": 1578,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "scripts/bookmarkList.js",
-			"settings":
-			{
-				"buffer_size": 4681,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/index.js",
-			"settings":
-			{
-				"buffer_size": 184,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/index.js",
-			"settings":
-			{
-				"buffer_size": 47,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "init.js",
-			"settings":
-			{
-				"buffer_size": 1892,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/user.js",
-			"settings":
-			{
-				"buffer_size": 408,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "models/bookmark.js",
-			"settings":
-			{
-				"buffer_size": 859,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "authenticationProvider.js",
-			"settings":
-			{
-				"buffer_size": 2035,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/authenticationController.js",
-			"settings":
-			{
-				"buffer_size": 2637,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "controllers/bookmarkiesController.js",
-			"settings":
-			{
-				"buffer_size": 2900,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -259,7 +63,7 @@
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 139.0
 	},
 	"distraction_free":
 	{
@@ -272,6 +76,34 @@
 	},
 	"file_history":
 	[
+		"/home/gilly/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/gilly/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/gilly/dev/bookmarkies/init.js",
+		"/home/gilly/dev/bookmarkies/bookmarkies.sublime-project",
+		"/home/gilly/dev/bookmarkies/views/bookmarkies.jade",
+		"/home/gilly/dev/bookmarkies/css/main.css",
+		"/home/gilly/dev/bookmarkies/scripts/homepage.js",
+		"/home/gilly/dev/bookmarkies/GamePlan.txt",
+		"/home/gilly/dev/bookmarkies/views/layout.jade",
+		"/home/gilly/dev/bookmarkies/views/about.jade",
+		"/home/gilly/dev/bookmarkies/views/contact.jade",
+		"/home/gilly/dev/bookmarkies/controllers/aboutController.js",
+		"/home/gilly/dev/bookmarkies/controllers/contactController.js",
+		"/home/gilly/dev/bookmarkies/scripts/contact.js",
+		"/home/gilly/dev/bookmarkies/scripts/bookmarks.js",
+		"/home/gilly/dev/bookmarkies/.gitignore",
+		"/home/gilly/dev/bookmarkies/views/home.jade",
+		"/home/gilly/dev/bookmarkies/views/homepage.jade",
+		"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js",
+		"/home/gilly/dev/bookmarkies/controllers/index.js",
+		"/home/gilly/dev/bookmarkies/models/index.js",
+		"/home/gilly/dev/bookmarkies/models/user.js",
+		"/home/gilly/dev/bookmarkies/models/bookmark.js",
+		"/home/gilly/dev/bookmarkies/authenticationProvider.js",
+		"/home/gilly/dev/bookmarkies/controllers/authenticationController.js",
+		"/home/gilly/dev/bookmarkies/controllers/bookmarkiesController.js",
+		"/home/gilly/dev/bookmarkies/scripts/search.js",
+		"/home/gilly/dev/bookmarkies/css/3rdParty/bootstrap/bootstrap.min.css",
 		"/home/gilly/dev/bookmarkies/views/contact",
 		"/home/gilly/Dev/Stabbd/stabbd.sublime-project",
 		"/home/gilly/dev/phantomjs-scripts/stackoverflow-users.js",
@@ -321,6 +153,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -328,6 +161,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"tree",
+			".tag",
+			"tag",
+			"bookmarkies",
 			"fore",
 			"hasMatchingTags",
 			"allBookmarkTags",
@@ -360,651 +197,8 @@
 	"groups":
 	[
 		{
-			"selected": 7,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "css/main.css",
-					"settings":
-					{
-						"buffer_size": 1386,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								777,
-								777
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "scripts/homepage.js",
-					"settings":
-					{
-						"buffer_size": 243,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								125,
-								125
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "GamePlan.txt",
-					"settings":
-					{
-						"buffer_size": 1041,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								161,
-								161
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "views/layout.jade",
-					"settings":
-					{
-						"buffer_size": 1155,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								684,
-								684
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "views/about.jade",
-					"settings":
-					{
-						"buffer_size": 107,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								70,
-								70
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "views/contact.jade",
-					"settings":
-					{
-						"buffer_size": 951,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								444,
-								444
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "controllers/aboutController.js",
-					"settings":
-					{
-						"buffer_size": 78,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								78,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "controllers/contactController.js",
-					"settings":
-					{
-						"buffer_size": 1374,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								581,
-								581
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "scripts/contact.js",
-					"settings":
-					{
-						"buffer_size": 449,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								449,
-								449
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "scripts/bookmarks.js",
-					"settings":
-					{
-						"buffer_size": 3554,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1702,
-								1702
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 357.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": ".gitignore",
-					"settings":
-					{
-						"buffer_size": 54,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "# Git Ignore",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "scripts/search.js",
-					"settings":
-					{
-						"buffer_size": 1514,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								123,
-								123
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "views/bookmarkies.jade",
-					"settings":
-					{
-						"buffer_size": 1331,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "views/home.jade",
-					"settings":
-					{
-						"buffer_size": 789,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 14,
-					"file": "views/homepage.jade",
-					"settings":
-					{
-						"buffer_size": 1578,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								332,
-								332
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 11.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 15,
-					"file": "scripts/bookmarkList.js",
-					"settings":
-					{
-						"buffer_size": 4681,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3670,
-								3670
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1677.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "controllers/index.js",
-					"settings":
-					{
-						"buffer_size": 184,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								150,
-								150
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "models/index.js",
-					"settings":
-					{
-						"buffer_size": 47,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								47,
-								47
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 18,
-					"file": "init.js",
-					"settings":
-					{
-						"buffer_size": 1892,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 19,
-					"file": "models/user.js",
-					"settings":
-					{
-						"buffer_size": 408,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								408,
-								408
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 20,
-					"file": "models/bookmark.js",
-					"settings":
-					{
-						"buffer_size": 859,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 21,
-					"file": "authenticationProvider.js",
-					"settings":
-					{
-						"buffer_size": 2035,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 22,
-					"file": "controllers/authenticationController.js",
-					"settings":
-					{
-						"buffer_size": 2637,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								160,
-								160
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 23,
-					"file": "controllers/bookmarkiesController.js",
-					"settings":
-					{
-						"buffer_size": 2900,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2827,
-								2827
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 623.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1039,6 +233,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.git":
+	{
+		"height": 220.0
+	},
 	"replace":
 	{
 		"height": 64.0
@@ -1049,6 +247,50 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"bookm",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"bookark",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				"bookmark",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
+			],
+			[
+				"main",
+				"/home/gilly/dev/bookmarkies/css/main.css"
+			],
+			[
+				"bookamrk",
+				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
+			],
+			[
+				".jade",
+				"/home/gilly/dev/bookmarkies/views/bookmarkies.jade"
+			],
+			[
+				".css",
+				"/home/gilly/dev/bookmarkies/css/main.css"
+			],
+			[
+				"game",
+				"/home/gilly/dev/bookmarkies/GamePlan.txt"
+			],
+			[
+				"/views/",
+				"/home/gilly/dev/bookmarkies/views/homepage.jade"
+			],
+			[
+				"layou",
+				"/home/gilly/dev/bookmarkies/views/layout.jade"
+			],
+			[
+				"gap",
+				"/home/gilly/dev/bookmarkies/GamePlan.txt"
+			],
 			[
 				"con",
 				"/home/gilly/dev/bookmarkies/scripts/contact.js"
@@ -1068,10 +310,6 @@
 			[
 				"bookmc",
 				"/home/gilly/dev/bookmarkies/controllers/bookmarkiesController.js"
-			],
-			[
-				"layou",
-				"/home/gilly/dev/bookmarkies/views/layout.jade"
 			],
 			[
 				"home",
@@ -1106,20 +344,12 @@
 				"/home/gilly/dev/bookmarkies/GamePlan.txt"
 			],
 			[
-				"bookmark",
-				"/home/gilly/dev/bookmarkies/views/bookmarkies.jade"
-			],
-			[
 				"gamepla",
 				"/home/gilly/dev/bookmarkies/GamePlan.txt"
 			],
 			[
 				"user.",
 				"/home/gilly/dev/bookmarkies/models/user.js"
-			],
-			[
-				"bookm",
-				"/home/gilly/dev/bookmarkies/models/bookmark.js"
 			],
 			[
 				"bokmark",
@@ -1142,20 +372,12 @@
 				"/home/gilly/dev/bookmarkies/css/main.css"
 			],
 			[
-				"gap",
-				"/home/gilly/dev/bookmarkies/GamePlan.txt"
-			],
-			[
 				"main.c",
 				"/home/gilly/dev/bookmarkies/css/main.css"
 			],
 			[
 				"book",
 				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
-			],
-			[
-				"game",
-				"/home/gilly/dev/bookmarkies/GamePlan.txt"
 			],
 			[
 				"bookmarkl",
@@ -1266,10 +488,6 @@
 				"/home/gilly/dev/bookmarkies/scripts/bookmarkList.js"
 			],
 			[
-				"bookamrk",
-				"/home/gilly/dev/bookmarkies/scripts/bookmarks.js"
-			],
-			[
 				"main.",
 				"/home/gilly/Dev/bookmarkies/css/main.css"
 			],
@@ -1316,14 +534,6 @@
 			[
 				"homa",
 				"/home/gilly/Dev/bookmarkies/scripts/homepage.js"
-			],
-			[
-				".jade",
-				"/home/gilly/Dev/bookmarkies/views/bookmarkies.jade"
-			],
-			[
-				"main",
-				"/home/gilly/Dev/bookmarkies/css/main.css"
 			],
 			[
 				"homec",

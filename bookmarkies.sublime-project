@@ -3,6 +3,27 @@
 	[
 		{
 			"path": "bookmarkies"
+		},
+		{
+			"path": "css"
+		},
+		{
+			"path": "img"
+		},
+		{
+			"path": "controllers"
+		},
+		{
+			"path": "models"
+		},
+		{
+			"path": "node_modules"
+		},
+		{
+			"path": "scripts"
+		},
+		{
+			"path": "views"
 		}
 	]
 }
