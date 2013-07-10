@@ -10,8 +10,6 @@ mongoose.model('Tag', tagSchema);
 
 // Bookmarks
 var bookmarkSchema = new Schema({
-	// TODO: add reference to the user object (how do i use ObjectID here?)
-	// TODO: add 'createdDate' property, so we know how to organize these for now!
 	userId: {
 		type: Schema.Types.ObjectId,
 		required: true,
