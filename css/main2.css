@@ -1,0 +1,22 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:rgba(0,0,0,0);
+}
+body { line-height:1; color:#000; font-family:Arial, Liberation Sans; }
+
+/* ***************************************************** */
+
+.hidden { display:none; }
+.invisible { visibility:hidden; }
+.float { float:left; }
+.float-right { float:right; }
+.clearfix:after { content:'.'; display:block; height:0; clear:both; visibility:hidden; }
+
+/* ***************************************************** */
+
+.container { text-align:left; width:100%; zoom:1; }
+
+.header { height:31px; background-color:#eee; }
+.nav-area { width:980px; margin:0 auto; }
+
+.content { width:980px; margin:0 auto; min-height:500px; }
