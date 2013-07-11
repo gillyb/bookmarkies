@@ -6,6 +6,8 @@ body { line-height:1; color:#000; font-family:Arial, Liberation Sans; }
 
 /* ***************************************************** */
 
+h1 { float:left; font-size:18px; line-height:34px; margin-bottom:0px; font-weight:bold; font-family:Trebuchet MS; }
+
 .hidden { display:none; }
 .invisible { visibility:hidden; }
 .float { float:left; }
@@ -14,9 +16,10 @@ body { line-height:1; color:#000; font-family:Arial, Liberation Sans; }
 
 /* ***************************************************** */
 
-.container { text-align:left; width:100%; zoom:1; }
+#container { text-align:left; width:100%; zoom:1; }
 
-.header { height:31px; background-color:#eee; }
-.nav-area { width:980px; margin:0 auto; }
+#header { height:31px; background-color:#eee; }
+#nav-area { width:980px; margin:0 auto; }
 
-.content { width:980px; margin:0 auto; min-height:500px; }
+#content { width:980px; margin:0 auto; min-height:500px; }
+#content-header {  }
