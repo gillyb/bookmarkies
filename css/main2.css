@@ -2,11 +2,12 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
 	margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:rgba(0,0,0,0);
 }
-body { line-height:1; color:#000; font-family:Arial, Liberation Sans; }
+body { line-height:1; color:#000; font-family:Arial, Liberation Sans; font-size:80%; background-color:#fff; text-align:center; }
 
 /* ***************************************************** */
 
-h1 { float:left; font-size:18px; line-height:34px; margin-bottom:0px; font-weight:bold; font-family:Trebuchet MS; }
+h1 { float:left; font-size:18px; line-height:34px; margin-bottom:0px; font-weight:bold; font-family:Liberation Sans,DejaVu Sans,sans-serif; }
+h3 { font-size:130%; font-family:Liberation Sans,DejaVu Sans,sans-serif; font-weight:bold; line-height:1.3; }
 
 .hidden { display:none; }
 .invisible { visibility:hidden; }
@@ -23,3 +24,17 @@ h1 { float:left; font-size:18px; line-height:34px; margin-bottom:0px; font-weigh
 
 #content { width:980px; margin:0 auto; min-height:500px; }
 #content-header {  }
+#content #mainbar { width:735px; float:left; }
+#content #mainbar .title { border-bottom:solid 1px #cccccc; height:34px; clear:both; margin-bottom:15px; }
+#content #mainbar .title .tabs { float:right; }
+#content #sidebar { width:220px; float:right; }
+
+/* ****************************************************** */
+#bookmark-list-wrapper {  }
+#bookmark-list-wrapper .bookmark-wrapper { border-bottom:soid 1px #eaeaea; overflow:hidden; padding:11px 0; width:730px; float:left; }
+.bookmark-wrapper a.bookmark-title { font-size:130%; font-weight:bold; line-height:1.3; font-family:Liberation Sans,DejaVu Sans,sans-serif; text-decoration:none; cursor:pointer; color:#0077cc; }
+.bookmark-wrapper a.bookmark-title:hover { text-decoration:underline; }
+.bookmark-wrapper a.bookmark-title:visited { color:#4a6b82; }
+.bookmark-wrapper .url { color:#999; }
+.bookmark-wrapper .tags .tag { background-color:#E0EAF1; color:#3E6D8E; border-bottom:1px solid #b3cee1; border-right:1px solid #b3cee1; padding:3px 4px 3px 4px; margin:2px 2px 2px 0; text-decoration:none; font-size:90%; line-height:2.4; white-space:nowrap; cursor:pointer; }
+.bookmark-wrapper .tags .tag:hover { background-color:#c4dae9; border-bottom:1px solid #c4dae9; border-right:1px solid #c4dae9; text-decoration:none; }
