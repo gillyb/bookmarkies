@@ -2,7 +2,7 @@
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
 	margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:rgba(0,0,0,0);
 }
-body { line-height:1; color:#000; font-family:Arial, Liberation Sans; font-size:80%; background-color:#fff; text-align:center; }
+body { line-height:1; color:#000; font-family:Trebuchet MS, Arial, Liberation Sans; font-size:80%; background-color:#fff; text-align:center; }
 
 /* ***************************************************** */
 
@@ -20,16 +20,25 @@ h3 { font-size:130%; font-family:Liberation Sans,DejaVu Sans,sans-serif; font-we
 #container { text-align:left; width:100%; zoom:1; }
 
 #header { height:31px; background-color:#eee; }
-#nav-area { width:980px; margin:0 auto; }
+#nav-area { width:980px; margin:0 auto; line-height:28px; }
+#nav-area a { color:#07c; text-decoration:none; cursor:pointer; display:inline-block; margin-right:16px; }
+#nav-area a:hover { text-decoration:underline; }
 
-#content { width:980px; margin:0 auto; min-height:500px; }
+#content { width:980px; margin:0 auto; min-height:500px; padding-top:10px; }
 #content-header {  }
 #content #mainbar { width:735px; float:left; }
 #content #mainbar .title { border-bottom:solid 1px #cccccc; height:34px; clear:both; margin-bottom:15px; }
 #content #mainbar .title .tabs { float:right; }
 #content #sidebar { width:220px; float:right; }
 
+.tabs a { color:#777; padding:3px 10px 0px 10px; line-height:23px; font-size:13px; margin-top:8px; height:22px; display:inline-block; border:solid 1px #fff; border-bottom:solid 1px #ccc; margin-left:10px;}
+.tabs a.selected { color:black; border:solid 1px #ccc; border-bottom:solid 1px #fff; }
+.tabs a:hover { border:solid 1px #ccc; border-bottom:solid 1px #fff; cursor:pointer; }
+
+
 /* ****************************************************** */
+/* Bookmarks List */
+
 #bookmark-list-wrapper {  }
 #bookmark-list-wrapper .bookmark-wrapper { border-bottom:soid 1px #eaeaea; overflow:hidden; padding:11px 0; width:730px; float:left; }
 .bookmark-wrapper a.bookmark-title { font-size:130%; font-weight:bold; line-height:1.3; font-family:Liberation Sans,DejaVu Sans,sans-serif; text-decoration:none; cursor:pointer; color:#0077cc; }

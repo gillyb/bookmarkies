@@ -3,19 +3,21 @@ html
 	head
 		title Bookmarki.es - A place for bookmarks
 
-		link(href='main2.css',rel='stylesheet',media='screen')
+		link(href='../main2.css',rel='stylesheet',media='screen')
 
 	body
 		div#container
 			div#header
 				div#nav-area
 					span.logo.float Bookmarki.es
-					div.float-right.clearfix Login About Contact
+					div.float-right.clearfix
+						a About
+						a Contact
 
 			div#content
 				div#mainbar
 					div.title
-						h1 Bookmarks
+						h1 My Bookmarks
 						div.tabs
 							a Add Bookmark
 							a Search
@@ -32,6 +34,12 @@ html
 								a.tag(href='#') bored
 
 
-				div#sidebar
-					div.module
-						h4 Lists
+				//
+					div#sidebar
+						div.module
+							h4 Lists
+
+
+		script(type='text/javascript',language='javascript')
+			var Bookmarkies = Bookmarkies || {};
+			Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
