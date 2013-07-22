@@ -4,6 +4,8 @@ html
 		title Bookmarki.es - A place for bookmarks
 
 		link(href='../main2.css',rel='stylesheet',media='screen')
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+		include ../scripts/bookmarks2.js
 
 	body
 		div#container
@@ -19,10 +21,12 @@ html
 					div.title
 						h1 My Bookmarks
 						div.tabs
-							a Add Bookmark
-							a Search
+							a.add-bookmark-tab Add Bookmark
+							a.search-bookmarks-tab Search
 
 					include addBookmarkForm
+
+					include searchBookmarkForm
 
 					div#bookmarks-list-wrapper
 						// This part repeats itself

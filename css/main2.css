@@ -29,7 +29,7 @@ input[type=text] { color:#000; border:solid 1px #999; }
 #content { width:980px; margin:0 auto; min-height:500px; padding-top:10px; }
 #content-header {  }
 #content #mainbar { width:735px; float:left; }
-#content #mainbar .title { border-bottom:solid 1px #cccccc; height:34px; clear:both; margin-bottom:15px; }
+#content #mainbar .title { border-bottom:solid 1px #cccccc; height:34px; clear:both; margin-bottom:11px; }
 #content #mainbar .title .tabs { float:right; }
 #content #sidebar { width:220px; float:right; }
 
@@ -37,6 +37,11 @@ input[type=text] { color:#000; border:solid 1px #999; }
 .tabs a.selected { color:black; border:solid 1px #ccc; border-bottom:solid 1px #fff; }
 .tabs a:hover { border:solid 1px #ccc; border-bottom:solid 1px #fff; cursor:pointer; }
 
+/* ****************************************************** */
+/* Forms */
+
+#add-bookmark-area { display:none; margin-bottom:11px; }
+#search-bookmark-area { display:none; margin-bottom:11px; }
 
 /* ****************************************************** */
 /* Bookmarks List */
