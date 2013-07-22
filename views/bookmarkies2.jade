@@ -14,8 +14,8 @@ html
 				div#nav-area
 					span.logo.float Bookmarki.es
 					div.float-right.clearfix
-						a About
-						a Contact
+						a(href='/about') About
+						a(href='/contact') Contact
 
 			div#content
 				div#mainbar
@@ -29,29 +29,10 @@ html
 
 					include searchBookmarkForm
 
-					div#bookmark-template(style='display:none;')
-						| {#bookmarks}
-						| 	<div class='bookmark-wrapper'>
-						| 		<a class='bookmark-title'>{title}</a>
-						| 		<div class='url'>{url}</div>
-						| 		<div class='tags'>
-						| 			{#tags}
-						| 				<a class='tag' href='#'>{name}</a>
-						| 			{/tags}
-						|		</div>
-						|	</div>
-						| {/bookmarks}
+					include bookmarkTemplate
 
 					div#bookmarks-list-wrapper
-						// This is the bookmark template
-						div.bookmark-wrapper
-							a.bookmark-title Google - my favorite search engine
-							div.url http://www.google.com
-							div.tags
-								a.tag(href='#') search
-								a.tag(href='#') search-engines
-								a.tag(href='#') everything
-								a.tag(href='#') bored
+						// This is the list of bookmarks
 
 
 				//
@@ -69,6 +50,5 @@ html
 				dust.loadSource(template);
 				dust.render('bookmark-template', {bookmarks:Bookmarkies.Bookmarks}, function(err, out) {
 					$('#bookmarks-list-wrapper').html(out);
-					debugger;
 				});
 			});
