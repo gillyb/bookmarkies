@@ -11,20 +11,6 @@ app.get('/bookmarkies', function(request, response) {
 			console.log(error);
 		else {
 			console.log(data);
-			response.render('bookmarkies', { Bookmarks: data });
-		}
-	});
-});
-
-app.get('/bookmarkies/new', function(request, response) {
-	var userId = authProvider.validateAuthentication(request, response);
-	console.log('==='+userId);
-	Bookmark.find({userId:userId}, function(error, data) { 
-		if (error)
-			// TODO: display some nice error message
-			console.log(error);
-		else {
-			console.log(data);
 			response.render('bookmarkies2', { Bookmarks: data });
 		}
 	});
