@@ -1,54 +1,41 @@
-doctype 5
-html
-	head
-		title Bookmarki.es - A place for bookmarks
+extends layout2
 
-		link(href='../main2.css',rel='stylesheet',media='screen')
-		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-		script(src='dust-full-0.3.0.min.js');
-		script(src='bookmarks2.js');
+block head
+	script(src='dust-full-0.3.0.min.js');
+	script(src='bookmarks2.js');
 
-	body
-		div#container
-			div#header
-				div#nav-area
-					span.logo.float Bookmarki.es
-					div.float-right.clearfix
-						a(href='/about') About
-						a(href='/contact') Contact
+block body
+	div#mainbar
+		div.title
+			h1 My Bookmarks
+			div.tabs
+				a.add-bookmark-tab Add Bookmark
+				a.search-bookmarks-tab Search
 
-			div#content
-				div#mainbar
-					div.title
-						h1 My Bookmarks
-						div.tabs
-							a.add-bookmark-tab Add Bookmark
-							a.search-bookmarks-tab Search
+		include addBookmarkForm
 
-					include addBookmarkForm
+		include searchBookmarkForm
 
-					include searchBookmarkForm
+		include bookmarkTemplate
 
-					include bookmarkTemplate
-
-					div#bookmarks-list-wrapper
-						// This is the list of bookmarks
+		div#bookmarks-list-wrapper
+			// This is the list of bookmarks
 
 
-				//
-					div#sidebar
-						div.module
-							h4 Lists
+	//
+		div#sidebar
+			div.module
+				h4 Lists
 
 
-		script(type='text/javascript',language='javascript')
-			var Bookmarkies = Bookmarkies || {};
-			Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
+	script(type='text/javascript',language='javascript')
+		var Bookmarkies = Bookmarkies || {};
+		Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
 
-			$(function() {
-				var template = dust.compile($('#bookmark-template').html(), 'bookmark-template');
-				dust.loadSource(template);
-				dust.render('bookmark-template', {bookmarks:Bookmarkies.Bookmarks}, function(err, out) {
-					$('#bookmarks-list-wrapper').html(out);
-				});
+		$(function() {
+			var template = dust.compile($('#bookmark-template').html(), 'bookmark-template');
+			dust.loadSource(template);
+			dust.render('bookmark-template', {bookmarks:Bookmarkies.Bookmarks}, function(err, out) {
+				$('#bookmarks-list-wrapper').html(out);
 			});
+		});
