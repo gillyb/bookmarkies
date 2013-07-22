@@ -3,7 +3,7 @@ html
 	head
 		title Bookmarki.es - A place for bookmarks
 
-		link(href='main2.css',rel='stylesheet',media='screen')
+		link(href='../main2.css',rel='stylesheet',media='screen')
 
 	body
 		div#container
@@ -35,3 +35,8 @@ html
 				div#sidebar
 					div.module
 						h4 Lists
+
+
+		script(type='text/javascript',language='javascript')
+			var Bookmarkies = Bookmarkies || {};
+			Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};

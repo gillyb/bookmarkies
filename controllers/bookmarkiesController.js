@@ -16,6 +16,20 @@ app.get('/bookmarkies', function(request, response) {
 	});
 });
 
+app.get('/bookmarkies/new', function(request, response) {
+	var userId = authProvider.validateAuthentication(request, response);
+	console.log('==='+userId);
+	Bookmark.find({userId:userId}, function(error, data) { 
+		if (error)
+			// TODO: display some nice error message
+			console.log(error);
+		else {
+			console.log(data);
+			response.render('bookmarkies2', { Bookmarks: data });
+		}
+	});
+});
+
 app.post('/-/bookmarks/add', function(request, response) {
 	// add the new bookmark to the db
 	// request.body - All the sent parameters will be in request.body.<param_name> thanks to express.bodyParser() middleware!
