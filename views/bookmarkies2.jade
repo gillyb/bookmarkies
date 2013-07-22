@@ -5,7 +5,8 @@ html
 
 		link(href='../main2.css',rel='stylesheet',media='screen')
 		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-		include ../scripts/bookmarks2.js
+		script(src='dust-full-0.3.0.min.js');
+		script(src='bookmarks2.js');
 
 	body
 		div#container
@@ -28,8 +29,21 @@ html
 
 					include searchBookmarkForm
 
+					div#bookmark-template(style='display:none;')
+						| {#bookmarks}
+						| 	<div class='bookmark-wrapper'>
+						| 		<a class='bookmark-title'>{title}</a>
+						| 		<div class='url'>{url}</div>
+						| 		<div class='tags'>
+						| 			{#tags}
+						| 				<a class='tag' href='#'>{name}</a>
+						| 			{/tags}
+						|		</div>
+						|	</div>
+						| {/bookmarks}
+
 					div#bookmarks-list-wrapper
-						// This part repeats itself
+						// This is the bookmark template
 						div.bookmark-wrapper
 							a.bookmark-title Google - my favorite search engine
 							div.url http://www.google.com
@@ -49,3 +63,12 @@ html
 		script(type='text/javascript',language='javascript')
 			var Bookmarkies = Bookmarkies || {};
 			Bookmarkies.Bookmarks = !{JSON.stringify(Bookmarks)};
+
+			$(function() {
+				var template = dust.compile($('#bookmark-template').html(), 'bookmark-template');
+				dust.loadSource(template);
+				dust.render('bookmark-template', {bookmarks:Bookmarkies.Bookmarks}, function(err, out) {
+					$('#bookmarks-list-wrapper').html(out);
+					debugger;
+				});
+			});
