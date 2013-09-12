@@ -1,0 +1,24 @@
+doctype 5
+html
+	head
+		title Bookmarki.es - A place for bookmarks
+
+		link(href='main2.css',rel='stylesheet',media='screen')
+		script(src='//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+
+		block head
+
+	body
+		div#container
+			div#header
+				div#nav-area
+					span.logo.float Bookmarki.es
+					div.float-right.clearfix
+						a(href='/about') About
+						a(href='/contact') Contact
+
+		div#content
+			block body
+
+
+		include googleAnalytics

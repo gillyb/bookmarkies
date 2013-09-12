@@ -1,0 +1,22 @@
+
+div#add-bookmark-area
+	table
+		tbody
+			tr
+				td 
+					label(for='bookmark-url') Url
+				td
+					input#new-bookmark-url(name='new-bookmark-url',type='text')
+			tr
+				td
+					label(for='bookmark-title') Title
+				td
+					input#new-bookmark-title(name='new-bookmark-title',type='text')
+			tr
+				td
+					label(for='bookmark-tags') Tags
+				td
+					input#new-bookmark-tags(name='new-bookmark-tags',type='text')
+			tr
+				td(colspan='3',style='text-align:right;')
+					input#add-new-bookmark(type='button',value='Add Bookmark')

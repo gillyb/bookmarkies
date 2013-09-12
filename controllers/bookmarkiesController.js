@@ -1,18 +1,16 @@
 
 var ObjectId = require('mongoose').Types.ObjectId;
 var authProvider = require('../authenticationProvider');
+var bookmarksRepository = require('../bookmarksRepository');
 
 app.get('/bookmarkies', function(request, response) {
 	var userId = authProvider.validateAuthentication(request, response);
 	console.log('==='+userId);
-	Bookmark.find({userId:userId}, function(error, data) { 
-		if (error)
-			// TODO: display some nice error message
-			console.log(error);
-		else {
-			console.log(data);
-			response.render('bookmarkies2', { Bookmarks: data });
-		}
+	bookmarksRepository.getBookmarks(userId, function(bookmarks, err) {
+		if (err) // TODO: display some nice error message
+			console.log('ERROR ERROR ERROR ERROR ');
+		
+		response.render('bookmarkies2', { Bookmarks: bookmarks });
 	});
 });
 

@@ -1,0 +1,13 @@
+
+div#bookmark-template(style='display:none;')
+	| {#bookmarks}
+	| 	<div class='bookmark-wrapper'>
+	| 		<a class='bookmark-title'>{title}</a>
+	| 		<div class='url'>{url}</div>
+	| 		<div class='tags'>
+	| 			{#tags}
+	| 				<a class='tag' href='#'>{name}</a>
+	| 			{/tags}
+	|		</div>
+	|	</div>
+	| {/bookmarks}
