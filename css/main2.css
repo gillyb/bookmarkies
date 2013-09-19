@@ -41,7 +41,12 @@ input[type=text] { color:#000; border:solid 1px #999; }
 /* Forms */
 
 #add-bookmark-area { display:none; margin-bottom:11px; }
+#add-bookmark-area label { font-weight:bold; }
+#add-bookmark-area #add-new-bookmark { cursor:pointer; }
+#add-bookmark-area .field-label { width:65px; }
+#add-bookmark-area input[type=text] { width:660px; }
 #search-bookmark-area { display:none; margin-bottom:11px; }
+#search-bookmark-area label { font-weight:bold; }
 
 /* ****************************************************** */
 /* Bookmarks List */
