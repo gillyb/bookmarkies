@@ -1,0 +1,45 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Edit
+
+  form.form-horizontal#create-list-form(role='form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+    .form-group
+      label(class='col-sm-2 control-label', for='name') Name
+      .col-sm-8
+        input.form-control(type='text', name='name', id='name', value='#{list.name}')
+      .breaker
+      .by-wrapper
+        | by:
+        //span.by #{currentUser.profile.name}
+      if listCreator.admin === true
+        .form-group.admin-only
+          label(class='col-sm-2 control-label', for='amazonLink') Amazon Link
+          .col-sm-8
+            input.form-control(type='text', name='amazonLink', id='amazonLink')
+    .form-group
+      label(class='col-sm-2 control-label', for='description') Description
+      .col-sm-8
+        input.form-control(type='text', name='description', id='description', value='#{list.description}')
+    .form-group
+      label(class='col-sm-2 control-label', for='image') Image
+      .col-sm-8
+        .div.upload-image-wrapper
+          i.spinner.fa.fa-spinner.fa-pulse.hidden
+          input.form-control(type='text', name='image-upload', id='image-upload', placeholder='Paste image url', value='#{list.image}')
+    .reasons-container
+      - var reasonCount = 1;
+      each reason in list.reasons
+        .form-group.reason(class='num-#{reasonCount}')
+          label(class='col-sm-2 control-label', for='reason1') #{reasonCount}.
+          .col-sm-8
+            input.form-control.reason-input(type='text', name='reason#{reasonCount}', id='reason#{reasonCount}', value='#{reason.reason}')
+        - reasonCount++;
+
+    .form-group
+      .col-sm-offset-2.col-sm-8
+        button.btn.btn-primary(type='submit')
+          span.ion-paper-airplane
+          | Save Changes

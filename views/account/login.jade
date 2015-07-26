@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Sign in
+  form.form-horizontal(method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+
+    .form-group
+      .row
+        .col-sm-5
+          a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
+            i.fa.fa-facebook
+            | Sign in with Facebook
+          a.btn.btn-block.btn-twitter.btn-social(href='/auth/twitter')
+            i.fa.fa-twitter
+            | Sign in with Twitter
+          a.btn.btn-block.btn-google-plus.btn-social(href='/auth/google')
+            i.fa.fa-google-plus
+            | Sign in with Google
+
+      .row
+        .or-hr.col-sm-5 or with details
+
+      .form-group
+        label.col-sm-2.control-label(for='email') Email
+        .col-sm-3
+          input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus=true)
+      .form-group
+        label.col-sm-2.control-label(for='password') Password
+        .col-sm-3
+          input.form-control(type='password', name='password', id='password', placeholder='Password')
+      .form-group
+        button.btn.btn-primary(type='submit')
+          span.ion-android-hand
+          | Login
+        a.btn.btn-link(href='/forgot') Forgot your password?

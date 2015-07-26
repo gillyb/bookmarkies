@@ -1,0 +1,42 @@
+extends ../layout
+block content
+    .row
+        .col-sm-8
+            h1 Lists of reasons tagged
+              span.tag #{category}
+            hr
+            each list in lists
+                .list-preview
+                    if isAdmin
+                        .delete-list
+                            a.delete(href='/list/delete/#{list._id}', onclick='return confirm("Are you sure you want to delete this list?")') Delete
+                        .edit-list
+                            a.edit(href='/list/edit/#{list._id}') Edit
+                    .thumbnail.float
+                        span.thumbnail-img(style='background-image:url(#{list.image}); background-size:cover; height:98px; width:98px; display:inline-block; background-position:center; background-repeat:no-repeat;')
+                    .list-details.float
+                        h2.title
+                            a(href='#{list.link}')
+                                | #{list.name}
+                        .list-minor-details
+                            | UPDATED:
+                            span.posted-date(data-time='#{list.updated}')
+                        .reasons
+                            - var listReasonCount = 1
+                            each listReason in list.reasons
+                                if listReasonCount <= 2
+                                    .reason #{listReasonCount}. #{listReason.reason}
+                                    - listReasonCount++
+                            .reason-more
+                                a.more(href='#{list.link}',rel='nofollow') More...
+                    .breaker
+            if lists.length == 10
+                .paging
+                    - var nextPage = parseInt(currentPage) + 1;
+                    a(href='?page=' + nextPage)
+                        i.fa.fa-long-arrow-left
+                        | Older lists
+        //- Sub column area -//
+        .col-sm-4
+            include ../partials/categories-block
+            include ../partials/facebook-block

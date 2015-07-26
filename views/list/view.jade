@@ -1,0 +1,64 @@
+extends ../layout
+
+block content
+  .row
+    .col-sm-8
+      .page-header#view-list-page
+        if list.image
+          if list.amazonLink
+            a(href='#{list.amazonLink}')
+              .cover-image(style='background-image:url(\'#{list.image}\'); background-size:cover; width:750px; height:300px; background-position:center;')
+          else
+            .cover-image(style='background-image:url(\'#{list.image}\'); background-size:cover; width:750px; height:300px; background-position:center;')
+        h1
+          | #{list.name}
+          span.by-line
+            | by
+            if listCreator
+              span.user-link #{listCreator.profile.name}
+            else
+              span.user-anonymous  Anonymous
+
+        .list-details
+          | UPDATED:
+          span.posted-date(data-time='#{list.updated}')
+
+        .tags-wrapper
+          span.pull-right
+            div.fb-share-button(data-href="#{pageLink}", data-layout="button")
+          | Tagged as :
+          each tag in listTags
+            a.tag(href='#{tag.link}') #{tag.name}
+
+
+      .reasons
+        - var count=1
+        each reason in list.reasons
+          .reason
+            span.num #{count}.&nbsp;
+            span.spacer
+            span.reason #{reason.reason}
+            .breaker
+            .spacer.bottom
+            .breaker
+          - count++
+
+      if list.amazonDescription
+        .amazon-description
+          .header Product Description
+          .description #{list.amazonDescription}
+
+      if list.amazonLink
+        .more-details
+          a(href='#{list.amazonLink}')
+            | More product details
+            i.fa.fa-long-arrow-right
+
+
+      // Facebook comments plugin
+      .fb-comments(data-href="#{pageLink}", data-numposts="5", data-colorscheme="light", data-width="750")
+
+    //- Sub column area -//
+    .col-sm-4
+      include ../partials/categories-block
+      include ../partials/facebook-block

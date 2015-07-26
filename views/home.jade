@@ -1,0 +1,30 @@
+doctype html
+html(ng-app='bookmarkies')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='csrf-token', content=_csrf)
+
+        title Bookmarki.es - A place for bookmarks
+
+        // bootstrap
+        link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+        script(src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+
+        // angular
+        script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js')
+        script(src='//code.angularjs.org/1.4.3/angular-route.min.js')
+        script(src='//code.angularjs.org/1.4.3/angular-sanitize.min.js')
+        script(src='//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js')
+
+        script(src='js/app.js')
+
+        // controllers
+        script(src='js/login/login-controller.js')
+        script(src='js/home/home-controller.js')
+
+        body
+          .container(ui-view)
+
+        include partials/google-analytics

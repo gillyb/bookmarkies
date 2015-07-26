@@ -1,0 +1,43 @@
+extends ../layout
+
+block content
+  .page-header
+    h3 Sign up
+      span.or-option  or&nbsp;
+        a.link(href='/login') login
+  form.form-horizontal(id='signup-form', method='POST')
+    input(type='hidden', name='_csrf', value=_csrf)
+
+    .form-group
+      .row
+        .col-sm-5
+          a.btn.btn-block.btn-facebook.btn-social(href='/auth/facebook')
+            i.fa.fa-facebook
+            | Sign up with Facebook
+          a.btn.btn-block.btn-twitter.btn-social(href='/auth/twitter')
+            i.fa.fa-twitter
+            | Sign up with Twitter
+          a.btn.btn-block.btn-google-plus.btn-social(href='/auth/google')
+            i.fa.fa-google-plus
+            | Sign up with Google
+
+      .row
+        .or-hr.col-sm-5 or with new details
+
+      .form-group
+        label.col-sm-2.control-label(for='email') Email
+        .col-sm-3
+          input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus)
+      .form-group
+        label.col-sm-2.control-label(for='password') Password
+        .col-sm-3
+          input.form-control(type='password', name='password', id='password', placeholder='Password')
+      .form-group
+        label.col-sm-2.control-label(for='confirmPassword') Confirm Password
+        .col-sm-3
+          input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password')
+      .form-group
+        .col-sm-offset-2.col-sm-3
+          button.btn.btn-success(type='submit')
+            span.ion-person-add
+            | Signup
