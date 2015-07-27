@@ -21,6 +21,7 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
 
+
 /**
  * Controllers (route handlers).
  */
@@ -30,6 +31,7 @@ var homeController = require('./controllers/home');
  * API keys and Passport configuration.
  */
 var secrets = require('./config/secrets');
+require('./config/passport');
 
 /**
  * Create Express server.
