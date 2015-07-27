@@ -16,3 +16,23 @@ angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ui.router'])
             'self'
         ]);
     });
+
+angular.module('bookmarkies').config(['$httpProvider', function ($httpProvider) {
+    $httpProvider.interceptors.push(['$timeout', '$q', function ($timeout, $q) {
+        return {
+            request: function(config) {
+                config.headers['X-CSRF-TOKEN'] = document.getElementsByName('csrf-token')[0].getAttribute('content');
+                return config;
+            },
+            responseError: function (error) {
+                if (error.status == 401 || error.status == 403) {
+                    window.logout();
+                    window.location = '/gilly';
+                    return $q.reject(error);
+                }
+                else
+                    return $q.reject(error);
+            }
+        };
+    }]);
+}]);

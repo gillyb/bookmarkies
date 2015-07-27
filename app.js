@@ -26,6 +26,7 @@ var connectAssets = require('connect-assets');
  * Controllers (route handlers).
  */
 var homeController = require('./controllers/home');
+var listController = require('./controllers/list');
 
 /**
  * API keys and Passport configuration.
@@ -90,6 +91,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 
 app.use(homeController);
+app.use(listController);
 
 
 /**
@@ -104,7 +106,7 @@ app.get('/auth/github/callback', passport.authenticate('github', { failureRedire
   res.redirect(req.session.returnTo || '/');
 });
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
-app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
+app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/#/login' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');
 });
 app.get('/auth/twitter', passport.authenticate('twitter'));
