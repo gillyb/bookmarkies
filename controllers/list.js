@@ -1,5 +1,5 @@
 //var User = require('../models/User');
-//var List = require('../models/List');
+var Bookmark = require('../models/Bookmark');
 //
 //var logger = require('../services/logger');
 //var utils = require('../services/utils');
@@ -13,6 +13,39 @@ app.post('/logged-in', function(req, res) {
         return res.status(401).end();
 
     return res.end();
+});
+
+app.get('/bookmarks', function(req, res) {
+    if (!req.user)
+        return res.status(401).end();
+
+    Bookmark.find({ userId: req.user._id }).exec(function(err, result) {
+        if (err || !result)
+            return res.status(500).end();
+
+        return res.end(JSON.stringify(result));
+    });
+});
+
+app.put('/bookmark', function(req, res) {
+    if (!req.user)
+        return res.status(401).end();
+
+    var newBookmark = new Bookmark({
+        userId: req.user._id,
+        url: req.body.url,
+        name: req.body.name,
+        notes: req.body.notes,
+        tags: req.body.tags,
+        created: Date.now(),
+        updated: Date.now()
+    });
+    newBookmark.save(function(err) {
+        if (err)
+            return res.status(500).end();
+
+        return res.end();
+    })
 });
 
 //app.get('/list/delete/:listId', function(req, res) {

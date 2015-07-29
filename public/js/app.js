@@ -1,5 +1,5 @@
-angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ui.router'])
-    .config(function ($stateProvider) {
+angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ui.router', 'ngTagsInput'])
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('login', {
                 url: '/login',
@@ -10,6 +10,11 @@ angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ui.router'])
                 templateUrl: 'js/home/home.html',
                 controller: 'HomeController'
             });
+
+        $urlRouterProvider.otherwise(function() {
+            window.location = '/#/';
+        });
+
     }).config(function($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist([
             // Allow same origin resource loads.
@@ -26,8 +31,8 @@ angular.module('bookmarkies').config(['$httpProvider', function ($httpProvider) 
             },
             responseError: function (error) {
                 if (error.status == 401 || error.status == 403) {
-                    window.logout();
-                    window.location = '/gilly';
+                    // TODO: clear all local/session storage and cookies
+                    window.location = '/#/login';
                     return $q.reject(error);
                 }
                 else

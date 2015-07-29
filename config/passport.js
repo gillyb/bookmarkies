@@ -61,7 +61,6 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
   if (req.user) {
     User.findOne({ facebook: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
         done(err);
       } else {
         User.findById(req.user.id, function(err, user) {
@@ -71,7 +70,6 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
           user.profile.gender = user.profile.gender || profile._json.gender;
           user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.save(function(err) {
-            req.flash('info', { msg: 'Facebook account has been linked.' });
             done(err, user);
           });
         });
@@ -82,7 +80,6 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
       if (existingUser) return done(null, existingUser);
       User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
         if (existingEmailUser) {
-          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Facebook manually from Account Settings.' });
           done(err);
         } else {
           var user = new User();
@@ -109,7 +106,6 @@ passport.use(new GitHubStrategy(secrets.github, function(req, accessToken, refre
   if (req.user) {
     User.findOne({ github: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors', { msg: 'There is already a GitHub account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
         done(err);
       } else {
         User.findById(req.user.id, function(err, user) {
@@ -120,7 +116,6 @@ passport.use(new GitHubStrategy(secrets.github, function(req, accessToken, refre
           user.profile.location = user.profile.location || profile._json.location;
           user.profile.website = user.profile.website || profile._json.blog;
           user.save(function(err) {
-            req.flash('info', { msg: 'GitHub account has been linked.' });
             done(err, user);
           });
         });
@@ -131,7 +126,6 @@ passport.use(new GitHubStrategy(secrets.github, function(req, accessToken, refre
       if (existingUser) return done(null, existingUser);
       User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
         if (existingEmailUser) {
-          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with GitHub manually from Account Settings.' });
           done(err);
         } else {
           var user = new User();
@@ -157,7 +151,6 @@ passport.use(new TwitterStrategy(secrets.twitter, function(req, accessToken, tok
   if (req.user) {
     User.findOne({ twitter: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors', { msg: 'There is already a Twitter account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
         done(err);
       } else {
         User.findById(req.user.id, function(err, user) {
@@ -167,7 +160,6 @@ passport.use(new TwitterStrategy(secrets.twitter, function(req, accessToken, tok
           user.profile.location = user.profile.location || profile._json.location;
           user.profile.picture = user.profile.picture || profile._json.profile_image_url_https;
           user.save(function(err) {
-            req.flash('info', { msg: 'Twitter account has been linked.' });
             done(err, user);
           });
         });
@@ -201,7 +193,6 @@ passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refre
   if (req.user) {
     User.findOne({ google: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors', { msg: 'There is already a Google account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
         done(err);
       } else {
         User.findById(req.user.id, function(err, user) {
@@ -211,7 +202,6 @@ passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refre
           user.profile.gender = user.profile.gender || profile._json.gender;
           user.profile.picture = user.profile.picture || profile._json.picture;
           user.save(function(err) {
-            req.flash('info', { msg: 'Google account has been linked.' });
             done(err, user);
           });
         });
@@ -222,7 +212,6 @@ passport.use(new GoogleStrategy(secrets.google, function(req, accessToken, refre
       if (existingUser) return done(null, existingUser);
       User.findOne({ email: profile._json.email }, function(err, existingEmailUser) {
         if (existingEmailUser) {
-          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with Google manually from Account Settings.' });
           done(err);
         } else {
           var user = new User();
@@ -248,7 +237,6 @@ passport.use(new LinkedInStrategy(secrets.linkedin, function(req, accessToken, r
   if (req.user) {
     User.findOne({ linkedin: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors', { msg: 'There is already a LinkedIn account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
         done(err);
       } else {
         User.findById(req.user.id, function(err, user) {
@@ -259,7 +247,6 @@ passport.use(new LinkedInStrategy(secrets.linkedin, function(req, accessToken, r
           user.profile.picture = user.profile.picture || profile._json.pictureUrl;
           user.profile.website = user.profile.website || profile._json.publicProfileUrl;
           user.save(function(err) {
-            req.flash('info', { msg: 'LinkedIn account has been linked.' });
             done(err, user);
           });
         });
@@ -270,7 +257,6 @@ passport.use(new LinkedInStrategy(secrets.linkedin, function(req, accessToken, r
       if (existingUser) return done(null, existingUser);
       User.findOne({ email: profile._json.emailAddress }, function(err, existingEmailUser) {
         if (existingEmailUser) {
-          req.flash('errors', { msg: 'There is already an account using this email address. Sign in to that account and link it with LinkedIn manually from Account Settings.' });
           done(err);
         } else {
           var user = new User();

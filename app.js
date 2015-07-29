@@ -14,7 +14,6 @@ var multer  = require('multer');
 
 var _ = require('lodash');
 var MongoStore = require('connect-mongo')(session);
-var flash = require('express-flash');
 var path = require('path');
 var mongoose = require('mongoose');
 var passport = require('passport');
@@ -72,7 +71,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
 app.use(lusca({
   csrf: true,
   xframe: 'SAMEORIGIN',
