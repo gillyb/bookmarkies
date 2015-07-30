@@ -1,4 +1,4 @@
-angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', function($scope, $http) {
+angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', 'BookmarksService', function($scope, $http, BookmarksService) {
 
     $scope.displaySearch = true;
     $scope.displayAdd = false;
@@ -14,11 +14,7 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', f
 
     $scope.newBookmark = { url:'', title:'', tags:'' };
     $scope.addBookmark = function() {
-        $http.put('/bookmark', $scope.newBookmark).success(function(res) {
-
-        }).catch(function(ex) {
-
-        });
+        BookmarksService.add($scope.newBookmark);
     };
 
 }]);

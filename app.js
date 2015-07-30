@@ -25,7 +25,7 @@ var connectAssets = require('connect-assets');
  * Controllers (route handlers).
  */
 var homeController = require('./controllers/home');
-var listController = require('./controllers/list');
+var bookmarksController = require('./controllers/bookmarks');
 
 /**
  * API keys and Passport configuration.
@@ -89,7 +89,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 
 app.use(homeController);
-app.use(listController);
+app.use(bookmarksController);
 
 
 /**

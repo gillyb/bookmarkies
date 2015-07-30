@@ -10,10 +10,9 @@
             <li role="presentation" ng-class="{'active':displaySearch}"><a href="#" ng-click="showSearch()">Search</a></li>
             <li role="presentation" ng-class="{'active':displayAdd}"><a href="#" ng-click="showAdd()">Add</a></li>
         </ul>
-        <div class="search-form" ng-show="displaySearch">
-            <input type="text"/>
-            <button type="button" class="btn btn-primary btn-sm" ng-click="search()">Search</button>
-        </div>
+
+        <bookmarks-search-filter ng-show="displaySearch"></bookmarks-search-filter>
+
         <div class="add-form form-horizontal" ng-show="displayAdd">
             <div class="form-group">
                 <label for="url" class="col-sm-1 control-label">Url </label>
