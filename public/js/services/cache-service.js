@@ -16,7 +16,7 @@ angular.module('bookmarkies').service('CacheService', ['$q', '$window', function
 
     var get = function(key, getterFunc, secondsToLive) {
         var d = $q.defer();
-        var secondsToLive = secondsToLive || 60 * 10; // default to 10min
+        var secondsToLive = secondsToLive || 60 * 60; // default to 60min
 
         var cacheKey = cachePrefix + key;
         var value = $window.sessionStorage.getItem(cacheKey);
@@ -55,6 +55,12 @@ angular.module('bookmarkies').service('CacheService', ['$q', '$window', function
         }
     };
 
+    var update = function(key, updatedValue) {
+        var currentValue = angular.fromJson($window.sessionStorage.getItem(cachePrefix + key));
+        currentValue.value = updatedValue;
+        $window.sessionStorage.setItem(cachePrefix + key, angular.toJson(currentValue));
+    };
+
     var clear = function(key) {
         var cacheKey = cachePrefix + key;
         $window.sessionStorage.removeItem(cacheKey);
@@ -62,6 +68,7 @@ angular.module('bookmarkies').service('CacheService', ['$q', '$window', function
 
     return {
         get: get,
+        update: update,
         clear: clear
     };
 

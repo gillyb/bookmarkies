@@ -1,21 +1,34 @@
-angular.module('bookmarkies').service('BookmarksService', ['$window', '$http', 'CacheService', function($window, $http, CacheService) {
+angular.module('bookmarkies').service('BookmarksService', ['$window', '$http', '$q', 'CacheService', function($window, $http, $q, CacheService) {
 
-    var bookmarks = CacheService.get('bookmarks', function() {
-        return $http.get('/bookmarks');
-    });
+    this.bookmarks = [];
 
     var _get = function() {
-        return bookmarks;
-    };
-
-    var _add = function(bookmark) {
-        $http.put('/bookmark', bookmark).success(function(res) {
-            bookmarks.push(res);
+        return CacheService.get('bookmarks', function() {
+            return $http.get('/bookmarks').then(function(res) {
+                this.bookmarks = res.data;
+                return this.bookmarks;
+            });
         });
     };
 
+    var _add = function(bookmark) {
+        var deferred = $q.defer();
+        $http.put('/bookmark', bookmark).success(function(res) {
+            this.bookmarks.push(res);
+            CacheService.update('bookmarks', this.bookmarks);
+            deferred.resolve(res);
+        });
+        return deferred.promise;
+    };
+
     var _remove = function(bookmarkId) {
-        // TODO: implement
+        var d = $q.defer();
+        return $http.delete('/bookmark/' + bookmarkId).success(function() {
+            _.remove(this.bookmarks, function(b) { return b._id == bookmarkId; });
+            CacheService.update('bookmarks', this.bookmarks);
+            d.resolve();
+        });
+        return d.promise;
     };
 
     return {
