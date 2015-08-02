@@ -1,3 +1,46 @@
 #main-container {
     margin-top:50px;
 }
+
+.navbar-default .logo {
+    width:160px;
+    margin-top:4px;
+}
+
+.search-form {
+    margin-top:8px;
+}
+.add-form {
+    margin-top:8px;
+}
+
+/* bookmarks list */
+.form-area { width:800px; }
+.bookmarks-list { width:800px; }
+.bookmarks-list .title { font-size:18px; font-weight:bold; margin:20px 0 10px 0; }
+
+tags-input .tags { box-shadow:none; }
+.bookmarks-list .bookmark input { width:100%; }
+.bookmarks-list .bookmark.not-editing input { border:0; }
+.bookmarks-list .bookmark.not-editing tags-input { outline:none; }
+.bookmarks-list .bookmark.not-editing tags-input:focus { outline:none; }
+.bookmarks-list .bookmark.not-editing tags-input .host { outline:none; }
+.bookmarks-list .bookmark.not-editing tags-input .tags { border:0; }
+.bookmarks-list .bookmark.not-editing tags-input .tags input { display:none; }
+.bookmarks-list .bookmark.not-editing tags-input .tags ul li a.remove-button { display:none; }
+
+/* right column */
+.right-column { width:320px; }
+
+/* OVERIDES */
+.navbar-default { min-height:0; height:40px; }
+.nav-tabs > li > a { border-radius:0; }
+.nav > li > a { padding:4px 15px; }
+
+.form-control { border-radius:0; height:28px; padding:2px 6px; }
+.form-group { margin-bottom:8px; }
+@media (min-width: 768px) { .form-horizontal .control-label { padding-top:2px; } }
+
+tags-input { height:30px; }
+tags-input .host { margin:0; }
+.tags li.tag-item { height:22px; line-height:22px; }

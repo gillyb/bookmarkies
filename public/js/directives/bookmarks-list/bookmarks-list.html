@@ -1,12 +1,10 @@
-<div class="bookamrks-list">
-    <div class="bookmark" ng-repeat="bookmark in bookmarks">
-        <div class="url" ng-bind-template="{{bookmark.url}}"></div>
-        <div class="tags">
-            <span class="tag" ng-repeat="tag in bookmark.tags">
-                <span class="name">{{tag}}</span>
-                <span class="delete"></span>
-            </span>
-        </div>
-        <span class="delete" ng-click="delete(bookmark._id)">Delete</span>
+<div class="bookmarks-list">
+
+    <div class="title">
+        Your bookmarks
+        <span class="filters"></span>
     </div>
+
+    <bookmark ng-repeat="bookmark in bookmarks" bookmark="bookmark"></bookmark>
+
 </div>

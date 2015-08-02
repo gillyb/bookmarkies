@@ -1,0 +1,12 @@
+<div class="bookmark" ng-class="{'not-editing':!bookmark.editing}">
+    <div class="name">
+        <input type="text" ng-model="bookmark.name" ng-disabled="!bookmark.editing"/>
+    </div>
+    <div class="url">
+        <input type="text" ng-model="bookmark.url" ng-disabled="!bookmark.editing"/>
+    </div>
+    <tags-input ng-model="bookmark.tags"/>
+
+    <span class="edit" ng-click="edit(bookmark._id)">Edit</span> |
+    <span class="delete" ng-click="delete(bookmark._id)">Delete</span>
+</div>
