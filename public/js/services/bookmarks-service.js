@@ -21,6 +21,18 @@ angular.module('bookmarkies').service('BookmarksService', ['$window', '$http', '
         return deferred.promise;
     };
 
+    var _update = function(bookmark) {
+        var d = $q.defer();
+        $http.post('/bookmark/' + bookmark._id, bookmark).success(function(res) {
+            this.bookmarks = _.map(this.bookmarks, function(b) {
+                return (b._id === bookmark._id) ? res : b;
+            });
+            CacheService.update('bookmarks', this.bookmarks);
+            d.resolve();
+        });
+        return d.promise;
+    };
+
     var _remove = function(bookmarkId) {
         var d = $q.defer();
         return $http.delete('/bookmark/' + bookmarkId).success(function() {
@@ -34,6 +46,7 @@ angular.module('bookmarkies').service('BookmarksService', ['$window', '$http', '
     return {
         get: _get,
         add: _add,
+        update: _update,
         remove: _remove
     };
 

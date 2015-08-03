@@ -19,6 +19,9 @@
 .bookmarks-list { width:800px; }
 .bookmarks-list .title { font-size:18px; font-weight:bold; margin:20px 0 10px 0; }
 
+.search-form tags-input { margin-right:72px; }
+.add-form tags-input { margin-right:60px; }
+
 tags-input .tags { box-shadow:none; }
 .bookmarks-list .bookmark input { width:100%; }
 .bookmarks-list .bookmark.not-editing input { border:0; }
@@ -28,6 +31,17 @@ tags-input .tags { box-shadow:none; }
 .bookmarks-list .bookmark.not-editing tags-input .tags { border:0; }
 .bookmarks-list .bookmark.not-editing tags-input .tags input { display:none; }
 .bookmarks-list .bookmark.not-editing tags-input .tags ul li a.remove-button { display:none; }
+
+
+.bookmark { position:relative; padding-left:20px; margin-left:-20px; }
+.bookmark .action { visibility:hidden; position:absolute; left:0px; display:inline-block; width:18px; height:18px; font-size:18px; color:#a8a8a8; cursor:pointer; }
+.bookmark:hover .action { visibility:visible; }
+.bookmark .action:hover { color:#000; }
+.bookmark .action.edit { top:0px; }
+.bookmark .action.save { top:0px }
+.bookmark .action.delete { top:20px; }
+.bookmark .action.cancel { top:40px; }
+
 
 /* right column */
 .right-column { width:320px; }

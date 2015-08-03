@@ -3,6 +3,8 @@ var Bookmark = require('../models/Bookmark');
 var express = require('express');
 var app = module.exports = express();
 
+var _ = require('lodash');
+
 app.get('/bookmarks', function(req, res) {
     if (!req.user)
         return res.status(401).end();
@@ -34,6 +36,32 @@ app.put('/bookmark', function(req, res) {
 
         return res.json(newBookmark);
     })
+});
+
+app.post('/bookmark/:id', function(req, res) {
+    if (!req.user)
+        return res.status(401).end();
+
+    Bookmark.findOne({ _id: req.params.id }).exec(function(err, result) {
+        if (err)
+            return res.status(500).end();
+
+        if (result.userId.id != req.user._id.id)
+            return res.status(401).end();
+
+        // copy properties to update bookmark
+        result.url = req.body.url;
+        result.name = req.body.name;
+        result.notes = req.body.notes;
+        result.tags = _.pluck(req.body.tags, 'text');
+
+        result.save(function(err) {
+            if (err)
+                return res.status(500).end();
+
+            return res.json(result);
+        });
+    });
 });
 
 app.delete('/bookmark/:id', function(req, res) {
