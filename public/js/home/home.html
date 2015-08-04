@@ -1,10 +1,16 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+        <span class="link pull-right" ng-click="logout()">Logout</span>
+
         <img class="logo" src="img/bookmarkies_logo.png"/>
     </div>
 </nav>
 
 <div id="main-container" class="clearfix">
+
+    <div class="right-column pull-right">
+        <tags-list></tags-list>
+    </div>
 
     <div class="form-area">
         <ul class="nav nav-tabs">
@@ -38,9 +44,5 @@
     </div>
 
     <bookmarks-list></bookmarks-list>
-
-    <div class="right-column pull-right">
-
-    </div>
 
 </div>

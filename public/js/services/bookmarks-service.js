@@ -1,28 +1,20 @@
 angular.module('bookmarkies').service('BookmarksService', ['$window', '$http', '$q', 'CacheService', function($window, $http, $q, CacheService) {
 
     this.bookmarks = [];
-    this.tags = [];
-
-    var _getTags = function() {
-        var tags = [];
-        _.forEach(this.bookmarks, function(b) {
-            tags.concat(b.tags);
-        });
-        this.tags = _.compact(tags);
-        return this.tags;
-    };
-    var _addTags = function(tags) {
-        this.tags.concat(tags);
-        this.tags = _.compact(tags);
-    };
+    this.bookmarkPromise = null;
 
     var _get = function() {
-        return CacheService.get('bookmarks', function() {
+        if (this.bookmarkPromise != null)
+            return this.bookmarkPromise;
+
+        this.bookmarkPromise = CacheService.get('bookmarks', function() {
             return $http.get('/bookmarks').then(function(res) {
                 this.bookmarks = res.data;
                 return this.bookmarks;
             });
         });
+
+        return this.bookmarkPromise;
     };
 
     var _add = function(bookmark) {
@@ -62,8 +54,7 @@ angular.module('bookmarkies').service('BookmarksService', ['$window', '$http', '
         get: _get,
         add: _add,
         update: _update,
-        remove: _remove,
-        getTags: _getTags
+        remove: _remove
     };
 
 }]);

@@ -46,6 +46,8 @@ tags-input .tags { box-shadow:none; }
 /* right column */
 .right-column { width:320px; }
 
+.side-section .header { font-size:18px; }
+
 /* OVERIDES */
 .navbar-default { min-height:0; height:40px; }
 .nav-tabs > li > a { border-radius:0; }
