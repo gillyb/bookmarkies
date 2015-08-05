@@ -21,8 +21,10 @@
 
 .search-form tags-input { margin-right:72px; }
 .add-form tags-input { margin-right:60px; }
+.search-form input { border:solid 1px darkgrey; }
+.add-form input { border:solid 1px darkgrey; }
 
-tags-input .tags { box-shadow:none; }
+tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmarks-list .bookmark input { width:100%; }
 .bookmarks-list .bookmark.not-editing input { border:0; }
 .bookmarks-list .bookmark.not-editing tags-input { outline:none; }
@@ -48,8 +50,24 @@ tags-input .tags { box-shadow:none; }
 
 .side-section .header { font-size:18px; }
 
+/* tags */
+.tag-list .tag-item {
+    height:22px;
+    line-height:22px;
+    margin: 2px;
+    padding: 0 5px;
+    display: inline-block;
+    font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 25px;
+    border: 1px solid #acacac;
+    border-radius: 3px;
+    background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+    background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+}
+
 /* OVERIDES */
 .navbar-default { min-height:0; height:40px; }
+.nav-tabs { height:30px; }
 .nav-tabs > li > a { border-radius:0; }
 .nav > li > a { padding:4px 15px; }
 

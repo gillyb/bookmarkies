@@ -6,7 +6,7 @@ angular.module('bookmarkies').directive('tagsList', ['BookmarksService', functio
             BookmarksService.get().then(function(res) {
                 var tags = [];
                 _.forEach(res, function(b) {
-                    tags = tags.concat(_.pluck(b.tags, 'text'));
+                    tags = tags.concat(b.tags);
                 });
                 scope.tags = _.compact(tags);
             });
