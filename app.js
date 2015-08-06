@@ -112,6 +112,11 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', { failureRedi
   res.redirect(req.session.returnTo || '/');
 });
 
+app.get('/logout', function(req, res) {
+  req.session.destroy();
+  req.logout();
+  res.redirect('/');
+});
 
 /**
  * Error Handler.

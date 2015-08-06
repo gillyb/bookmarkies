@@ -1,4 +1,4 @@
-angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', 'BookmarksService', function($scope, $http, BookmarksService) {
+angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '$window', '$cookies', 'BookmarksService', function($scope, $http, $window, $cookies, BookmarksService) {
 
     $scope.displaySearch = true;
     $scope.displayAdd = false;
@@ -19,6 +19,12 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
         BookmarksService.add(toSave).then(function() {
             $scope.newBookmark = { url:'', title:'', tags:'' };
         });
+    };
+
+    $scope.logout = function() {
+        $window.sessionStorage.clear();
+        $window.localStorage.clear();
+        $window.location.href = '/logout';
     };
 
 }]);

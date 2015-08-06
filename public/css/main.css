@@ -6,6 +6,8 @@
     width:160px;
     margin-top:4px;
 }
+.navbar .link { line-height:40px; margin-right:40px; color:#a8a8a8; cursor:pointer; }
+.navbar .link:hover { color:#000; }
 
 .search-form {
     margin-top:8px;

@@ -1,4 +1,4 @@
-angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ui.router', 'ngTagsInput'])
+angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ngCookies', 'ui.router', 'ngTagsInput'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('login', {
