@@ -12,7 +12,7 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
         $scope.displayAdd = true;
     };
 
-    $scope.newBookmark = { url:'', title:'', tags:'' };
+    $scope.newBookmark = { url:'', name:'', tags:'' };
     $scope.addBookmark = function() {
         var toSave = _.clone($scope.newBookmark);
         toSave.tags = _.pluck($scope.newBookmark.tags, 'text');
