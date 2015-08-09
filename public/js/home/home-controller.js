@@ -17,7 +17,7 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
         var toSave = _.clone($scope.newBookmark);
         toSave.tags = _.pluck($scope.newBookmark.tags, 'text');
         BookmarksService.add(toSave).then(function() {
-            $scope.newBookmark = { url:'', title:'', tags:'' };
+            $scope.newBookmark = { url:'', name:'', tags:'' };
         });
     };
 

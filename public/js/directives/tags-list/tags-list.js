@@ -1,15 +1,20 @@
-angular.module('bookmarkies').directive('tagsList', ['BookmarksService', function(BookmarksService) {
+angular.module('bookmarkies').directive('tagsList', ['$rootScope', 'BookmarksService', function($rootScope, BookmarksService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/tags-list/tags-list.html',
         link: function(scope) {
-            BookmarksService.get().then(function(res) {
-                var tags = [];
-                _.forEach(res, function(b) {
-                    tags = tags.concat(b.tags);
+            var loadTags = function() {
+                BookmarksService.get().then(function(res) {
+                    var tags = [];
+                    _.forEach(res, function(b) {
+                        tags = tags.concat(b.tags);
+                    });
+                    scope.tags = _.compact(tags);
                 });
-                scope.tags = _.compact(tags);
-            });
+            };
+            loadTags();
+
+            $rootScope.$on('bookmarks-list:updated', loadTags);
         }
     };
 }]);
