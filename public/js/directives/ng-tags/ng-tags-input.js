@@ -195,6 +195,11 @@ tagsInput.directive('tagsInput', ["$timeout", "$document", "$window", "tagsInput
         controller: ["$scope", "$attrs", "$element", function($scope, $attrs, $element) {
             $scope.events = tiUtil.simplePubSub();
 
+            // GILLY :: When the tags-input directive gets focus, pass the focus to the actual input control
+            $element.on('focus', function() {
+                $element.find('input')[0].focus();
+            });
+
             tagsInputConfig.load('tagsInput', $scope, $attrs, {
                 template: [String, 'ngTagsInput/tag-item.html'],
                 type: [String, 'text', validateType],
