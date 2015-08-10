@@ -7,13 +7,13 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
         if (this.bookmarkPromise != null)
             return this.bookmarkPromise;
 
-        //this.bookmarkPromise = CacheService.get('bookmarks', function() {
+        this.bookmarkPromise = CacheService.get('bookmarks', function() {
             return $http.get('/bookmarks').then(function(res) {
                 this.bookmarkPromise = null;
                 this.bookmarks = res.data;
                 return this.bookmarks;
             });
-        //});
+        });
 
         return this.bookmarkPromise;
     };
@@ -22,7 +22,7 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
         var deferred = $q.defer();
         $http.put('/bookmark', bookmark).success(function(res) {
             this.bookmarks.push(res);
-            //CacheService.update('bookmarks', this.bookmarks);
+            CacheService.update('bookmarks', this.bookmarks);
             $rootScope.$broadcast('bookmarks-list:updated');
             deferred.resolve(res);
         });
@@ -35,7 +35,7 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
             this.bookmarks = _.map(this.bookmarks, function(b) {
                 return (b._id === bookmark._id) ? res : b;
             });
-            //CacheService.update('bookmarks', this.bookmarks);
+            CacheService.update('bookmarks', this.bookmarks);
             $rootScope.$broadcast('bookmarks-list:updated');
             d.resolve();
         });
@@ -46,7 +46,7 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
         var d = $q.defer();
         return $http.delete('/bookmark/' + bookmarkId).success(function() {
             _.remove(this.bookmarks, function(b) { return b._id == bookmarkId; });
-            //CacheService.update('bookmarks', this.bookmarks);
+            CacheService.update('bookmarks', this.bookmarks);
             $rootScope.$broadcast('bookmarks-list:updated');
             d.resolve();
         });

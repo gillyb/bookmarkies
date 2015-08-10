@@ -17,7 +17,7 @@
 }
 
 /* bookmarks list */
-.form-area { width:800px; }
+.main-column { width:800px; display:inline-block; }
 .bookmarks-list { width:800px; }
 .bookmarks-list .title { font-size:18px; font-weight:bold; margin:20px 0 10px 0; }
 
@@ -48,7 +48,7 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 
 
 /* right column */
-.right-column { width:320px; }
+.right-column { width:320px; display:inline-block; }
 
 .side-section .header { font-size:18px; }
 

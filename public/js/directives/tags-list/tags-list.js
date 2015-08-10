@@ -9,7 +9,7 @@ angular.module('bookmarkies').directive('tagsList', ['$rootScope', 'BookmarksSer
                     _.forEach(res, function(b) {
                         tags = tags.concat(b.tags);
                     });
-                    scope.tags = _.compact(tags);
+                    scope.tags = _.union(_.compact(tags));
                 });
             };
             loadTags();
