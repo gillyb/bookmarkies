@@ -3,6 +3,8 @@ angular.module('bookmarkies').directive('bookmarksSearchFilter', ['$rootScope', 
         restrict: 'E',
         templateUrl: 'js/directives/search-filter/search-filter.html',
         link: function(scope) {
+            scope.tagFilters = [];
+
             scope.addTag = function(tag) {
                 SearchFilterService.addFilter(tag);
             };
