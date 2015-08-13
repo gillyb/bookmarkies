@@ -1,3 +1,6 @@
+html { font-family:'Lucida Grande', 'Open Sans', 'Arial'; }
+html * { font-family:inherit; }
+
 #main-container {
     margin-top:50px;
 }
@@ -37,7 +40,7 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmarks-list .bookmark.not-editing tags-input .tags ul li a.remove-button { display:none; }
 
 
-.bookmark { position:relative; padding-left:20px; margin-left:-20px; }
+.bookmark { position:relative; padding-left:20px; margin-left:-20px; border-bottom:solid 1px #e0e0e0; padding-bottom:8px; margin-bottom:8px; }
 .bookmark .action { visibility:hidden; position:absolute; left:0px; display:inline-block; width:18px; height:18px; font-size:18px; color:#a8a8a8; cursor:pointer; }
 .bookmark:hover .action { visibility:visible; }
 .bookmark .action:hover { color:#000; }
@@ -45,6 +48,8 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmark .action.save { top:0px }
 .bookmark .action.delete { top:20px; }
 .bookmark .action.cancel { top:40px; }
+.bookmark .name { color:#0c65a5; font-size:16px; }
+.bookmark .url { font-size:12px; margin-top:-2px; margin-bottom:0; }
 
 
 /* right column */
@@ -53,18 +58,26 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .side-section .header { font-size:18px; }
 
 /* tags */
-.tag-list .tag-item {
+tags-input .tag-list .tag-item, .tag-list .tag-item {
     height:22px;
     line-height:22px;
     margin: 2px;
     padding: 0 5px;
     display: inline-block;
-    font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background:#e4edf4;
+    border-radius:0;
+    border:0;
+    color:#3e6d8e;
+    cursor:pointer;
+    /*font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
     line-height: 25px;
     border: 1px solid #acacac;
     border-radius: 3px;
     background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
-    background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
+    background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);*/
+}
+.tag-list .tag-item:hover {
+    background-color:#dae6ef;
 }
 
 /* OVERIDES */
