@@ -1,63 +1,55 @@
-angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http', '$q', 'CacheService', function($rootScope, $http, $q, CacheService) {
+angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http', '$q', function($rootScope, $http, $q) {
 
-    this.bookmarks = [];
-    this.bookmarkPromise = null;
+    this.bookmarks = null;
 
-    var _get = function() {
-        if (this.bookmarkPromise != null)
-            return this.bookmarkPromise;
+    this.get = function() {
+        var d = $q.defer();
 
-        this.bookmarkPromise = CacheService.get('bookmarks', function() {
-            return $http.get('/bookmarks').then(function(res) {
-                this.bookmarkPromise = null;
-                this.bookmarks = res.data;
-                return this.bookmarks;
-            });
+        $http.get('/bookmarks').then(function(res) {
+            d.resolve(res.data);
         });
 
-        return this.bookmarkPromise;
+        return d.promise;
     };
 
-    var _add = function(bookmark) {
+    this.add = function(bookmark) {
         var deferred = $q.defer();
+        var self = this;
         $http.put('/bookmark', bookmark).success(function(res) {
-            this.bookmarks.push(res);
-            CacheService.update('bookmarks', this.bookmarks);
-            $rootScope.$broadcast('bookmarks-list:updated');
-            deferred.resolve(res);
+            self.get().then(function(bookmarks) {
+                $rootScope.$emit('bookmarks-list:updated');
+                deferred.resolve(res);
+            });
         });
         return deferred.promise;
     };
 
-    var _update = function(bookmark) {
+    this.update = function(bookmark) {
         var d = $q.defer();
+        var self = this;
         $http.post('/bookmark/' + bookmark._id, bookmark).success(function(res) {
-            this.bookmarks = _.map(this.bookmarks, function(b) {
-                return (b._id === bookmark._id) ? res : b;
+            self.get().then(function(bookmarks) {
+                bookmarks = _.map(bookmarks, function(b) {
+                    return (b._id === bookmark._id) ? res : b;
+                });
+                $rootScope.$emit('bookmarks-list:updated');
+                d.resolve();
             });
-            CacheService.update('bookmarks', this.bookmarks);
-            $rootScope.$broadcast('bookmarks-list:updated');
-            d.resolve();
         });
         return d.promise;
     };
 
-    var _remove = function(bookmarkId) {
+    this.remove = function(bookmarkId) {
         var d = $q.defer();
+        var self = this;
         return $http.delete('/bookmark/' + bookmarkId).success(function() {
-            _.remove(this.bookmarks, function(b) { return b._id == bookmarkId; });
-            CacheService.update('bookmarks', this.bookmarks);
-            $rootScope.$broadcast('bookmarks-list:updated');
-            d.resolve();
+            self.get().then(function(bookmarks) {
+                _.remove(bookmarks, function(b) { return b._id == bookmarkId; });
+                $rootScope.$emit('bookmarks-list:updated');
+                d.resolve();
+            });
         });
         return d.promise;
-    };
-
-    return {
-        get: _get,
-        add: _add,
-        update: _update,
-        remove: _remove
     };
 
 }]);

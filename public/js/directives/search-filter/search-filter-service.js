@@ -1,27 +1,19 @@
-angular.module('bookmarkies').service('SearchFilterService', [function() {
+angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', function($rootScope) {
 
-    var filters = [];
+    this.filters = [];
 
-    var _getFilters = function() {
-        return filters;
-    };
-
-    var _addFilter = function(tag) {
-        if (filters.indexOf(tag) >= 0)
+    this.addFilter = function(tag) {
+        if (this.filters.indexOf(tag.text) >= 0)
             return;
-        filters.push(tag);
+        this.filters.push(tag.text);
+        $rootScope.$emit('search-filter.add-tag', this.filters);
     };
 
-    var _removeFilter = function(tag) {
-        if (filters.indexOf(tag) < 0)
+    this.removeFilter = function(tag) {
+        if (this.filters.indexOf(tag.text) < 0)
             return;
-        filters = _.filter(filters, function(t) { return t != tag; });
-    };
-
-    return {
-        getFilters: _getFilters,
-        addFilter: _addFilter,
-        removeFilter: _removeFilter
+        this.filters = _.filter(this.filters, function(t) { return t != tag.text; });
+        $rootScope.$emit('search-filter.remove-tag', this.filters);
     };
 
 }]);

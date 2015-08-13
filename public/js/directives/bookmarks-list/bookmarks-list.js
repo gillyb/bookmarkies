@@ -1,38 +1,31 @@
-angular.module('bookmarkies').directive('bookmarksList', ['BookmarksService', 'SearchFilterService', function(BookmarksService, SearchFilterService) {
+angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'BookmarksService', 'SearchFilterService', function($rootScope, BookmarksService, SearchFilterService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmarks-list/bookmarks-list.html',
         link: function($scope) {
             $scope.bookmarks = [];
-            $scope.allBookmarks = [];
 
             var loadBookmarks = function() {
                 BookmarksService.get().then(function(res) {
                     $scope.bookmarks = _.clone(res);
-                    $scope.allBookmarks = _.clone(res);
                 });
-
-                var filters = SearchFilterService.getFilters();
-                //$scope.bookmarks = _.filter($scope.bookmarks, function(b) {
-                //    return _.pluck(b.tags, 'text').indexOf(data.text) >= 0;
-                //});
             };
 
             loadBookmarks();
 
-            $scope.$on('bookmarks-list:updated', loadBookmarks);
+            $rootScope.$on('bookmarks-list:updated', loadBookmarks);
 
-            $scope.$on('search-filter.add-tag', function(event, data) {
-                $scope.bookmarks = _.filter($scope.bookmarks, function(b) {
-                    return _.pluck(b.tags, 'text').indexOf(data.text) >= 0;
+            var filterBookmarksList = function(filters) {
+                _.forEach($scope.bookmarks, function(b) {
+                    b.filteredOut = _.intersection(_.pluck(b.tags, 'text'), filters).length != filters.length;
                 });
+            };
+
+            $rootScope.$on('search-filter.add-tag', function(event, data) {
+                filterBookmarksList(data);
             });
-            $scope.$on('search-filter.remove-tag', function(event, data) {
-                $scope.bookmarks = $scope.bookmarks.concat(
-                    _.filter($scope.allBookmarks, function(b) {
-                        return _.pluck(b.tags, 'text').indexOf(data.text) < 0;
-                    })
-                );
+            $rootScope.$on('search-filter.remove-tag', function(event, data) {
+                filterBookmarksList(data);
             });
 
             $scope.delete = BookmarksService.remove;
