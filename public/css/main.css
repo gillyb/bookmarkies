@@ -27,6 +27,7 @@ html * { font-family:inherit; }
 .search-form tags-input { margin-right:72px; }
 .add-form tags-input { margin-right:60px; }
 .search-form input { border:solid 1px darkgrey; }
+.add-form label { font-weight:normal; }
 .add-form input { border:solid 1px darkgrey; }
 
 tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
@@ -48,7 +49,10 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmark .action.save { top:0px }
 .bookmark .action.delete { top:20px; }
 .bookmark .action.cancel { top:40px; }
-.bookmark .name { color:#0c65a5; font-size:16px; }
+.bookmark .name { color:#0c65a5; font-size:16px; cursor:pointer; }
+.bookmark .name:hover { color:#30a7fc; }
+.bookmark .name i { color: #e4edf4; font-size:14px; }
+.bookmark .name i:hover { color:#30a7fc; }
 .bookmark .url { font-size:12px; margin-top:-2px; margin-bottom:0; }
 
 
@@ -69,12 +73,6 @@ tags-input .tag-list .tag-item, .tag-list .tag-item {
     border:0;
     color:#3e6d8e;
     cursor:pointer;
-    /*font: 14px "Helvetica Neue", Helvetica, Arial, sans-serif;
-    line-height: 25px;
-    border: 1px solid #acacac;
-    border-radius: 3px;
-    background: -webkit-linear-gradient(top, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);
-    background: linear-gradient(to bottom, #f0f9ff 0%, #cbebff 47%, #a1dbff 100%);*/
 }
 .tag-list .tag-item:hover {
     background-color:#dae6ef;

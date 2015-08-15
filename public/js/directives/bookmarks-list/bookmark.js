@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('bookmark', ['BookmarksService', function(BookmarksService) {
+angular.module('bookmarkies').directive('bookmark', ['$window', 'BookmarksService', function($window, BookmarksService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmarks-list/bookmark.html',
@@ -22,6 +22,18 @@ angular.module('bookmarkies').directive('bookmark', ['BookmarksService', functio
             };
             scope.delete = function() {
                 BookmarksService.remove(scope.bookmark._id);
+            };
+
+            var _normalizeUrl = function(url) {
+                if (url.indexOf('http://') != 0 && url.indexOf('https://') != 0)
+                    return 'http://' + url;
+            };
+
+            scope.goTo = function(url) {
+                $window.location.href = _normalizeUrl(url);
+            };
+            scope.externalGoTo = function(url) {
+                $window.open(_normalizeUrl(url));
             };
         }
     };

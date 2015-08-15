@@ -1,6 +1,8 @@
 <div class="bookmark" ng-class="{'not-editing':!bookmark.editing, 'ng-hide':bookmark.filteredOut}">
     <div class="name">
-        <input type="text" ng-model="bookmark.name" ng-disabled="!bookmark.editing"/>
+        <span ng-show="!bookmark.editing" ng-bind-template="{{bookmark.name}}" ng-click="goTo(bookmark.url)"></span>
+        <i class="fa fa-external-link-square" ng-click="externalGoTo(bookmark.url)"></i>
+        <input type="text" ng-show="bookmark.editing" ng-model="bookmark.name" ng-disabled="!bookmark.editing"/>
     </div>
     <div class="url">
         <input type="text" ng-model="bookmark.url" ng-disabled="!bookmark.editing"/>
