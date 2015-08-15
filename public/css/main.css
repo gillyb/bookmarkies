@@ -42,8 +42,20 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 
 
 .bookmark { position:relative; padding-left:20px; margin-left:-20px; border-bottom:solid 1px #e0e0e0; padding-bottom:8px; margin-bottom:8px; }
-.bookmark .action { visibility:hidden; position:absolute; left:0px; display:inline-block; width:18px; height:18px; font-size:18px; color:#a8a8a8; cursor:pointer; }
-.bookmark:hover .action { visibility:visible; }
+.bookmark .action {
+    position:absolute;
+    left:0px;
+    display:inline-block;
+    width:18px; height:18px;
+    font-size:18px;
+    color:#e8e8e8;
+    cursor:pointer;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+    -o-transition: all 0.5s linear;
+    transition: all 0.5s linear;
+}
+.bookmark:hover .action { color:#a8a8a8; }
 .bookmark .action:hover { color:#000; }
 .bookmark .action.edit { top:0px; }
 .bookmark .action.save { top:0px }
