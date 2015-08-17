@@ -1,4 +1,4 @@
-angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', function($rootScope) {
+angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', 'ngDialog', function($rootScope, ngDialog) {
 
     this.filters = [];
 
@@ -14,6 +14,22 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', func
             return;
         this.filters = _.filter(this.filters, function(t) { return t != tag.text; });
         $rootScope.$emit('search-filter.remove-tag', this.filters);
+    };
+
+    this.saveSearch = function() {
+        ngDialog.open({
+            template: 'js/directives/search-filter/save-search.html',
+            controller: ['$scope', '$http', function($scope, $http) {
+                $scope.save = function() {
+                    // todo: disable button while saving
+                    $http.post('/search/save', {}).then(function() {
+                        // todo: enable button
+                    });
+                };
+            }],
+            showClose: false,
+            closeByEscape: true
+        });
     };
 
 }]);

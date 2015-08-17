@@ -5,6 +5,15 @@ html * { font-family:inherit; }
     margin-top:50px;
 }
 
+.small-link {
+    font-size:13px;
+    text-decoration:underline;
+    color: #0000ed;
+    font-style:italic;
+    cursor:pointer;
+}
+.small-link:hover { text-decoration:none; }
+
 .navbar-default .logo {
     width:160px;
     margin-top:4px;
@@ -22,7 +31,8 @@ html * { font-family:inherit; }
 /* bookmarks list */
 .main-column { width:800px; display:inline-block; }
 .bookmarks-list { width:800px; }
-.bookmarks-list .title { font-size:18px; font-weight:bold; margin:20px 0 10px 0; }
+.bookmarks-list .title { font-size:18px; font-weight:bold; margin-top:20px; }
+.bookmarks-list .list { margin-top:14px; }
 
 .search-form tags-input { margin-right:72px; }
 .add-form tags-input { margin-right:60px; }
@@ -74,7 +84,7 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .side-section .header { font-size:18px; }
 
 /* tags */
-tags-input .tag-list .tag-item, .tag-list .tag-item {
+tags-input .tag-list .tag-item, .tag-item {
     height:22px;
     line-height:22px;
     margin: 2px;

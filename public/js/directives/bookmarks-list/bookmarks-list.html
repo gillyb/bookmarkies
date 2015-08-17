@@ -2,9 +2,18 @@
 
     <div class="title">
         Your bookmarks
-        <span class="filters"></span>
+    </div>
+    <div class="filters" ng-show="filters.length">
+        Filtered by :
+            <span ng-repeat="filter in filters">
+                <span class="tag-item" ng-bind-template="{{filter}}"></span>
+                <span ng-if="!$last">, </span>
+            </span>
+        <span class="save-filter small-link" ng-click="saveSearch()">Save this search</span>
     </div>
 
-    <bookmark ng-repeat="bookmark in bookmarks" bookmark="bookmark"></bookmark>
+    <div class="list">
+        <bookmark ng-repeat="bookmark in bookmarks" bookmark="bookmark"></bookmark>
+    </div>
 
 </div>

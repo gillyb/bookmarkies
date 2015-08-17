@@ -1,9 +1,10 @@
-angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'BookmarksService', 'SearchFilterService', function($rootScope, BookmarksService, SearchFilterService) {
+angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'BookmarksService', function($rootScope, BookmarksService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmarks-list/bookmarks-list.html',
         link: function($scope) {
             $scope.bookmarks = [];
+            $scope.filters = [];
 
             var loadBookmarks = function() {
                 BookmarksService.get().then(function(res) {
@@ -22,13 +23,21 @@ angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'Bookmar
             };
 
             $rootScope.$on('search-filter.add-tag', function(event, data) {
+                $scope.filters = data;
                 filterBookmarksList(data);
             });
             $rootScope.$on('search-filter.remove-tag', function(event, data) {
+                $scope.filters = data;
                 filterBookmarksList(data);
             });
 
             $scope.delete = BookmarksService.remove;
+
+            $scope.saveSearch = function() {
+                ngDialog.open({
+
+                })
+            };
         }
     };
 }]);
