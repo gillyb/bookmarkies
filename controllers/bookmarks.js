@@ -35,7 +35,7 @@ app.put('/bookmark', function(req, res) {
             return res.status(500).end();
 
         return res.json(newBookmark);
-    })
+    });
 });
 
 app.post('/bookmark/:id', function(req, res) {

@@ -24,11 +24,15 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', 'ngD
                 $scope.save = function() {
                     if ($scope.savingSearch) return;
                     $scope.savingSearch = true;
-                    $http.post('/search/save', { filters: this.filters }).then(function() {
+                    $http.post('/search/save', {
+                        name: $scope.searchName,
+                        filters: this.filters
+                    }).then(function() {
                         // todo: show saved search in right side column
                         $scope.closeThisDialog();
                     }).catch(function() {
-                        // todo: display error message
+                        // todo: create a nicer error message
+                        alert('There was an error saving this search.');
                     }).finally(function() {
                         $scope.savingSearch = false;
                     });
