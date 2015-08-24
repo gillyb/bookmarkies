@@ -97,16 +97,20 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmark .action.save { top:0px }
 .bookmark .action.delete { top:20px; }
 .bookmark .action.cancel { top:40px; }
-.bookmark .name { color:#0c65a5; font-size:16px; cursor:pointer; }
-.bookmark .name:hover { color:#30a7fc; }
+.blue-link, .bookmark .name { color:#0c65a5; font-size:16px; cursor:pointer; }
+.blue-link:hover, .bookmark .name:hover { color:#30a7fc; }
 .bookmark .name i { color: #e4edf4; font-size:14px; }
 .bookmark .name i:hover { color:#30a7fc; }
 .bookmark .url { font-size:12px; margin-top:-2px; margin-bottom:0; }
 
 
+.saved-search .delete { color:#a8a8a8; cursor:pointer; }
+.saved-search .delete:hover { color:#444; }
+.saved-searches-list .empty-list { font-size:13px; color:#a8a8a8; font-style:italic; }
+
 /* right column */
 .right-column { width:320px; display:inline-block; }
-
+.side-section { margin-bottom:20px; }
 .side-section .header { font-size:18px; }
 
 /* tags */

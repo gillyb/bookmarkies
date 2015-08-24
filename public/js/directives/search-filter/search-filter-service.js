@@ -1,4 +1,4 @@
-angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', 'ngDialog', function($rootScope, ngDialog) {
+angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', '$q', '$http', 'ngDialog', function($rootScope, $q, $http, ngDialog) {
 
     this.filters = [];
 
@@ -16,10 +16,18 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', 'ngD
         $rootScope.$emit('search-filter.remove-tag', this.filters);
     };
 
+    this.getSavedSearches = function() {
+        var d = $q.defer();
+        $http.get('/search/all').then(function(res) {
+            d.resolve(res.data);
+        });
+        return d.promise;
+    };
+
     this.saveSearch = function() {
         ngDialog.open({
             template: 'js/directives/search-filter/save-search-dialog.html',
-            controller: ['$scope', '$http', 'SearchFilterService', function($scope, $http, SearchFilterService) {
+            controller: ['$rootScope', '$scope', '$http', 'SearchFilterService', function($rootScope, $scope, $http, SearchFilterService) {
                 $scope.filters = SearchFilterService.filters;
                 $scope.save = function() {
                     if ($scope.savingSearch) return;
@@ -28,7 +36,7 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', 'ngD
                         name: $scope.searchName,
                         filters: this.filters
                     }).then(function() {
-                        // todo: show saved search in right side column
+                        $rootScope.$emit('saved-searches:updated');
                         $scope.closeThisDialog();
                     }).catch(function() {
                         // todo: create a nicer error message

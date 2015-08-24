@@ -1,0 +1,17 @@
+<div class="side-section">
+    <div class="header">Saved Searches</div>
+    <div class="saved-searches-list">
+
+        <div class="empty-list" ng-show="!savedSearches || !savedSearches.length">
+            Nothing here yet...
+        </div>
+
+        <div class="saved-search" ng-repeat="search in savedSearches">
+            <span class="name blue-link" ng-bind-template="{{search.name}}"></span>
+            <span class="delete" ng-click="deleteSearch(search._id)">
+                <i class="fa fa-close"></i>
+            </span>
+        </div>
+
+    </div>
+</div>
