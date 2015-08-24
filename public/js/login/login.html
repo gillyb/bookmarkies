@@ -5,17 +5,25 @@
 </nav>
 
 <div class="main-container">
-    <div class="jumbotron">
-        <h1>Welcome to bookmarki.es</h1>
+    <div class="wrapper">
+        <h1 style="margin-top:100px;">Welcome to bookmarki.es</h1>
         <p>
-            This is the easiest bookmark manager on the planet.
+            This is a simple, tag based, private, bookmarking site.<br/>
+            We don't store any personal information for malicious use (spam), and don't run algorithms to give you personalized recommendations.<br/>
+            Basically, we don't bug you, spam you with emails or overload you with excessive features.<br/>
+            We're just letting you do your own thing, on your own terms.<br/>
+            <br/>
+            Have fun :)
         </p>
-        <p>
-            Please choose a provider to login :<br/>
-            <a href="auth/google">Google</a><br/>
-            <a href="auth/facebook">Facebook</a><br/>
-            <a href="auth/twitter">Twitter</a><br/>
-            <a href="auth/github">Github</a>
+        <p style="margin-top:30px;">
+            Choose a provider to login :
+            <div>
+                <a href="auth/google" class="login-provider google" style="background-image:url('img/logos/google_icon.png'); display:inline-block; width:60px; height:60px; background-size:contain; background-position:-4px -4px;"></a>
+                <a class="ng-hide" href="auth/facebook">Facebook</a>
+                <a class="ng-hide" href="auth/twitter">Twitter</a>
+                <a class="ng-hide" href="auth/github">Github</a>
+            </div>
+            <span class="more" style="color:#a8a8a8; font-style:italic; font-size:13px;">(More providers will be available soon)</span>
         </p>
     </div>
 </div>

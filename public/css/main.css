@@ -1,7 +1,7 @@
 html { font-family:'Lucida Grande', 'Open Sans', 'Arial'; }
 html * { font-family:inherit; }
 
-#main-container {
+.main-container {
     margin-top:50px;
 }
 
