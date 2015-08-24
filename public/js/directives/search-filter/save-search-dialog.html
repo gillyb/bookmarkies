@@ -1,0 +1,22 @@
+<div class="dialog-content save-search-dialog">
+    <div class="header">
+        <span class="title">Save this search</span>
+    </div>
+    <div class="content">
+
+        <div class="tags-list">
+            <span class="tag-item" ng-repeat="filter in filters" ng-bind-template="{{filter}}"></span>
+        </div>
+
+        <div class="text">Enter a name for this search :</div>
+        <div class="input">
+            <input type="text" style="width:100%;" ng-model="searchName"/>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="actions clearfix">
+            <span class="button primary pull-right">Save</span>
+            <span class="button link pull-right" ng-click="closeThisDialog()">Cancel</span>
+        </div>
+    </div>
+</div>

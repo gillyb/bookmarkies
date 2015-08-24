@@ -18,12 +18,19 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', 'ngD
 
     this.saveSearch = function() {
         ngDialog.open({
-            template: 'js/directives/search-filter/save-search.html',
-            controller: ['$scope', '$http', function($scope, $http) {
+            template: 'js/directives/search-filter/save-search-dialog.html',
+            controller: ['$scope', '$http', 'SearchFilterService', function($scope, $http, SearchFilterService) {
+                $scope.filters = SearchFilterService.filters;
                 $scope.save = function() {
-                    // todo: disable button while saving
-                    $http.post('/search/save', {}).then(function() {
-                        // todo: enable button
+                    if ($scope.savingSearch) return;
+                    $scope.savingSearch = true;
+                    $http.post('/search/save', { filters: this.filters }).then(function() {
+                        // todo: show saved search in right side column
+                        $scope.closeThisDialog();
+                    }).catch(function() {
+                        // todo: display error message
+                    }).finally(function() {
+                        $scope.savingSearch = false;
                     });
                 };
             }],

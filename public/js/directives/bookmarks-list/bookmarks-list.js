@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'BookmarksService', function($rootScope, BookmarksService) {
+angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'BookmarksService', 'SearchFilterService', function($rootScope, BookmarksService, SearchFilterService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmarks-list/bookmarks-list.html',
@@ -34,9 +34,7 @@ angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'Bookmar
             $scope.delete = BookmarksService.remove;
 
             $scope.saveSearch = function() {
-                ngDialog.open({
-
-                })
+                SearchFilterService.saveSearch();
             };
         }
     };
