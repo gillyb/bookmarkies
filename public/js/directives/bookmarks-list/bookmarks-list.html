@@ -16,4 +16,9 @@
         <bookmark ng-repeat="bookmark in bookmarks" bookmark="bookmark"></bookmark>
     </div>
 
+    <div class="empty-list" ng-show="bookmarks.length == 0">
+        Please add some bookmarks so we can be friends.<br/>
+        Pretty please with a cherry on top!
+    </div>
+
 </div>
