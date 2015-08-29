@@ -9,6 +9,10 @@ angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ngCookies', 'ui.router'
                 url: '/',
                 templateUrl: 'js/home/home.html',
                 controller: 'HomeController'
+            }).state('user-settings', {
+                url: '/user-settings',
+                templateUrl: 'js/user/settings.html',
+                controller: 'UserSettingsController'
             });
 
         $urlRouterProvider.otherwise(function() {

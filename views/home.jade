@@ -33,6 +33,7 @@ html(ng-app='bookmarkies')
         script(src='js/services/cache-service.js')
         script(src='js/services/bookmarks-service.js')
         script(src='js/directives/search-filter/search-filter-service.js')
+        script(src='js/services/user-service.js')
 
         // directives
         script(src='js/directives/ng-tags/ng-tags-input.js')
@@ -41,10 +42,12 @@ html(ng-app='bookmarkies')
         script(src='js/directives/search-filter/search-filter.js')
         script(src='js/directives/tags-list/tags-list.js')
         script(src='js/directives/saved-searches/saved-searches.js')
+        script(src='js/directives/user-presence/user-presence.js')
 
         // controllers
         script(src='js/login/login-controller.js')
         script(src='js/home/home-controller.js')
+        script(src='js/home/user-settings-controller.js')
 
         body
           .container(ui-view)
