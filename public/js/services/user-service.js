@@ -7,6 +7,10 @@ angular.module('bookmarkies').service('UserService', ['$q', '$http', function($q
             d.resolve(user);
         });
         return d.promise;
-    }
+    };
+
+    this.closeAccount = function() {
+        return $http.get('/close-account');
+    };
 
 }]);

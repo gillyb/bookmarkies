@@ -20,7 +20,6 @@ var passport = require('passport');
 var expressValidator = require('express-validator');
 var connectAssets = require('connect-assets');
 
-
 /**
  * Controllers (route handlers).
  */

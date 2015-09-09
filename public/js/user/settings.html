@@ -17,6 +17,26 @@
     <div class="main-column">
 
         <!-- USER SETTINGS FORM STARTS HERE -->
+        <h1>User Settings</h1>
+
+        <div class="form-row">
+            <span class="label">Name</span>
+            <span class="value">{{user.profile.name}}</span>
+        </div>
+        <div class="form-row">
+            <span class="label">Email</span>
+            <span class="value">{{user.email}}</span>
+        </div>
+
+        <div class="form-row">
+            <span class="btn btn-default" ng-click="logout()">Logout</span>
+        </div>
+
+        <h2>Danger Zone</h2>
+
+        <div class="form-row">
+            <span class="btn btn-danger warn" ng-click="closeAccount()">Close Account</span>
+        </div>
 
     </div>
 
