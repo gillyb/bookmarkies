@@ -27,13 +27,14 @@ angular.module('bookmarkies').directive('bookmark', ['$window', 'BookmarksServic
             var _normalizeUrl = function(url) {
                 if (url.indexOf('http://') != 0 && url.indexOf('https://') != 0)
                     return 'http://' + url;
+                return url;
             };
 
             scope.goTo = function(url) {
-                $window.location.href = _normalizeUrl(url);
+                window.location.href = _normalizeUrl(url);
             };
             scope.externalGoTo = function(url) {
-                $window.open(_normalizeUrl(url));
+                window.open(_normalizeUrl(url));
             };
         }
     };

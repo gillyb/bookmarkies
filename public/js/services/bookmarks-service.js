@@ -52,4 +52,8 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
         return d.promise;
     };
 
+    this.getTags = function() {
+
+    };
+
 }]);

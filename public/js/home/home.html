@@ -40,7 +40,9 @@
                     <label class="col-sm-1 control-label">Tags </label>
                     <div class="col-sm-10">
                         <button type="button" tabindex="4" class="pull-right btn btn-primary btn-sm" ng-click="addBookmark()">Save</button>
-                        <tags-input tabindex="3" ng-model="newBookmark.tags"></tags-input>
+                        <tags-input tabindex="3" min-length="2" ng-model="newBookmark.tags">
+                            <auto-complete source="loadAutoCompleteSuggestions($query)" min-length="2" highlight-matched-text="true"></auto-complete>
+                        </tags-input>
                     </div>
                 </div>
             </div>

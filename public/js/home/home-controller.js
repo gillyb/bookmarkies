@@ -31,4 +31,8 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
         $location.go('/');
     };
 
+    $scope.loadAutoCompleteSuggestions = function(query) {
+
+    };
+
 }]);
