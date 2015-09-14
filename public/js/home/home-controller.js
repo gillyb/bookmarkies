@@ -32,7 +32,7 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
     };
 
     $scope.loadAutoCompleteSuggestions = function(query) {
-
+        return BookmarksService.getTags();
     };
 
 }]);

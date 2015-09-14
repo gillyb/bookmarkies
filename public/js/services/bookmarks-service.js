@@ -1,11 +1,22 @@
-angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http', '$q', function($rootScope, $http, $q) {
+angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http', '$q', '$timeout', function($rootScope, $http, $q, $timeout) {
 
     this.bookmarks = null;
 
     this.get = function() {
         var d = $q.defer();
 
+        if (this.bookmarks) {
+            d.resolve(this.bookmarks);
+            return;
+        }
+
         $http.get('/bookmarks').then(function(res) {
+            this.bookmarks = res.data;
+
+            $timeout(function() {
+                this.bookmarks = null;
+            }, 1000 * 60 * 4);  // cache for 4 minutes
+
             d.resolve(res.data);
         });
 
@@ -53,7 +64,16 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
     };
 
     this.getTags = function() {
-
+        var d = $q.defer();
+        var tags = [];
+        this.get().then(function(bookmarks) {
+            _.forEach(bookmarks, function(b) {
+                tags = tags.concat(b.tags);
+            });
+            tags = _.unique(tags);
+            d.resolve(tags);
+        });
+        return d.promise;
     };
 
 }]);
