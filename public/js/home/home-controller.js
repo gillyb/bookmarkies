@@ -1,7 +1,7 @@
 angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '$window', '$cookies', '$location', 'BookmarksService', function($scope, $http, $window, $cookies, $location, BookmarksService) {
 
-    $scope.displaySearch = true;
-    $scope.displayAdd = false;
+    $scope.displaySearch = false;
+    $scope.displayAdd = true;
 
     $scope.showSearch = function() {
         $scope.displayAdd = false;
