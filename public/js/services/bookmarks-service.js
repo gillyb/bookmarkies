@@ -76,4 +76,25 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
         return d.promise;
     };
 
+    var cache = _.memoize(function(pattern) {
+        return new RegExp(pattern.split("").reduce(function(a,b){
+            return a+'[^'+b+']*'+b;
+        }));
+    });
+    var testStringFuzziness = function(str, pattern) {
+        return cache(pattern).test(str);
+    };
+
+    this.searchTags = function(query) {
+        var d = $q.defer();
+
+        this.getTags().then(function(tagsList) {
+            d.resolve(_.filter(tagsList, function(tag) {
+                return testStringFuzziness(tag, query);
+            }));
+        });
+
+        return d.promise;
+    };
+
 }]);

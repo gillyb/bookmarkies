@@ -1,4 +1,6 @@
 <div class="search-form">
     <button type="button" class="pull-right btn btn-primary btn-sm" ng-click="search()">Search</button>
-    <tags-input on-tag-added="addTag($tag)" on-tag-removed="removeTag($tag)" ng-model="tagFilters"></tags-input>
+    <tags-input placeholder="Search for tags (hit enter to separate)" on-tag-added="addTag($tag)" on-tag-removed="removeTag($tag)" ng-model="tagFilters">
+        <auto-complete source="loadAutoCompleteSuggestions($query)" min-length="2" highlight-matched-text="true"></auto-complete>
+    </tags-input>
 </div>
