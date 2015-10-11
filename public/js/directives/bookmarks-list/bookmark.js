@@ -21,6 +21,8 @@ angular.module('bookmarkies').directive('bookmark', ['$window', 'BookmarksServic
                 });
             };
             scope.delete = function() {
+                if (!confirm('Are you sure you want to delete this bookmark ?'))
+                    return;
                 BookmarksService.remove(scope.bookmark._id);
             };
 
