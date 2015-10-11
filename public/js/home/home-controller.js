@@ -28,7 +28,7 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
     };
 
     $scope.goHome = function() {
-        $location.go('/');
+        $location.path('/');
     };
 
     $scope.loadAutoCompleteSuggestions = function(query) {

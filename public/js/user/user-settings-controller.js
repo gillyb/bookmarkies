@@ -1,4 +1,4 @@
-angular.module('bookmarkies').controller('UserSettingsController', ['$scope', 'UserService', function($scope, UserService) {
+angular.module('bookmarkies').controller('UserSettingsController', ['$scope', '$location', 'UserService', function($scope, $location, UserService) {
 
     UserService.getUser().then(function(user) {
         $scope.user = user;
@@ -14,6 +14,10 @@ angular.module('bookmarkies').controller('UserSettingsController', ['$scope', 'U
     $scope.closeAccount = function() {
         if (!confirm('All your data will be deleted.\nAre you sure you want to proceed ?')) return;
         UserService.closeAccount(user.email);
+    };
+
+    $scope.goHome = function() {
+        $location.path('/');
     };
 
 }]);
