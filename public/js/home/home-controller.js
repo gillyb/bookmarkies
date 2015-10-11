@@ -16,9 +16,17 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
     $scope.addBookmark = function() {
         var toSave = _.clone($scope.newBookmark);
         toSave.tags = _.pluck($scope.newBookmark.tags, 'text');
-        BookmarksService.add(toSave).then(function() {
-            $scope.newBookmark = { url:'', name:'', tags:'' };
-            document.getElementById('url').focus();
+
+        BookmarksService.savedAlready(toSave.url).then(function(bookmarkSaved) {
+            if (bookmarkSaved) {
+                alert('This url is already saved in your bookmarks');
+                return;
+            }
+
+            BookmarksService.add(toSave).then(function() {
+                $scope.newBookmark = { url:'', name:'', tags:'' };
+                document.getElementById('url').focus();
+            });
         });
     };
 

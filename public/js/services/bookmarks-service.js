@@ -23,6 +23,20 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
         return d.promise;
     };
 
+    this.savedAlready = function(url) {
+        var d = $q.defer();
+        this.get().then(function(bookmarks) {
+            for (var i=0; i<bookmarks.length; i++) {
+                if (bookmarks[i].url.toLowerCase().replace('http://', '').replace('https://', '').trim() == url.trim()) {
+                    d.resolve(true);
+                    return;
+                }
+            }
+            d.resolve(false);
+        });
+        return d.promise;
+    };
+
     this.add = function(bookmark) {
         var deferred = $q.defer();
         var self = this;
