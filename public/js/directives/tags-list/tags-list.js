@@ -14,7 +14,11 @@ angular.module('bookmarkies').directive('tagsList', ['$rootScope', 'BookmarksSer
             };
             loadTags();
 
-            $rootScope.$on('bookmarks-list:updated', loadTags);
+            var bookmarkListUpdatedWatcher = $rootScope.$on('bookmarks-list:updated', loadTags);
+
+            scope.$on('$destroy', function() {
+                bookmarkListUpdatedWatcher();
+            });
         }
     };
 }]);

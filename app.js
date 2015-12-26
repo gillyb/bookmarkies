@@ -27,6 +27,7 @@ var homeController = require('./controllers/home');
 var bookmarksController = require('./controllers/bookmarks');
 var searchController = require('./controllers/search');
 var userController = require('./controllers/user');
+var bookmarkListsController = require('./controllers/lists');
 
 /**
  * API keys and Passport configuration.

@@ -16,6 +16,14 @@ angular.module('bookmarkies').directive('bookmarksSearchFilter', ['$rootScope', 
             scope.loadAutoCompleteSuggestions = function(query) {
                 return BookmarksService.searchTags(query);
             };
+
+            var searchFilterRemoveTagWatcher = $rootScope.$on('search-filter.remove-tag', function(event, data) {
+                scope.tagFilters = angular.copy(data);
+            });
+
+            scope.$on('$destroy', function() {
+                searchFilterRemoveTagWatcher();
+            });
         }
     };
 }]);

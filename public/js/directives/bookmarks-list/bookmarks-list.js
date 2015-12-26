@@ -14,7 +14,7 @@ angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'Bookmar
 
             loadBookmarks();
 
-            $rootScope.$on('bookmarks-list:updated', loadBookmarks);
+            var bookmarkListUpdatedWatcher = $rootScope.$on('bookmarks-list:updated', loadBookmarks);
 
             var filterBookmarksList = function(filters) {
                 _.forEach($scope.bookmarks, function(b) {
@@ -22,11 +22,11 @@ angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'Bookmar
                 });
             };
 
-            $rootScope.$on('search-filter.add-tag', function(event, data) {
+            var filterAddTagWatcher = $rootScope.$on('search-filter.add-tag', function(event, data) {
                 $scope.filters = data;
                 filterBookmarksList(data);
             });
-            $rootScope.$on('search-filter.remove-tag', function(event, data) {
+            var filterRemoveTagWatcher = $rootScope.$on('search-filter.remove-tag', function(event, data) {
                 $scope.filters = data;
                 filterBookmarksList(data);
             });
@@ -36,6 +36,16 @@ angular.module('bookmarkies').directive('bookmarksList', ['$rootScope', 'Bookmar
             $scope.saveSearch = function() {
                 SearchFilterService.saveSearch();
             };
+
+            $scope.removeFilter = function(filter) {
+                SearchFilterService.removeFilter({ text:filter });
+            };
+
+            $scope.$on('$destroy', function() {
+                bookmarkListUpdatedWatcher();
+                filterAddTagWatcher();
+                filterRemoveTagWatcher();
+            });
         }
     };
 }]);

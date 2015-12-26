@@ -1,0 +1,23 @@
+<div class="side-section">
+    <div class="header">Bookmark Lists</div>
+    <div class="bookmark-lists">
+
+        <div class="empty-list" ng-show="!bookmarkLists || !bookmarkLists.length">
+            Nothing here yet...
+        </div>
+
+        <div class="bookmark-list" ng-repeat="list in bookmarkLists">
+
+        </div>
+
+        <div class="add-form">
+            <div class="create-list-form" ng-show="creatingList">
+                <input type="text" ng-model="newListName"/>
+                <span class="button primary" ng-click="createList()">Save</span>
+                <span class="button link" ng-click="cancelCreate()">Cancel</span>
+            </div>
+            <span class="button primary" ng-click="createList()" ng-show="!creatingList">Create</span>
+        </div>
+
+    </div>
+</div>

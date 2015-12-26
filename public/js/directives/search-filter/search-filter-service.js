@@ -1,5 +1,7 @@
 angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', '$q', '$http', 'ngDialog', function($rootScope, $q, $http, ngDialog) {
 
+    var self = this;
+
     this.filters = [];
 
     this.addFilter = function(tag) {
@@ -48,6 +50,17 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', '$q'
             }],
             showClose: false,
             closeByEscape: true
+        });
+    };
+
+    this.clearFilters = function() {
+        _.forEach(this.filters, function(filter) {
+            this.removeFilter(filter);
+        });
+    };
+    this.addFilters = function(filters) {
+        _.forEach(filters, function(filter) {
+            self.addFilter({ text: filter });
         });
     };
 

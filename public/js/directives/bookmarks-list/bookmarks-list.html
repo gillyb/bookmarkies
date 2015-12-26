@@ -6,7 +6,10 @@
     <div class="filters" ng-show="filters.length">
         Filtered by :
             <span ng-repeat="filter in filters">
-                <span class="tag-item" ng-bind-template="{{filter}}"></span>
+                <span class="tag-item">
+                    <span class="tag" ng-bind-template="{{filter}}"></span>
+                    <a class="remove-button" ng-click="removeFilter(filter)">X</a>
+                </span>
                 <span ng-if="!$last">, </span>
             </span>
         <span class="save-filter small-link" ng-click="saveSearch()">Save this search</span>
