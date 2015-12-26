@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+/etc/init.d/nginx reload
+/etc/init.d/nginx restart
+
