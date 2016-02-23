@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('tagsList', ['$rootScope', 'BookmarksService', function($rootScope, BookmarksService) {
+angular.module('bookmarkies').directive('tagsList', ['$rootScope', 'BookmarksService', 'SearchFilterService', function($rootScope, BookmarksService, SearchFilterService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/tags-list/tags-list.html',
@@ -15,6 +15,11 @@ angular.module('bookmarkies').directive('tagsList', ['$rootScope', 'BookmarksSer
             loadTags();
 
             var bookmarkListUpdatedWatcher = $rootScope.$on('bookmarks-list:updated', loadTags);
+
+            scope.addTagToSearch = function(tag) {
+                SearchFilterService.clearFilters();
+                SearchFilterService.addFilter({ text: tag });
+            };
 
             scope.$on('$destroy', function() {
                 bookmarkListUpdatedWatcher();

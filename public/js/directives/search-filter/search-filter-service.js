@@ -54,8 +54,9 @@ angular.module('bookmarkies').service('SearchFilterService', ['$rootScope', '$q'
     };
 
     this.clearFilters = function() {
+        var self = this;
         _.forEach(this.filters, function(filter) {
-            this.removeFilter(filter);
+            self.removeFilter({ text: filter });
         });
     };
     this.addFilters = function(filters) {
