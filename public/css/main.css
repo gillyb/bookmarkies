@@ -76,6 +76,7 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmarks-list .bookmark.not-editing tags-input .tags input { display:none; }
 .bookmarks-list .bookmark.not-editing tags-input .tags ul li a.remove-button { display:none; }
 
+.bookmark-lists .empty-list { font-size:12px; color:#a8a8a8; font-style:italic; }
 
 .bookmark { position:relative; padding-left:20px; margin-left:-20px; border-bottom:solid 1px #e0e0e0; padding-bottom:8px; margin-bottom:8px; }
 .bookmark .action {

@@ -4,7 +4,12 @@ var bookmarkListSchema = new mongoose.Schema({
 
     userId: mongoose.Schema.ObjectId,
     name: String,
-    bookmarkIds: [mongoose.Schema.ObjectId],
+    bookmarks: [{
+        url: String,
+        name: String,
+        notes: String, // todo: maybe we shouldn't save the notes in lists
+        tags: [String]
+    }],
     createdBy: mongoose.Schema.ObjectId,
 
     created: Date,

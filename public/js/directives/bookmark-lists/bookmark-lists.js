@@ -1,9 +1,13 @@
-angular.module('bookmarkies').directive('bookmarkLists', [function() {
+angular.module('bookmarkies').directive('bookmarkLists', ['BookmarkListsService', function(BookmarkListsService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmark-lists/bookmark-lists.html',
         link: function(scope) {
             scope.creatingList = false;
+
+            BookmarkListsService.get().then(function(lists) {
+                scope.bookmarkLists = lists;
+            });
 
             scope.createList = function() {
                 scope.creatingList = true;
@@ -14,7 +18,11 @@ angular.module('bookmarkies').directive('bookmarkLists', [function() {
             };
 
             scope.saveNewList = function() {
-
+                if (scope.savingNewList) return;
+                scope.savingNewList = true;
+                BookmarkListsService.createList(scope.newListName).then(function() {
+                    scope.savingNewList = false;
+                });
             };
             scope.goToList = function() {
 

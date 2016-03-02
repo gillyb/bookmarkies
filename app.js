@@ -12,7 +12,6 @@ var lusca = require('lusca');
 var methodOverride = require('method-override');
 var multer  = require('multer');
 
-var _ = require('lodash');
 var MongoStore = require('connect-mongo')(session);
 var path = require('path');
 var mongoose = require('mongoose');
@@ -92,6 +91,7 @@ app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }))
 
 app.use(homeController);
 app.use(bookmarksController);
+app.use(bookmarkListsController);
 app.use(searchController);
 app.use(userController);
 

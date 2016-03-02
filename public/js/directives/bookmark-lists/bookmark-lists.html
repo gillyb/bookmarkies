@@ -12,8 +12,8 @@
 
         <div class="add-form">
             <div class="create-list-form" ng-show="creatingList">
-                <input type="text" ng-model="newListName"/>
-                <span class="button primary" ng-click="createList()">Save</span>
+                <input type="text" enter-key="createList()" ng-model="newListName"/>
+                <span class="button primary" ng-click="saveNewList()">Save</span>
                 <span class="button link" ng-click="cancelCreate()">Cancel</span>
             </div>
             <span class="button primary" ng-click="createList()" ng-show="!creatingList">Create</span>
