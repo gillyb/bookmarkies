@@ -76,7 +76,32 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmarks-list .bookmark.not-editing tags-input .tags input { display:none; }
 .bookmarks-list .bookmark.not-editing tags-input .tags ul li a.remove-button { display:none; }
 
+.bookmarks-list .add-to-list { color:#bbb; cursor:pointer; position:absolute; right:0; }
+.bookmarks-list .add-to-list:hover { color:#444; }
+.bookmarks-list .bookmark-lists-menu {
+    position: absolute;
+    right: 0;
+    top: 19px;
+    z-index: 100;
+    border: solid 1px #222;
+    background-color: white;
+    min-width: 140px;
+    box-shadow: 2px 2px 5px -1px #444;
+}
+.bookmarks-list .bookmark-lists-menu .bookmark-list {
+    padding: 1px 8px;
+    border-bottom: solid 1px #eee;
+    cursor: pointer;
+}
+.bookmarks-list .bookmark-lists-menu .bookmark-list:hover {
+    background-color:#eee;
+}
+
 .bookmark-lists .empty-list { font-size:12px; color:#a8a8a8; font-style:italic; }
+.bookmark-lists .fa-star-o { font-size:13px; color:#aaa; margin:0 2px; cursor:pointer; }
+.bookmark-lists .fa-star { font-size:13px; color:#e5bd00; margin:0 2px; cursor:pointer; }
+.bookmark-lists .name { font-size:14px; color:#07d; cursor:pointer; text-decoration:none; }
+.bookmark-lists .name:hover { text-decoration:underline; }
 
 .bookmark { position:relative; padding-left:20px; margin-left:-20px; border-bottom:solid 1px #e0e0e0; padding-bottom:8px; margin-bottom:8px; }
 .bookmark .action {
@@ -87,10 +112,6 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
     font-size:18px;
     color:#e8e8e8;
     cursor:pointer;
-    -webkit-transition: all 0.5s linear;
-    -moz-transition: all 0.5s linear;
-    -o-transition: all 0.5s linear;
-    transition: all 0.5s linear;
 }
 .bookmark:hover .action { color:#a8a8a8; }
 .bookmark .action:hover { color:#000; }

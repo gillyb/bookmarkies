@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('bookmark', ['$window', 'BookmarksService', function($window, BookmarksService) {
+angular.module('bookmarkies').directive('bookmark', ['$window', 'BookmarksService', 'BookmarkListsService', function($window, BookmarksService, BookmarkListsService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmarks-list/bookmark.html',
@@ -37,6 +37,11 @@ angular.module('bookmarkies').directive('bookmark', ['$window', 'BookmarksServic
             };
             scope.externalGoTo = function(url) {
                 window.open(_normalizeUrl(url));
+            };
+
+            scope.addBookmarkToList = function() {
+                //scope.bookmark._id
+                // todo: open dialog with list of lists to add to...
             };
         }
     };

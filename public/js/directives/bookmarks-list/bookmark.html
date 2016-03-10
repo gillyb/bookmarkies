@@ -1,4 +1,5 @@
 <div class="bookmark" ng-class="{'not-editing':!bookmark.editing, 'ng-hide':bookmark.filteredOut}">
+    <add-bookmark-to-list></add-bookmark-to-list>
     <div class="name">
         <span ng-show="!bookmark.editing" ng-bind-template="{{bookmark.name}}" ng-click="goTo(bookmark.url)"></span>
         <i class="fa fa-external-link-square" ng-click="externalGoTo(bookmark.url)"></i>

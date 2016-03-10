@@ -7,7 +7,8 @@
         </div>
 
         <div class="bookmark-list" ng-repeat="list in bookmarkLists">
-
+            <i class="fa fa-star-o" ng-click="starList(list.id)"></i>
+            <span class="name link" ng-click="openList(list.id)">{{list.name}}</span>
         </div>
 
         <div class="add-form">
