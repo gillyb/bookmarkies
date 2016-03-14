@@ -6,6 +6,12 @@ angular.module('bookmarkies').service('BookmarkListsService', ['$rootScope', '$h
         });
     };
 
+    this.getList = function(listId) {
+        return $http.get('/list/' + listId).then(function(res) {
+            return res.data;
+        });
+    };
+
     this.createList = function(name) {
         return $http.post('/list', { name: name });
     };

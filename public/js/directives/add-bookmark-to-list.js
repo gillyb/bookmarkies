@@ -8,9 +8,12 @@ angular.module('bookmarkies').directive('addBookmarkToList', ['$timeout', 'Bookm
                             'Add to list' +
                     '</div>' +
                     '<div class="bookmark-lists-menu" ng-mouseenter="mouseOver()" ng-mouseleave="mouseOut()" ng-show="showLists">' +
-                        '<div class="bookmark-list" ng-click="addToList(list.id)" ng-repeat="list in lists">{{list.name}}</div>' +
+                        '<div class="bookmark-list" ng-click="addToList(list._id)" ng-repeat="list in lists" ng-class="{\'adding\':list._id==addingToList}">{{list.name}}</div>' +
                     '</div>' +
                   '</div>',
+        scope: {
+            bookmarkId: '='
+        },
         link: function(scope, element, attrs) {
             scope.showLists = false;
 
@@ -30,6 +33,16 @@ angular.module('bookmarkies').directive('addBookmarkToList', ['$timeout', 'Bookm
             scope.mouseOver = function() {
                 if (mouseOutTimeout)
                     $timeout.cancel(mouseOutTimeout);
+            };
+
+            scope.addToList = function(listId) {
+                if (scope.addingToList == listId)
+                    return;
+
+                scope.addingToList = listId;
+                BookmarkListsService.addBookmark(listId, scope.bookmarkId).then(function() {
+                    scope.addingToList = undefined;
+                });
             };
 
         }

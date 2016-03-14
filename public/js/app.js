@@ -13,6 +13,10 @@ angular.module('bookmarkies', ['ngSanitize', 'ngRoute', 'ngCookies', 'ui.router'
                 url: '/user-settings',
                 templateUrl: 'js/user/settings.html',
                 controller: 'UserSettingsController'
+            }).state('list', {
+                url: '/:listId/:listName',
+                templateUrl: 'js/view-list/view-list.html',
+                controller: 'ViewListController'
             });
 
         $urlRouterProvider.otherwise(function() {

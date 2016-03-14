@@ -76,7 +76,8 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmarks-list .bookmark.not-editing tags-input .tags input { display:none; }
 .bookmarks-list .bookmark.not-editing tags-input .tags ul li a.remove-button { display:none; }
 
-.bookmarks-list .add-to-list { color:#bbb; cursor:pointer; position:absolute; right:0; }
+.bookmarks-list .add-to-list { color:#bbb; cursor:pointer; position:absolute; right:0; font-size:12px; }
+.bookmarks-list .add-to-list .fa-plus-square { margin-right:4px; }
 .bookmarks-list .add-to-list:hover { color:#444; }
 .bookmarks-list .bookmark-lists-menu {
     position: absolute;

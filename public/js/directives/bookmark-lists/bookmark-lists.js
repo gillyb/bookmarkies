@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('bookmarkLists', ['BookmarkListsService', function(BookmarkListsService) {
+angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkListsService', function($state, BookmarkListsService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmark-lists/bookmark-lists.html',
@@ -24,8 +24,11 @@ angular.module('bookmarkies').directive('bookmarkLists', ['BookmarkListsService'
                     scope.savingNewList = false;
                 });
             };
-            scope.goToList = function() {
-
+            scope.goToList = function(listId, listName) {
+                $state.go('list', {
+                    listId: listId,
+                    listName: listName
+                });
             };
         }
     };
