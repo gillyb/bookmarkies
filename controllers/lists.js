@@ -7,6 +7,7 @@ var app = module.exports = express();
 var _ = require('lodash');
 
 app.get('/lists', function(req, res) {
+    // todo: i think this should just return their names (without the bookmarks themselves)
     if (!req.user)
         return res.status(401).end();
 
@@ -17,6 +18,20 @@ app.get('/lists', function(req, res) {
         }
 
         return res.json(results);
+    });
+});
+
+app.get('/list/:listId', function(req, res) {
+    if (!req.user)
+        return res.status(401).end();
+
+    BookmarkList.findOne({ _id: req.params.listId }).exec(function(err, result) {
+        if (err) {
+            console.log(err);
+            return res.status(500).end(err);
+        }
+
+        return res.json(result);
     });
 });
 

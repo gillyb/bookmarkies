@@ -13,4 +13,8 @@ angular.module('bookmarkies').controller('ViewListController', ['$scope', '$stat
     };
     loadList();
 
+    $scope.goHome = function() {
+        $state.go('home');
+    };
+
 }]);

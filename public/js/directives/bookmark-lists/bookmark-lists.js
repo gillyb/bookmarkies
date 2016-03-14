@@ -2,15 +2,19 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmark-lists/bookmark-lists.html',
-        link: function(scope) {
+        link: function(scope, element) {
             scope.creatingList = false;
 
-            BookmarkListsService.get().then(function(lists) {
-                scope.bookmarkLists = lists;
-            });
+            var loadLists = function() {
+                BookmarkListsService.get().then(function(lists) {
+                    scope.bookmarkLists = lists;
+                });
+            };
+            loadLists();
 
             scope.createList = function() {
                 scope.creatingList = true;
+                scope.newListName = '';
             };
             scope.cancelCreate = function() {
                 scope.creatingList = false;
@@ -22,6 +26,8 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
                 scope.savingNewList = true;
                 BookmarkListsService.createList(scope.newListName).then(function() {
                     scope.savingNewList = false;
+                    scope.creatingList = false;
+                    loadLists();
                 });
             };
             scope.goToList = function(listId, listName) {

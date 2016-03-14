@@ -4,6 +4,7 @@ var bookmarkListSchema = new mongoose.Schema({
 
     userId: mongoose.Schema.ObjectId,
     name: String,
+    description: String,
     bookmarks: [{
         url: String,
         name: String,
@@ -11,6 +12,9 @@ var bookmarkListSchema = new mongoose.Schema({
         tags: [String]
     }],
     createdBy: mongoose.Schema.ObjectId,
+
+    isPublic: Boolean,
+    starred: Boolean,
 
     created: Date,
     updated: Date
