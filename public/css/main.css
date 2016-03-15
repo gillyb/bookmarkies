@@ -23,6 +23,10 @@ html * { font-family:inherit; }
     color:#fff;
     background-color:#07d;
 }
+.button.disabled {
+    background-color:#eee;
+    cursor:not-allowed;
+}
 .button.link {
     color:#07d;
     text-decoration:none;

@@ -10,12 +10,12 @@
 
         <div class="text">Enter a name for this search :</div>
         <div class="input">
-            <input type="text" style="width:100%;" ng-model="searchName"/>
+            <input type="text" style="width:100%;" enter-key="save()" ng-model="searchName"/>
         </div>
     </div>
     <div class="footer">
         <div class="actions clearfix">
-            <span class="button primary pull-right" ng-click="save()">Save</span>
+            <span class="button primary pull-right" ng-class="{'disabled':savingSearch}" ng-click="save()">Save</span>
             <span class="button link pull-right" ng-click="closeThisDialog()">Cancel</span>
         </div>
     </div>
