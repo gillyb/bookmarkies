@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkListsService', function($state, BookmarkListsService) {
+angular.module('bookmarkies').directive('bookmarkLists', ['$state', '$timeout', 'BookmarkListsService', function($state, $timeout, BookmarkListsService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/bookmark-lists/bookmark-lists.html',
@@ -19,6 +19,9 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
             scope.createList = function() {
                 scope.creatingList = true;
                 scope.newListName = '';
+                $timeout(function() {
+                    element.find('input')[0].focus();
+                }, 150);
             };
             scope.cancelCreate = function() {
                 scope.creatingList = false;
