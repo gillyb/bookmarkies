@@ -57,6 +57,12 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
                     loadLists();
                 });
             };
+
+            scope.deleteList = function(listId) {
+                if (!window.confirm('Are you sure you want to delete this list?'))
+                    return;
+                BookmarkListsService.deleteList(listId).then(loadLists);
+            };
         }
     };
 }]);

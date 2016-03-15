@@ -94,6 +94,26 @@ app.post('/list/:id/unstar', function(req, res) {
     });
 });
 
+app.delete('/list/:id', function(req, res) {
+    if (!req.user)
+        return res.status(401).end();
+
+    BookmarkList.findOne({ _id: req.params.id }).exec(function(err, listResult) {
+        if (err || !listResult)
+            return res.status(500).end();
+
+        if (listResult.userId.id != req.user._id.id)
+            return res.status(401).end();
+
+        listResult.save(function(err) {
+            if (err)
+                return res.status(500).end();
+
+            return res.end();
+        });
+    });
+});
+
 app.post('/list/:id/add-bookmark', function(req, res) {
     if (!req.user)
         return res.status(401).end();

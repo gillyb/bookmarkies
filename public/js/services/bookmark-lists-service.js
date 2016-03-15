@@ -27,4 +27,8 @@ angular.module('bookmarkies').service('BookmarkListsService', ['$rootScope', '$h
         return $http.post('/list/' + listId + '/unstar');
     };
 
+    this.deleteList = function(listId) {
+        return $http.delete('/list/' + listId);
+    }
+
 }]);

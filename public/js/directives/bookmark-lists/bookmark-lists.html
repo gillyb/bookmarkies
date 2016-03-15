@@ -9,6 +9,7 @@
         <div class="bookmark-list" ng-repeat="list in bookmarkLists">
             <i class="fa" ng-class="{'fa-star-o':!list.starred, 'fa-star':list.starred}" ng-click="list.starred ? unstarList(list._id) : starList(list._id)"></i>
             <span class="name link" ng-click="goToList(list._id, list.name)">{{list.name}}</span>
+            <span class="float-right" ng-click="deleteList(list._id)">delete</span>
         </div>
 
         <div class="add-form">

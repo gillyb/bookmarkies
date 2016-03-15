@@ -157,6 +157,8 @@ tags-input .tag-list .tag-item, .tag-item {
     background-color:#dae6ef;
 }
 
+.dialog-content .tags-list .tag-item { cursor:default; }
+
 /* OVERIDES */
 .navbar-default { min-height:0; height:40px; }
 .nav-tabs { height:30px; }
