@@ -20,4 +20,11 @@ angular.module('bookmarkies').service('BookmarkListsService', ['$rootScope', '$h
         return $http.post('/list/' + listId + '/add-bookmark', { bookmarkId: bookmarkId });
     };
 
+    this.starList = function(listId) {
+        return $http.post('/list/' + listId + '/star');
+    };
+    this.unstarList = function(listId) {
+        return $http.post('/list/' + listId + '/unstar');
+    };
+
 }]);

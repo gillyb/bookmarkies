@@ -7,7 +7,11 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
 
             var loadLists = function() {
                 BookmarkListsService.get().then(function(lists) {
-                    scope.bookmarkLists = lists;
+                    scope.bookmarkLists = lists.sort(function(a, b) {
+                        if ((a.starred && b.starred) || (!a.starred && !b.starred)) return 0;
+                        if (b.starred) return 1;
+                        return -1;
+                    });
                 });
             };
             loadLists();
@@ -35,6 +39,22 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
                 $state.go('list', {
                     listId: listId,
                     listName: listName
+                });
+            };
+
+            scope.starringList = false;
+            scope.starList = function(listId) {
+                scope.starringList = true;
+                BookmarkListsService.starList(listId).then(function() {
+                    scope.starringList = false;
+                    loadLists();
+                });
+            };
+            scope.unstarList = function(listId) {
+                scope.starringList = true;
+                BookmarkListsService.unstarList(listId).then(function() {
+                    scope.starringList = false;
+                    loadLists();
                 });
             };
         }
