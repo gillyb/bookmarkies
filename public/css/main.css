@@ -13,6 +13,10 @@ html * { font-family:inherit; }
     clear: both;
 }
 
+.float-right {
+    float:right;
+}
+
 .button {
     font-size:13px;
     padding:4px 20px;
@@ -107,6 +111,14 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .bookmark-lists .fa-star { font-size:13px; color:#e5bd00; margin:0 2px; cursor:pointer; }
 .bookmark-lists .name { font-size:14px; color:#07d; cursor:pointer; text-decoration:none; }
 .bookmark-lists .name:hover { text-decoration:underline; }
+.bookmark-lists .bookmark-list .delete-link {
+    color:red;
+    text-decoration:none;
+    display:none;
+    cursor:pointer;
+}
+.bookmark-lists .bookmark-list:hover .delete-link { display:inline-block; }
+.bookmark-lists .bookmark-list:hover .delete-link:hover { text-decoration:underline; }
 
 .bookmark { position:relative; padding-left:20px; margin-left:-20px; border-bottom:solid 1px #e0e0e0; padding-bottom:8px; margin-bottom:8px; }
 .bookmark .action {

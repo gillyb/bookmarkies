@@ -105,7 +105,7 @@ app.delete('/list/:id', function(req, res) {
         if (listResult.userId.id != req.user._id.id)
             return res.status(401).end();
 
-        listResult.save(function(err) {
+        listResult.remove(function(err) {
             if (err)
                 return res.status(500).end();
 
