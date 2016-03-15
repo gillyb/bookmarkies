@@ -22,6 +22,7 @@ angular.module('bookmarkies').directive('bookmarkLists', ['$state', 'BookmarkLis
             };
 
             scope.saveNewList = function() {
+                if (scope.newListName.trim() == '') return;
                 if (scope.savingNewList) return;
                 scope.savingNewList = true;
                 BookmarkListsService.createList(scope.newListName).then(function() {
