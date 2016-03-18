@@ -143,7 +143,5 @@ app.post('/list/:id/add-bookmark', function(req, res) {
                 return res.end();
             });
         });
-
-        return res.end(JSON.stringify(result));
     });
 });

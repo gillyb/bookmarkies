@@ -17,7 +17,17 @@
 
     <div class="main-column">
 
-        Hello world
+        <div class="title">
+            <i class="fa" ng-class="{'fa-star':list.starred, 'fa-star-o':!list.starred}" ng-click="star()"></i>
+            <span ng-bind-template="{{list.name}}"></span>
+        </div>
+
+        <div class="bookmarks-list">
+
+            <div class="list">
+                <bookmark ng-repeat="bookmark in list.bookmarks" bookmark="bookmark"></bookmark>
+            </div>
+        </div>
 
     </div>
 

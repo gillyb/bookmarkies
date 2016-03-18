@@ -147,6 +147,19 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
 .saved-search .delete:hover { color:#444; }
 .bookmarks-list .empty-list, .tag-list .empty-list, .saved-searches-list .empty-list { font-size:13px; color:#a8a8a8; font-style:italic; }
 
+.main-container .title {
+    font-size: 24px;
+    color: #555;
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 26px;
+    padding-bottom: 10px;
+}
+.main-container .title .fa { cursor:pointer; }
+.main-container .title .fa-star {
+    color:#e5bd00;
+}
+
+
 /* right column */
 .right-column { width:320px; display:inline-block; }
 .side-section { margin-bottom:20px; }
