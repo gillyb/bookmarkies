@@ -1,4 +1,4 @@
-angular.module('bookmarkies').directive('savedSearches', ['$rootScope', '$window', '$http', 'SearchFilterService', function($rootScope, $window, $http, SearchFilterService) {
+angular.module('bookmarkies').directive('savedSearches', ['$rootScope', '$state', '$window', '$http', 'SearchFilterService', function($rootScope, $state, $window, $http, SearchFilterService) {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/saved-searches/saved-searches.html',
@@ -25,9 +25,24 @@ angular.module('bookmarkies').directive('savedSearches', ['$rootScope', '$window
             var savedSearchesUpdatedWatcher = $rootScope.$on('saved-searches:updated', loadSavedSearches);
 
             scope.openSavedSearch = function(search) {
-                var filters = search.filters;
+                // make sure we're on the right page
+                if ($state.current.name != 'home') {
+                    $window.localStorage.setItem('saved-search', angular.toJson(search));
+                    $state.go('home');
+
+                    (function(se) {
+                        setTimeout(function() {
+                            $rootScope.$apply(function() {
+                                SearchFilterService.clearFilters();
+                                SearchFilterService.addFilters(se.filters);
+                            });
+                        }, 100);
+                    })(search);
+                    return;
+                }
+
                 SearchFilterService.clearFilters();
-                SearchFilterService.addFilters(filters);
+                SearchFilterService.addFilters(search.filters);
             };
 
             scope.$on('$destroy', function() {

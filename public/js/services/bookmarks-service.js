@@ -17,7 +17,7 @@ angular.module('bookmarkies').service('BookmarksService', ['$rootScope', '$http'
                 this.bookmarks = null;
             }, 1000 * 60 * 4);  // cache for 4 minutes
 
-            d.resolve(res.data);
+            d.resolve(this.bookmarks);
         });
 
         return d.promise;
