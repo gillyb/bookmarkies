@@ -27,6 +27,12 @@
             <div class="list">
                 <bookmark ng-repeat="bookmark in list.bookmarks" bookmark="bookmark"></bookmark>
             </div>
+
+            <div ng-if="!list.bookmarks || list.bookmarks.length == 0" class="empty-list">
+                This list seems to be empty...<br/>
+                Not very nice of you to leave an empty list :(
+            </div>
+
         </div>
 
     </div>
