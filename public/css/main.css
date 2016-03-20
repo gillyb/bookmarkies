@@ -151,7 +151,7 @@ tags-input .tags { box-shadow:none; border:solid 1px darkgrey; }
     font-size: 24px;
     color: #555;
     border-bottom: solid 1px #ddd;
-    margin-bottom: 26px;
+    margin: 26px 0 20px 0;
     padding-bottom: 10px;
 }
 .main-container .title .fa { cursor:pointer; }
