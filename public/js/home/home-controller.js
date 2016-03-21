@@ -6,10 +6,14 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
     $scope.showSearch = function() {
         $scope.displayAdd = false;
         $scope.displaySearch = true;
+
+        ga('send', 'event', 'main-form', 'show-search');
     };
     $scope.showAdd = function() {
         $scope.displaySearch = false;
         $scope.displayAdd = true;
+
+        ga('send', 'event', 'main-form', 'show-add');
     };
 
     $scope.newBookmark = { url:'', name:'', tags:'' };
@@ -27,10 +31,16 @@ angular.module('bookmarkies').controller('HomeController', ['$scope', '$http', '
                 $scope.newBookmark = { url:'', name:'', tags:'' };
                 document.getElementById('url').focus();
             });
+
+            ga('send', 'event', 'main-form', 'add-bookmark');
+        }).catch(function() {
+            ga('send', 'event', 'main-form', 'add-bookmark-error');
         });
     };
 
     $scope.logout = function() {
+        ga('send', 'event', 'auth', 'logout');
+
         $window.sessionStorage.clear();
         $window.localStorage.clear();
         $window.location.href = '/logout';
